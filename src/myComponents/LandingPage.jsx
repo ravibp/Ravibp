@@ -9,21 +9,24 @@ import withStyles from "@material-ui/core/styles/withStyles";
 // @material-ui/icons
 
 // core components
-import Header from "components/Header/Header.jsx";
-import Footer from "components/Footer/Footer.jsx";
 import GridContainer from "components/Grid/GridContainer.jsx";
 import GridItem from "components/Grid/GridItem.jsx";
 import Button from "components/CustomButtons/Button.jsx";
-import HeaderLinks from "components/Header/HeaderLinks.jsx";
 import Parallax from "components/Parallax/Parallax.jsx";
-
 import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.jsx";
-import "./LandingPage.scss";
 
 // Sections for this page
-import ProductSection from "views/LandingPage/Sections/ProductSection.jsx";
+// import ProductSection from "views/LandingPage/Sections/ProductSection.jsx";
 import TeamSection from "views/LandingPage/Sections/TeamSection.jsx";
 import WorkSection from "views/LandingPage/Sections/WorkSection.jsx";
+
+// my components
+import Header from "myComponents/Header/Header.jsx";
+import AboutMe from "myComponents/Sections/AboutMe.jsx";
+import Resume from "myComponents/Sections/Resume.jsx";
+import HeaderLinks from "myComponents/Header/HeaderLinks.jsx";
+import Footer from "myComponents/Footer/Footer.jsx";
+import "./LandingPage.scss";
 
 const dashboardRoutes = [];
 
@@ -68,11 +71,13 @@ class LandingPage extends React.Component {
             </GridContainer>
           </div>
         </Parallax>
+
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
-            <ProductSection />
-            <TeamSection />
-            <WorkSection />
+            <AboutMe />
+            <Resume/>
+            {/* <TeamSection /> */}
+            {/* <WorkSection /> */}
           </div>
         </div>
         <Footer />
