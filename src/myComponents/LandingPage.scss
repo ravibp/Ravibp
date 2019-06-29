@@ -1,0 +1,29 @@
+.landingPage-container {
+    // margin-top: 3em;
+    // color: white;
+    // font-weight: bold;
+    .landingpage {
+        &__profile-img {
+            img {
+                opacity: 0.7;
+                border-radius: 10em;
+                object-fit: cover;
+                object-position: 100% 0;
+                width: 200px;
+                height: 200px;
+                -webkit-transition: opacity 1s; /* Safari prior 6.1 */
+                transition: opacity 1s;
+              }
+              img:hover {
+                opacity: 1;
+              }
+        }
+    }
+    // .homepage-intro {
+    //   font-size: 3em;
+    // }
+    // .homepage-title {
+    //   font-size: 3em;
+    // }
+  }
+  
