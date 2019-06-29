@@ -24,6 +24,7 @@ import WorkSection from "views/LandingPage/Sections/WorkSection.jsx";
 import Header from "myComponents/Header/Header.jsx";
 import AboutMe from "myComponents/Sections/AboutMe.jsx";
 import Resume from "myComponents/Sections/Resume.jsx";
+import Projects from "myComponents/Sections/Projects.jsx";
 import HeaderLinks from "myComponents/Header/HeaderLinks.jsx";
 import Footer from "myComponents/Footer/Footer.jsx";
 import "./LandingPage.scss";
@@ -33,15 +34,17 @@ const dashboardRoutes = [];
 class LandingPage extends React.Component {
   render() {
     const { classes, ...rest } = this.props;
-    const profileImg =
-      "https://scontent.fcok5-1.fna.fbcdn.net/v/t31.0-8/12493574_709398639197765_7027678491994594283_o.jpg?_nc_cat=106&_nc_oc=AQnnhYmHDOo22IOydlDufWAvOfOC-wo_sK0VpBQfJCK7Axa30Cdyt2NeocGfrudNdbU&_nc_ht=scontent.fcok5-1.fna&oh=f9c92d61d8847e4e7a2ac8970f103125&oe=5D855F96";
+    const profileImg = [
+      "https://scontent.fcok5-1.fna.fbcdn.net/v/t31.0-8/12493574_709398639197765_7027678491994594283_o.jpg?_nc_cat=106&_nc_oc=AQnnhYmHDOo22IOydlDufWAvOfOC-wo_sK0VpBQfJCK7Axa30Cdyt2NeocGfrudNdbU&_nc_ht=scontent.fcok5-1.fna&oh=f9c92d61d8847e4e7a2ac8970f103125&oe=5D855F96",
+      "https://scontent.fcok5-1.fna.fbcdn.net/v/t1.0-9/22528262_1094912563979702_3917861323370192151_n.jpg?_nc_cat=110&_nc_oc=AQnRABN6WtDoJeexkb0yl7R2kLZBC7q81I7cZJRMXDdHeLHEAHU7eRo6s2zHV9PtyGw&_nc_ht=scontent.fcok5-1.fna&oh=e0daacdc48c6f79a977ebe87747a9d3d&oe=5DC1E42A"
+    ]
 
     return (
       <div className="landingPage-container">
         <Header
           color="transparent"
           routes={dashboardRoutes}
-          brand="Ravi BP"
+          profileName="Ravi BP"
           rightLinks={<HeaderLinks />}
           fixed
           changeColorOnScroll={{
@@ -65,7 +68,16 @@ class LandingPage extends React.Component {
               </GridItem>
               <GridItem xs={12} sm={12} md={6}>
                 <div className="landingpage__profile-img">
-                  <img src={profileImg} alt="ravi bp's photo" />
+                  <div id="f1_container">
+                    <div id="f1_card" class="shadow">
+                      <div class="front face">
+                        <img src={profileImg[0]} alt="ravi bp's photo" />
+                      </div>
+                      <div class="back face center">
+                        <img src={profileImg[1]} alt="ravi bp's photo 2" />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </GridItem>
             </GridContainer>
@@ -75,7 +87,9 @@ class LandingPage extends React.Component {
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
             <AboutMe />
-            <Resume/>
+            <Resume />
+            <Projects />
+
             {/* <TeamSection /> */}
             {/* <WorkSection /> */}
           </div>

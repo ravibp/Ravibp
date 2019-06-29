@@ -15,6 +15,7 @@ import Drawer from "@material-ui/core/Drawer";
 import Menu from "@material-ui/icons/Menu";
 // core components
 import headerStyle from "assets/jss/material-kit-react/components/headerStyle.jsx";
+import "./Header.scss";
 
 class Header extends React.Component {
   constructor(props) {
@@ -72,51 +73,53 @@ class Header extends React.Component {
       [classes.fixed]: fixed
     });
     const profileNameButton = (
-      <Button className={classes.title}>{profileName}</Button>
+      <Button className={classes.title + " profile-name"}>{profileName}</Button>
     );
     return (
-      <AppBar className={appBarClasses}>
-        <Toolbar className={classes.container}>
-          {leftLinks !== undefined ? profileName : null}
-          <div className={classes.flex}>
-            {leftLinks !== undefined ? (
-              <Hidden smDown implementation="css">
-                {leftLinks}
-              </Hidden>
-            ) : (
+      <div className="header-container">
+        <AppBar className={appBarClasses}>
+          <Toolbar className={classes.container}>
+            {leftLinks !== undefined ? profileName : null}
+            <div className={classes.flex}>
+              {leftLinks !== undefined ? (
+                <Hidden smDown implementation="css">
+                  {leftLinks}
+                </Hidden>
+              ) : (
                 profileNameButton
-            )}
-          </div>
-          <Hidden smDown implementation="css">
-            {rightLinks}
-          </Hidden>
-          <Hidden mdUp>
-            <IconButton
-              color="inherit"
-              aria-label="open drawer"
-              onClick={this.handleDrawerToggle}
-            >
-              <Menu />
-            </IconButton>
-          </Hidden>
-        </Toolbar>
-        <Hidden mdUp implementation="js">
-          <Drawer
-            variant="temporary"
-            anchor={"right"}
-            open={this.state.mobileOpen}
-            classes={{
-              paper: classes.drawerPaper
-            }}
-            onClose={this.handleDrawerToggle}
-          >
-            <div className={classes.appResponsive}>
-              {leftLinks}
-              {rightLinks}
+              )}
             </div>
-          </Drawer>
-        </Hidden>
-      </AppBar>
+            <Hidden smDown implementation="css">
+              {rightLinks}
+            </Hidden>
+            <Hidden mdUp>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={this.handleDrawerToggle}
+              >
+                <Menu />
+              </IconButton>
+            </Hidden>
+          </Toolbar>
+          <Hidden mdUp implementation="js">
+            <Drawer
+              variant="temporary"
+              anchor={"right"}
+              open={this.state.mobileOpen}
+              classes={{
+                paper: classes.drawerPaper
+              }}
+              onClose={this.handleDrawerToggle}
+            >
+              <div className={classes.appResponsive}>
+                {leftLinks}
+                {rightLinks}
+              </div>
+            </Drawer>
+          </Hidden>
+        </AppBar>
+      </div>
     );
   }
 }
