@@ -37,12 +37,18 @@ class Header extends React.Component {
       document.body
         .getElementsByTagName("header")[0]
         .classList.add(classes[changeColorOnScroll.color]);
+      document
+        .getElementById("profile-name")
+        .classList.add(classes[changeColorOnScroll.color]);
     } else {
       document.body
         .getElementsByTagName("header")[0]
         .classList.add(classes[color]);
       document.body
         .getElementsByTagName("header")[0]
+        .classList.remove(classes[changeColorOnScroll.color]);
+      document
+        .getElementById("profile-name")
         .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
@@ -73,7 +79,9 @@ class Header extends React.Component {
       [classes.fixed]: fixed
     });
     const profileNameButton = (
-      <Button className={classes.title + " profile-name"}>{profileName}</Button>
+      <Button id="profile-name" className={classes.title + " profile-name"}>
+        {profileName}
+      </Button>
     );
     return (
       <div className="header-container">
