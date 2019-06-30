@@ -114,22 +114,22 @@
     "skills": [
       {
         "skillName": "JavaScript",
-        "rating": "5",
+        "rating": "8",
         "skillDetails": "HTML 5, CSS3, JS"
       },
       {
         "skillName": "React.js - Redux/ Flux",
-        "rating": "5",
+        "rating": "8",
         "skillDetails": "Familiar with Redux flow to update store with Connectors, Reducers and Actions."
       },
       {
         "skillName": "MySQL,  MongoDB",
-        "rating": "5",
+        "rating": "8",
         "skillDetails": ""
       },
       {
         "skillName": "Node.js / Express.js , Angular 5",
-        "rating": "4",
+        "rating": "5",
         "skillDetails": "Worked on MEAN stack"
       },
       {
@@ -139,12 +139,12 @@
       },
       {
         "skillName": "Python",
-        "rating": "4",
+        "rating": "5",
         "skillDetails": "HTML 5, CSS3, JS"
       },
       {
         "skillName": "Jest/ Enzyme",
-        "rating": "4",
+        "rating": "5",
         "skillDetails": "HTML 5, CSS3, JS"
       }
     ],
