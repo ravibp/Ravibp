@@ -7,8 +7,8 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import sectionStyle from "assets/jss/material-kit-react/views/landingPageSections/sectionStyle.jsx";
 import "./ResumeBuild.scss";
 import * as ResumeData from "./ResumeBuildData.json";
-console.log("ResumeData", ResumeData.default.data);
-
+import "bootstrap/dist/css/bootstrap.min.css";
+import { ReactComponent as Logo } from "assets/img/resume/coding.svg";
 const resumeDataObj = ResumeData.default.data;
 class ResumeBuild extends React.Component {
   render() {
@@ -25,28 +25,29 @@ class ResumeBuild extends React.Component {
           </div>
           <div className="resumeBuild__sections">
             <div className="left-sections">
-              <div className="experience">
-                <h3>
-                  <span> </span>Experience
-                </h3>
+              <div className="experience sectionsGlobal">
+                <div className="icon icon-experience">
+                  <Logo />
+                  <h3 className="sectionHeadingGlobal">Experience</h3>
+                </div>
                 {resumeDataObj.experience.projects.map(project => {
                   let projectDivision = (
-                    <div className="experience__division">
-                      <div className="experience__year">
-                        <p>{project.dateFrom} to</p> 
+                    <div className="sectionsGlobal__divisionsGlobal">
+                      <div className="experience__year yearGlobal">
+                        <p>{project.dateFrom} to</p>
                         <p>{project.dateTo}</p>
                       </div>
-                      <div className="experience__project">
-                        <h5 className="experience__project__jobTitle">
+                      <div className="experience__project divisionDetailsGlobal">
+                        <h5 className="experience__project__jobTitle mainHeadingGlobal">
                           {project.jobTitle}
                         </h5>
                         <h6 className="experience__project__companyName">
                           {project.companyName}
                         </h6>
-                        <p className="experience__project__technologyTitle">
+                        <p className="experience__project__technologyTitle subHeadingGlobal headingUnderlineGlobal">
                           {project.technologyTitle}
                         </p>
-                        <p className="experience__project__projectDescription">
+                        <p className="experience__project__projectDescription descriptionGlobal">
                           {project.projectDescription}
                         </p>
                         <p className="experience__project__responsibilities">
@@ -66,22 +67,23 @@ class ResumeBuild extends React.Component {
                 })}
               </div>
 
-              <div className="education">
-                <h3>
-                  <span> </span>Education
-                </h3>
-                {resumeDataObj.education.map((educationObj) => {
+              <div className="education sectionsGlobal">
+                <div className="icon icon-experience">
+                  <Logo />
+                  <h3 className="sectionHeadingGlobal">Education</h3>
+                </div>
+                {resumeDataObj.education.map(educationObj => {
                   let educationDivision = (
-                    <div className="education__division">
-                      <div className="education__year">
+                    <div className="sectionsGlobal__divisionsGlobal">
+                      <div className="education__year yearGlobal">
                         <p>{educationObj.dateFrom} to</p>
                         <p>{educationObj.dateTo}</p>
                       </div>
-                      <div className="education__project">
-                        <h5 className="education__project__jobTitle">
+                      <div className="education__project divisionDetailsGlobal">
+                        <h5 className="education__project__jobTitle mainHeadingGlobal">
                           {educationObj.collegeName}
                         </h5>
-                        <p className="education__project__companyName">
+                        <p className="education__project__companyName descriptionGlobal">
                           {educationObj.courseName}
                         </p>
                       </div>
@@ -91,11 +93,12 @@ class ResumeBuild extends React.Component {
                 })}
               </div>
 
-              <div className="hackathon">
-                <h3>
-                  <span> </span>Hackathon
-                </h3>
-                {resumeDataObj.hackathon.map((hakathonObj) => {
+              <div className="hackathon sectionsGlobal">
+                <div className="icon icon-experience">
+                  <Logo />
+                  <h3 className="sectionHeadingGlobal">Hackathon Experience</h3>
+                </div>
+                {resumeDataObj.hackathon.map(hakathonObj => {
                   let hackathonDivision = (
                     <div className="hackathon__division">
                       <div className="hackathon__project">
@@ -112,28 +115,92 @@ class ResumeBuild extends React.Component {
                 })}
               </div>
 
-              <div className="certificates">
-                <h3>
-                  <span> </span>Certificates
-                </h3>
-                {resumeDataObj.certificates.map((cerfiticateObj) => {
-                  let certificatesDivision = (
-                    <div className="certificates__division">
-                      <div className="certificates__year">
+              <div className="certificates sectionsGlobal">
+                <div className="icon icon-experience">
+                  <Logo />
+                  <h3 className="sectionHeadingGlobal">Certificates</h3>
+                </div>
+                {resumeDataObj.certificates.map(cerfiticateObj => {
+                  let certificatesDiv = (
+                    <div className="certificates__division sectionsGlobal__divisionsGlobal">
+                      <div className="certificates__year yearGlobal">
                         <p>{cerfiticateObj.year}</p>
                       </div>
-                      <div className="certificates__project">
-                        <p className="certificates__title">
+                      <div className="certificates__project divisionDetailsGlobal">
+                        <p className="certificates__title divisionDetailsGlobal__descriptionGlobal">
                           {cerfiticateObj.title}
                         </p>
                       </div>
                     </div>
                   );
-                  return certificatesDivision;
+                  return certificatesDiv;
                 })}
               </div>
             </div>
-            <div className="right-sections"></div>
+            <div className="right-sections">
+              <div className="personalInfo sectionsGlobal">
+                <div className="icon icon-experience">
+                  <Logo />
+                  <h3 className="sectionHeadingGlobal">Personal Info</h3>
+                </div>
+                {resumeDataObj.personalInformation.map(personalInfo => {
+                  var personalInfoDiv = (
+                    <div>
+                      <p className="personalInfo__heading subHeadingGlobal">
+                        {personalInfo.infoHeading}
+                      </p>
+                      <p className="personalInfo__description descriptionGlobal">
+                        {personalInfo.infoDescription}
+                      </p>
+                    </div>
+                  );
+                  return personalInfoDiv;
+                })}
+              </div>
+
+              <div className="skills sectionsGlobal">
+                <div className="icon icon-experience">
+                  <Logo />
+                  <h3 className="sectionHeadingGlobal">Skills</h3>
+                </div>
+                {resumeDataObj.skills.map(skill => {
+                  var skillsDiv = (
+                    <div className="skills__division">
+                      <div className="skills__heading descriptionGlobal">
+                        {skill.skillName}
+                      </div>
+                      <div className="skills__rating">
+                        <div className="skills__ratingBar">
+                          <div
+                            className="skills__ratingBarFill"
+                            style={{ width: `${skill.rating * 10}%` }}
+                          ></div>
+                        </div>
+                      </div>
+                      <div className="skills__description descriptionGlobal">
+                        {skill.skillDetails}
+                      </div>
+                    </div>
+                  );
+                  return skillsDiv;
+                })}
+              </div>
+
+              <div className="languages sectionsGlobal">
+                <div className="icon icon-experience">
+                  <Logo />
+                  <h3 className="sectionHeadingGlobal">Languages</h3>
+                </div>
+                {resumeDataObj.languages.map(language => {
+                  var languagesDiv = (
+                    <div>
+                      <p className="languages descriptionGlobal">{language}</p>
+                    </div>
+                  );
+                  return languagesDiv;
+                })}
+              </div>
+            </div>
           </div>
         </div>
       </div>
