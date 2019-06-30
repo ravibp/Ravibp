@@ -1,95 +1,76 @@
 import React from "react";
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
 // @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
 
-import "./AboutMe.scss";
-import aboutMe_image from "assets/img/aboutMe_image.jpg";
-import ScrollAnimation from "react-animate-on-scroll";
-import { isMobileOnly } from "react-device-detect";
+// @material-ui/icons
+import Chat from "@material-ui/icons/Chat";
+import VerifiedUser from "@material-ui/icons/VerifiedUser";
+import Fingerprint from "@material-ui/icons/Fingerprint";
+// core components
+import GridContainer from "components/Grid/GridContainer.jsx";
+import GridItem from "components/Grid/GridItem.jsx";
+import InfoArea from "components/InfoArea/InfoArea.jsx";
+
+import sectionStyle from "assets/jss/material-kit-react/views/landingPageSections/sectionStyle.jsx";
+import "./AboutMe.scss"
 
 class AboutMe extends React.Component {
   render() {
+    const { classes } = this.props;
     return (
-      <div id="aboutMe-section">
-        <div className="row no-gutters aboutMe-container">
-          <div className="col-12 aboutMe__heading">
-            <ScrollAnimation
-              animateOnce="true"
-              offset="0"
-              delay="1"
-              animateIn="tada"
-              initiallyVisible={true}
-            >
-              <h1>ABOUT ME</h1>
-              {window.innerWidth}
-            </ScrollAnimation>
-          </div>
-
-          <div className="col-12 col-md-3 col-lg-4 ">
-            <div className="aboutMe__profImg">
-              <ScrollAnimation
-                animateOnce="true"
-                animateIn="bounceInRight"
-                delay="1"
-                duration={isMobileOnly ? "1" : "2"}
-              >
-                <img
-                  src={aboutMe_image}
-                  alt=""
-                  ref="profImg-ref"
-                  className="profImg"
-                />
-              </ScrollAnimation>
-            </div>
-          </div>
-          <div className="col-12 col-md-9 col-lg-8 aboutMe__details">
-            <ScrollAnimation
-              animateOnce="true"
-              animateIn="bounceInRight"
-              delay="1"
-              duration={isMobileOnly ? "1" : "3"}
-            >
-              <h4 className="col-12">Hi! I'm Ravi,</h4>
-              <p className="col-12">
-                <span> Web Designer / Developer </span> focused on crafting
-                great web experiences.
-              </p>
-              <p className="col-12">
-                I've been in the field of web development for 2+ years and I
-                love what I do. I take complex problems and turn them into
-                simple and beautiful interface designs. I strive to write
-                efficient and elegant code, whether be it HTML, CSS or
-                JavaScript. I want to make things that make a difference!
-              </p>
-              <p className="col-12">A picture is worth a thousand words...</p>
-              <p className="col-12">
-                As the picture says creating digital art is one of my favorite
-                hobbies. You can find more of my digital art in the hobbies
-                section.
-              </p>
-            </ScrollAnimation>
-            <ScrollAnimation
-              animateOnce="true"
-              animateIn="bounceInRight"
-              delay="1"
-              duration={isMobileOnly ? "1" : "3"}
-            >
-              <div className="col-12 aboutMe__cv">
-                <a href="/resume" target="_blank">
-                  Get My CV
-                </a>
-              </div>
-              <div className="col-12 aboutMe__socialMediaLinks">
-                <a target="_blank" href="https://www.facebook.com/Maverick.M4"><i class="fab fa-facebook"></i></a>
-                <a target="_blank" href="https://www.facebook.com/Maverick.M4"><i class="fab fa-twitter"></i></a>
-                <a target="_blank" href="https://github.com/ravibp"><i class="fab fa-linkedin"></i></a>
-                <a target="_blank" href="https://github.com/ravibp"><i class="fab fa-github"></i></a>
-              </div>
-            </ScrollAnimation>
-          </div>
+      <div className={classes.section}>
+        <GridContainer justify="center">
+          <GridItem xs={12} sm={12} md={8}>
+            <h2 className={classes.title}>Hi! I'm Ravi.</h2>
+            <h5 className={classes.description}>
+              This is the paragraph where you can write more details about your
+              product. Keep you user engaged by providing meaningful
+              information. Remember that by this time, the user is curious,
+              otherwise he wouldn{"'"}t scroll to get here. Add a button if you
+              want the user to see more.
+            </h5>
+          </GridItem>
+        </GridContainer>
+        <div>
+          <GridContainer>
+            <GridItem xs={12} sm={12} md={4}>
+              <InfoArea
+                title="Free Chat"
+                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                icon={Chat}
+                iconColor="info"
+                vertical
+              />
+            </GridItem>
+            <GridItem xs={12} sm={12} md={4}>
+              <InfoArea
+                title="Verified Users"
+                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                icon={VerifiedUser}
+                iconColor="success"
+                vertical
+              />
+            </GridItem>
+            <GridItem xs={12} sm={12} md={4}>
+              <InfoArea
+                title="Fingerprint"
+                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                icon={Fingerprint}
+                iconColor="danger"
+                vertical
+              />
+            </GridItem>
+          </GridContainer>
         </div>
       </div>
     );
   }
 }
 
-export default AboutMe;
+AboutMe.propTypes = {
+  classes: PropTypes.object
+};
+
+export default withStyles(sectionStyle)(AboutMe);

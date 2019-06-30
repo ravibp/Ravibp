@@ -1,124 +1,179 @@
 import React from "react";
+// nodejs library that concatenates classes
+import classNames from "classnames";
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import IconButton from "@material-ui/core/IconButton";
+import Button from "@material-ui/core/Button";
+import Hidden from "@material-ui/core/Hidden";
+import Drawer from "@material-ui/core/Drawer";
+// @material-ui/icons
+import Menu from "@material-ui/icons/Menu";
+// core components
+import headerStyle from "assets/jss/material-kit-react/components/headerStyle.jsx";
 import "./Header.scss";
-import HeaderLinks from "./HeaderLinks.jsx";
-import HamburgerMenu from "react-hamburger-menu";
-import { isMobileOnly } from "react-device-detect";
-import { thisExpression } from "@babel/types";
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
-    this.setWrapperRef = this.setWrapperRef.bind(this);
-    this.handleClickOutside = this.handleClickOutside.bind(this);
     this.state = {
-      drawerOpenFlagFlag: false
+      mobileOpen: false
     };
   }
   handleDrawerToggle = () => {
-    this.setState(
-      prevState => {
-        return { drawerOpenFlag: !prevState.drawerOpenFlag };
-      },
-      () => {
-        if (this.state.drawerOpenFlag) {
-          this.refs["headerNavBar-ref"].classList.remove("drawer-hide");
-          this.refs["headerNavBar-ref"].style.marginTop = "0px";
-          // this.refs["pageMask-ref"].style.opacity = "0.7";
-        } else {
-          this.refs["headerNavBar-ref"].style.marginTop = "-250px";
-          // this.refs["pageMask-ref"].style.opacity = "0";
-        }
-      }
-    );
+    this.setState({ mobileOpen: !this.state.mobileOpen });
   };
   headerColorChange = () => {
+    const { classes, color, changeColorOnScroll } = this.props;
     const windowsScrollTop = window.pageYOffset;
-    if (windowsScrollTop > 600) {
-      this.refs["headerNavBar-ref"].classList.add("scrolledHeader-style");
-      this.refs["headerNavBar-ref"].classList.remove("transparentHeader-style");
+    if (windowsScrollTop > changeColorOnScroll.height) {
+      document.body
+        .getElementsByTagName("header")[0]
+        .classList.remove(classes[color]);
+      document.body
+        .getElementsByTagName("header")[0]
+        .classList.add(classes[changeColorOnScroll.color]);
+      document
+        .getElementById("profile-name")
+        .classList.add(classes[changeColorOnScroll.color]);
     } else {
-      this.refs["headerNavBar-ref"].classList.remove("scrolledHeader-style");
-      this.refs["headerNavBar-ref"].classList.add("transparentHeader-style");
+      document.body
+        .getElementsByTagName("header")[0]
+        .classList.add(classes[color]);
+      document.body
+        .getElementsByTagName("header")[0]
+        .classList.remove(classes[changeColorOnScroll.color]);
+      document
+        .getElementById("profile-name")
+        .classList.remove(classes[changeColorOnScroll.color]);
     }
   };
-
-  setWrapperRef(node) {
-    this.wrapperRef = node;
-  }
-  /**
-   * Alert if clicked on outside of element
-   */
-  handleClickOutside(event) {
-    if (this.wrapperRef && !this.wrapperRef.contains(event.target)) {
-      if (this.state.drawerOpenFlag) {
-        this.handleDrawerToggle();
-      }
-    }
-  }
-
   componentDidMount() {
-    if (isMobileOnly) {
-      document.addEventListener("mousedown", this.handleClickOutside);
+    if (this.props.changeColorOnScroll) {
+      window.addEventListener("scroll", this.headerColorChange);
     }
-    window.addEventListener("scroll", this.headerColorChange);
   }
   componentWillUnmount() {
-    if (isMobileOnly) {
-      document.removeEventListener("mousedown", this.handleClickOutside);
+    if (this.props.changeColorOnScroll) {
+      window.removeEventListener("scroll", this.headerColorChange);
     }
-    window.removeEventListener("scroll", this.headerColorChange);
   }
-
   render() {
-    if (isMobileOnly) {
-      return (
-        <div
-          className="header-container row no-gutters w-100 drawer-hide"
-          ref="headerNavBar-ref"
-        >
-          {/* <div id="pageMask" ref="pageMask-ref"></div> */}
-          <div ref={this.setWrapperRef}>
-            <div className="hamburgerMenu-icon">
-              <HamburgerMenu
-                isOpen={this.state.drawerOpenFlag}
-                menuClicked={this.handleDrawerToggle.bind(this)}
-                width={25}
-                height={20}
-                strokeWidth={3}
-                rotate={0}
-                color="white"
-                borderRadius={0}
-                animationDuration={0.5}
-              />
+    const {
+      classes,
+      color,
+      rightLinks,
+      leftLinks,
+      profileName,
+      fixed,
+      absolute
+    } = this.props;
+    const appBarClasses = classNames({
+      [classes.appBar]: true,
+      [classes[color]]: color,
+      [classes.absolute]: absolute,
+      [classes.fixed]: fixed
+    });
+    const profileNameButton = (
+      <Button id="profile-name" className={classes.title + " profile-name"}>
+        {profileName}
+      </Button>
+    );
+    return (
+      <div className="header-container">
+        <AppBar className={appBarClasses}>
+          <Toolbar className={classes.container}>
+            {leftLinks !== undefined ? profileName : null}
+            <div className={classes.flex}>
+              {leftLinks !== undefined ? (
+                <Hidden smDown implementation="css">
+                  {leftLinks}
+                </Hidden>
+              ) : (
+                profileNameButton
+              )}
             </div>
-            <div
-              id="headerNavBar"
-              className="header-container row no-gutters w-100 header-commonStyles"
-              ref="headerNavBar-ref"
+            <Hidden smDown implementation="css">
+              {rightLinks}
+            </Hidden>
+            <Hidden mdUp>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                onClick={this.handleDrawerToggle}
+              >
+                <Menu />
+              </IconButton>
+            </Hidden>
+          </Toolbar>
+          <Hidden mdUp implementation="js">
+            <Drawer
+              variant="temporary"
+              anchor={"right"}
+              open={this.state.mobileOpen}
+              classes={{
+                paper: classes.drawerPaper
+              }}
+              onClose={this.handleDrawerToggle}
             >
-              <div id="headerLinksId" className="col-12 header-headerLinks">
-                <HeaderLinks handleDrawerToggle={this.handleDrawerToggle} />
+              <div className={classes.appResponsive}>
+                {leftLinks}
+                {rightLinks}
               </div>
-              <hr className="c" />
-            </div>
-          </div>
-        </div>
-      );
-    } else {
-      return (
-        <div
-          id="headerNavBar"
-          className="header-container row no-gutters w-100 header-commonStyles"
-          ref="headerNavBar-ref"
-        >
-          <div className="col-12 header-headerLinks">
-            <HeaderLinks />
-          </div>
-          <hr className="c" />
-        </div>
-      );
-    }
+            </Drawer>
+          </Hidden>
+        </AppBar>
+      </div>
+    );
   }
 }
 
-export default Header;
+Header.defaultProp = {
+  color: "white"
+};
+
+Header.propTypes = {
+  classes: PropTypes.object.isRequired,
+  color: PropTypes.oneOf([
+    "primary",
+    "info",
+    "success",
+    "warning",
+    "danger",
+    "transparent",
+    "white",
+    "rose",
+    "dark"
+  ]),
+  rightLinks: PropTypes.node,
+  leftLinks: PropTypes.node,
+  profileName: PropTypes.string,
+  fixed: PropTypes.bool,
+  absolute: PropTypes.bool,
+  // this will cause the sidebar to change the color from
+  // this.props.color (see above) to changeColorOnScroll.color
+  // when the window.pageYOffset is heigher or equal to
+  // changeColorOnScroll.height and then when it is smaller than
+  // changeColorOnScroll.height change it back to
+  // this.props.color (see above)
+  changeColorOnScroll: PropTypes.shape({
+    height: PropTypes.number.isRequired,
+    color: PropTypes.oneOf([
+      "primary",
+      "info",
+      "success",
+      "warning",
+      "danger",
+      "transparent",
+      "white",
+      "rose",
+      "dark"
+    ]).isRequired
+  })
+};
+
+export default withStyles(headerStyle)(Header);

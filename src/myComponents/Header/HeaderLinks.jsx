@@ -1,61 +1,96 @@
-import Scrollspy from "react-scrollspy";
-import { isMobileOnly } from "react-device-detect";
-import React, { Component } from "react";
+/*eslint-disable*/
+import React from "react";
+import DeleteIcon from "@material-ui/icons/Delete";
+import IconButton from "@material-ui/core/IconButton";
+// react components for routing our app without refresh
+import { Link } from "react-router-dom";
 
-class HeaderLinks extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
+import List from "@material-ui/core/List";
+import ListItem from "@material-ui/core/ListItem";
+import Tooltip from "@material-ui/core/Tooltip";
 
-  render() {
-    return (
-      <div className="headerLinks">
-        <div className="row">
-          {!isMobileOnly && (
-            <div className="col-6 headerLinks__profile-name">
-              <Scrollspy items={["landingPage-section"]}>
-                <li>
-                  <a href="#landingPage-section">Ravi BP</a>
-                </li>
-              </Scrollspy>
-            </div>
-          )}
+// @material-ui/icons
+import { Apps, CloudDownload } from "@material-ui/icons";
 
-          <div
-            className={
-              !isMobileOnly
-                ? "col-6 headerLinks__rightLinks"
-                : "col-12 headerLinks__rightLinks"
-            }
-          >
-            <Scrollspy
-              items={[
-                "aboutMe-section",
-                "skills-section",
-                "projects-section",
-                "hobbies-section"
-              ]}
-              currentClassName="is-current"
-              offset={!isMobileOnly? -10: -200}
+// core components
+import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
+import Button from "components/CustomButtons/Button.jsx";
+
+import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
+
+function HeaderLinks({ ...props }) {
+  const { classes } = props;
+  return (
+    <List className={classes.list}>
+      <ListItem className={classes.listItem}>
+        {/* <CustomDropdown
+          noLiPadding
+          buttonText="Components"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent"
+          }}
+          buttonIcon={Apps}
+          dropdownList={[
+            <Link to="/" className={classes.dropdownLink}>
+              All components
+            </Link>,
+            <a
+              href="https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar"
+              target="_blank"
+              className={classes.dropdownLink}
             >
-              <li onClick={this.props.handleDrawerToggle}>
-                <a href="#aboutMe-section">About</a>
-              </li>
-              <li onClick={this.props.handleDrawerToggle}>
-                <a href="#skills-section">Skills</a>
-              </li>
-              <li onClick={this.props.handleDrawerToggle}>
-                <a href="#projects-section">Projects</a>
-              </li>
-              <li onClick={this.props.handleDrawerToggle}>
-                <a href="#hobbies-section">Gallery</a>
-              </li>
-            </Scrollspy>
-          </div>
-        </div>
-      </div>
-    );
-  }
+              Documentation
+            </a>
+          ]}
+        /> */}
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+          color="transparent"
+          target="_blank"
+          className={classes.navLink}
+        >
+          {/* <CloudDownload className={classes.icons} />  */}
+          About Me
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+          color="transparent"
+          target="_blank"
+          className={classes.navLink}
+        >
+          {/* <CloudDownload className={classes.icons} />  */}
+          Resume
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+          color="transparent"
+          target="_blank"
+          className={classes.navLink}
+        >
+          Projects
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+          color="transparent"
+          target="_blank"
+          className={classes.navLink}
+        >
+          Contact
+        </Button>
+      </ListItem>
+    </List>
+  );
 }
 
-export default HeaderLinks;
+export default withStyles(headerLinksStyle)(HeaderLinks);

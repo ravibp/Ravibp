@@ -1,87 +1,76 @@
 import React from "react";
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
 
-import "./Projects.scss";
-import ScrollAnimation from "react-animate-on-scroll";
-import project1 from "assets/img/projectImages/project1.png";
-import aboutMe_image from "assets/img/aboutMe_image.jpg";
+// @material-ui/icons
+import Chat from "@material-ui/icons/Chat";
+import VerifiedUser from "@material-ui/icons/VerifiedUser";
+import Fingerprint from "@material-ui/icons/Fingerprint";
+// core components
+import GridContainer from "components/Grid/GridContainer.jsx";
+import GridItem from "components/Grid/GridItem.jsx";
+import InfoArea from "components/InfoArea/InfoArea.jsx";
 
-const projects = [
-  {
-    title: "Sears Parts Direct",
-    secondarytTitle: "E-Commerce Web Application",
-    description: [
-      "At Sears PartsDirect, you can find millions of replacement parts for most major brands of appliances, outdoor power equipment, water heaters and softeners, and more, no matter where you bought the product.",
-      "It's goal is to help new and experienced DIYers quickly find and order the right part, from any device. It involves Cart, purchasing, Account, Offer, rating and tracking order details."
-    ],
-    skillSet:
-      "React.js/ Redux.js, UI/ UX, Node.js, Express.js, Apollo GraphQL, DynamoDB, Jest, Enzyme, Postman, SoupUI ",
-    imageTemplate: project1
-  }
-];
-const colorClass = [
-  "label-default",
-  "label-primary",
-  "label-info",
-  "label-danger",
-  "label-success",
-  "label-warning"
-];
+import sectionStyle from "assets/jss/material-kit-react/views/landingPageSections/sectionStyle.jsx";
+import "./Projects.scss"
+
 class Projects extends React.Component {
   render() {
+    const { classes } = this.props;
     return (
-      <div id="projects-section">
-        <div className="row projects-container">
-          <div className="col-12 projects-heading">
-            <ScrollAnimation
-              animateOnce="true"
-              offset="0"
-              delay="1"
-              animateIn="tada"
-              initiallyVisible={true}
-            >
-              <h1>PROJECTS</h1>
-            </ScrollAnimation>
-          </div>
-          <div className="col-12 projects-list">
-            {projects.map(project => {
-              let projectDiv = (
-                <div className="row no-gutters project-details">
-                  <div className="col-6">
-                    <h1>{project.title}</h1>
-                    <h2>{project.secondarytTitle}</h2>
-                    {project.description.map(desc => (
-                      <p>{desc}</p>
-                    ))}
-                    <div className="skillSet-list">
-                      {project.skillSet.split(",").map(skill => {
-                        let rand =
-                          colorClass[
-                            Math.floor(Math.random() * colorClass.length)
-                          ];
-                        return (
-                          <div>
-                            <span className={rand}>{skill}</span>
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </div>
-                  <div className="col-6">
-                    <img src={project.imageTemplate} alt="Sears Parts Direct" />
-                  </div>
-                  <br />
-                  <hr className="project-dividerLine"/>
-                  <br />
-                </div>
-              );
-              return projectDiv;
-            })}
-          </div>
-
+      <div className={classes.section}>
+        <GridContainer justify="center">
+          <GridItem xs={12} sm={12} md={8}>
+            <h2 className={classes.title}>My Projects</h2>
+            <h5 className={classes.description}>
+              This is the paragraph where you can write more details about your
+              product. Keep you user engaged by providing meaningful
+              information. Remember that by this time, the user is curious,
+              otherwise he wouldn{"'"}t scroll to get here. Add a button if you
+              want the user to see more.
+            </h5>
+          </GridItem>
+        </GridContainer>
+        <div>
+          <GridContainer>
+            <GridItem xs={12} sm={12} md={4}>
+              <InfoArea
+                title="Free Chat"
+                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                icon={Chat}
+                iconColor="info"
+                vertical
+              />
+            </GridItem>
+            <GridItem xs={12} sm={12} md={4}>
+              <InfoArea
+                title="Verified Users"
+                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                icon={VerifiedUser}
+                iconColor="success"
+                vertical
+              />
+            </GridItem>
+            <GridItem xs={12} sm={12} md={4}>
+              <InfoArea
+                title="Fingerprint"
+                description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+                icon={Fingerprint}
+                iconColor="danger"
+                vertical
+              />
+            </GridItem>
+          </GridContainer>
         </div>
       </div>
     );
   }
 }
 
-export default Projects;
+Projects.propTypes = {
+  classes: PropTypes.object
+};
+
+export default withStyles(sectionStyle)(Projects);
