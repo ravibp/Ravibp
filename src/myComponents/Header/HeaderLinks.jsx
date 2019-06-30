@@ -49,31 +49,28 @@ function HeaderLinks({ ...props }) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+          href="#aboutMe-section"
+          target="_self"
           color="transparent"
-          target="_blank"
           className={classes.navLink}
         >
-          {/* <CloudDownload className={classes.icons} />  */}
           About Me
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+          href="#resume-section"
+          target="_self"
           color="transparent"
-          target="_blank"
           className={classes.navLink}
         >
-          {/* <CloudDownload className={classes.icons} />  */}
           Resume
         </Button>
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+          href="#projects-section"
           color="transparent"
-          target="_blank"
           className={classes.navLink}
         >
           Projects
@@ -81,9 +78,8 @@ function HeaderLinks({ ...props }) {
       </ListItem>
       <ListItem className={classes.listItem}>
         <Button
-          href="https://www.creative-tim.com/product/material-kit-react?ref=mkr-navbar"
+          href="#projects-section"
           color="transparent"
-          target="_blank"
           className={classes.navLink}
         >
           Contact
