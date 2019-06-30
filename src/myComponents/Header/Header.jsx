@@ -79,7 +79,7 @@ class Header extends React.Component {
       [classes.fixed]: fixed
     });
     const profileNameButton = (
-      <Button id="profile-name" className={classes.title + " profile-name"}>
+      <Button id="profile-name" className={classes.title + " profile-name"} href="#landingPage-section">
         {profileName}
       </Button>
     );
