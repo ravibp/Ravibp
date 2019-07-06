@@ -31,6 +31,10 @@ $sectionLineBreakColor: #d5d6d6;
   font-weight: bold;
   margin: 3px 0px;
 }
+%descriptionGlobal {
+  font-size: 13px;
+  line-height: 20px;
+}
 .resumeBuild-container {
   div,
   span,
@@ -56,12 +60,16 @@ $sectionLineBreakColor: #d5d6d6;
   ul {
     list-style: none;
   }
-  max-height: 1400px;
-  line-height: 18px;
-  width: 990px;
-  margin: auto;
-  padding: 30px;
+
+  // comment below lines for taking print out in PDF format to remove extra margins
+  // max-height: 1400px;
+  padding: 15px 30px;
   border: 1px solid lightgray;
+  width: 990px;
+  // Till here
+
+  line-height: 18px;
+  margin: auto;
   background: white;
   color: #343434;
   font-size: 13px;
@@ -126,6 +134,9 @@ $sectionLineBreakColor: #d5d6d6;
       .subHeadingGlobal {
         @extend %subHeadingGlobal;
       }
+      .descriptionGlobal {
+        @extend %descriptionGlobal;
+      }
       .headingUnderlineGlobal {
         text-decoration: underline;
       }
@@ -151,6 +162,12 @@ $sectionLineBreakColor: #d5d6d6;
           &__division {
             margin: 10px 0px;
           }
+          &__project {
+            margin-left: 20%;
+            &__jobTitle {
+              font-weight: bold;
+            }
+          }
         }
         .certificates {
           &__division {
@@ -171,6 +188,7 @@ $sectionLineBreakColor: #d5d6d6;
         }
         .skills {
           &__division {
+            margin-top: 5px;
             margin-bottom: 5px;
           }
           &__rating {
@@ -190,6 +208,14 @@ $sectionLineBreakColor: #d5d6d6;
           }
           &__description {
             text-align: right;
+          }
+        }
+        .languages {
+          &__list {
+            margin-top: 5px;
+            > div {
+              line-height: 30px;
+            }
           }
         }
       }
