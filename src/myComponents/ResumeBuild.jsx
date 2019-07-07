@@ -21,7 +21,7 @@ class ResumeBuild extends React.Component {
   render() {
     const { classes } = this.props;
     return (
-      <div className="resumeBuild-container">
+      <div className="row resumeBuild-container">
         <div className="resumeBuild">
           <h1 className="resumeBuild__heading">{resumeDataObj.profileName}</h1>
           <h2 className="resumeBuild__title">
