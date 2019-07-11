@@ -1,192 +1,126 @@
 import React from "react";
-import AnimatedNumber from "animated-number-react";
-import "./SkillsBar.scss";
-import { isMobileOnly } from "react-device-detect";
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
+// @material-ui/core components
+import withStyles from "@material-ui/core/styles/withStyles";
 
+// @material-ui/icons
+import Chat from "@material-ui/icons/Chat";
+import VerifiedUser from "@material-ui/icons/VerifiedUser";
+import Fingerprint from "@material-ui/icons/Fingerprint";
+
+import sectionStyle from "assets/jss/material-kit-react/views/landingPageSections/sectionStyle.jsx";
+
+import "./SkillsBar.scss";
+
+import { ReactComponent as IconReact } from "assets/icons/IconReact.svg";
+import { ReactComponent as IconAngular } from "assets/icons/IconAngular.svg";
+import { ReactComponent as IconBoostrap } from "assets/icons/IconBootstrap.svg";
+import { ReactComponent as IconPhotoshop } from "assets/icons/IconPhotoshop.svg";
+import { ReactComponent as IconMySQL } from "assets/icons/IconMySQL.svg";
+import { ReactComponent as IconNodeJS } from "assets/icons/IconNodeJS.svg";
+import { ReactComponent as IconHTML } from "assets/icons/IconHTML.svg";
+import { ReactComponent as IconCSS } from "assets/icons/IconCSS.svg";
+import { ReactComponent as IconMongoDB } from "assets/icons/IconMongoDB.svg";
+import { ReactComponent as IconGraphQL } from "assets/icons/IconGraphQL.svg";
+import ReactTooltip from "react-tooltip";
+import { width } from "@material-ui/system";
+
+let globalFlag = false;
 const skillsJson = [
   {
     skillName: "HTML5",
-    skillRating: "90",
+    skillRating: "90%",
     skillId: "skill-html",
-    skillTitleColor: "darkred",
-    skillBarColor: "#03A9F4"
+    skillBarColor: "red",
+    skillTitleColor: "black"
   },
   {
     skillName: "CSS3",
-    skillRating: "90",
+    skillRating: "90%",
     skillId: "skill-css",
-    skillTitleColor: "darkblue",
-    skillBarColor: "#03A9F4"
+    skillTitleColor: "black",
+    skillBarColor: "blue"
   },
   {
     skillName: "JS",
-    skillRating: "80",
+    skillRating: "80%",
     skillId: "skill-js",
-    skillTitleColor: "darkgreen",
-    skillBarColor: "#03A9F4"
-  },
-  {
-    skillName: "ReactJs/ Redux",
-    skillRating: "80",
-    skillId: "skill-react",
-    skillTitleColor: "darkyellow",
-    skillBarColor: "#03A9F4"
-  },
-  {
-    skillName: "Angular 4",
-    skillRating: "60",
-    skillId: "skill-angular",
-    skillTitleColor: "blue",
-    skillBarColor: "#03A9F4"
-  },
-  {
-    skillName: "Bootstrap 4",
-    skillRating: "80",
-    skillId: "skill-bootstrap",
-    skillTitleColor: "darkred",
-    skillBarColor: "#03A9F4"
-  },
-  {
-    skillName: "NodeJs",
-    skillRating: "60",
-    skillId: "skill-nodejs",
-    skillTitleColor: "darkblue",
-    skillBarColor: "#03A9F4"
-  },
-  {
-    skillName: "MySQL/ MongoDB",
-    skillRating: "70",
-    skillId: "skill-database",
-    skillTitleColor: "darkyellow",
-    skillBarColor: "#03A9F4"
-  },
-  {
-    skillName: "Apollo GraphQL",
-    skillRating: "50",
-    skillId: "skill-graphql",
-    skillTitleColor: "darkgreen",
-    skillBarColor: "#03A9F4"
-  },
-  {
-    skillName: "Photoshop CC",
-    skillRating: "60",
-    skillId: "skill-photoshop",
-    skillTitleColor: "darkred",
-    skillBarColor: "#03A9F4"
+    skillTitleColor: "black",
+    skillBarColor: "green"
   }
 ];
-// let yourArray = skillsJson;
-// let halfWayThough = Math.floor(yourArray.length / 2)
-
-// let skillsJson1 = yourArray.slice(0, halfWayThough);
-// let skillsJson2 = yourArray.slice(halfWayThough, yourArray.length);
 class SkillsBar extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      numberFlag: false
-    };
   }
-  handleChange = ({ target: { value } }) => {
-    this.setState({ value });
-  };
   componentDidMount() {
-    if (!isMobileOnly) {
-      window.addEventListener("scroll", this.populateSkillBar);
-      skillsJson.forEach(skill => {
-        document.getElementById(skill.skillId + "-bar").style.width = "0";
-        document.getElementById(skill.skillId + "-bar").style.background =
-          skill.skillBarColor;
-        document.getElementById(skill.skillId + "-bar").style.transition =
-          "width 2.5s";
+    skillsJson.map(skill => {
+        document.getElementById(skill.skillId + "-bar").style.width = "0%";
+		document.getElementById(skill.skillId).style.width = "0%";
+        document.getElementById(skill.skillId).style.background = skill.skillTitleColor;
+        document.getElementById(skill.skillId + "-bar").style.background = skill.skillBarColor;
+        document.getElementById(skill.skillId).style.transition = "width 2s";
+        document.getElementById(skill.skillId + "-bar").style.transition = "width 2s";
+    });
+  }
+  componentDidUpdate() {
+    console.log("did mount,", this.props);
+    if (this.props.globalFlag) {
+      skillsJson.map(skill => {
+		document.getElementById(skill.skillId).style.width = "20%";
+        document.getElementById(skill.skillId + "-bar").style.width = skill.skillRating;
       });
     } else {
-      skillsJson.forEach(skill => {
-        document.getElementById(
-          skill.skillId + "-bar"
-        ).style.width = `${skill.skillRating}%`;
-        document.getElementById(skill.skillId + "-bar").style.background =
-          skill.skillBarColor;
+      skillsJson.map(skill => {
+		document.getElementById(skill.skillId).style.width = "0%";
+        // document.getElementById(skill.skillId).style.transition = "width 2s";
+        // document.getElementById(skill.skillId + "-bar").style.transition = "width 2s";
+        document.getElementById(skill.skillId + "-bar").style.width = "0%";
       });
     }
-  }
-  populateSkillBar = () => {
-    const windowsScrollTop = window.pageYOffset;
-    if (windowsScrollTop > 1200 && windowsScrollTop < 2000) {
-      this.setState({
-        numberFlag: true
-      });
-      skillsJson.forEach(skill => {
-        document.getElementById(skill.skillId + "-bar").style.transitionDelay =
-          "2s";
-        document.getElementById(
-          skill.skillId + "-bar"
-        ).style.width = `${skill.skillRating}%`;
-      });
-      window.removeEventListener("scroll", this.animateSkills);
-    }
-  };
-  componentWillUnmount() {
-    window.removeEventListener("scroll", this.populateSkillBar);
-  }
-  formatValue = value => value.toFixed(0);
-
-  showNumber = (number, duration, delay) => {
-    if (this.state.numberFlag) {
-      return (
-        <div>
-          <AnimatedNumber
-            value={number}
-            formatValue={this.formatValue}
-            delay={isMobileOnly ? "0" : delay}
-            duration={isMobileOnly ? "0" : duration}
-          />
-          <span> %</span>
-        </div>
-      );
-    } else {
-      return (
-        <div className="">
-          <AnimatedNumber
-            value={isMobileOnly ? number : 0}
-            formatValue={this.formatValue}
-            delay={isMobileOnly ? "0" : delay}
-            duration={isMobileOnly ? "0" : duration}
-          />
-          <span> %</span>
-        </div>
-      );
-    }
-  };
-  shouldComponentUpdate(nextProps, nextState) {
-    if (this.state.numberFlag !== nextState.numberFlag) {
-      return true;
-    }
-    return false;
   }
   render() {
+    const { classes } = this.props;
+
     return (
-      <div class="skillBar-container row no-gutters">
+      <div class="main">
         {skillsJson.map(skill => (
-          <div className="row col-12 no-gutters">
-            <div class="skillBar-container__title col-3">{skill.skillName}</div>
-            <div class="skillBar-container__progressBar col-7">
-              <div
-                id={`${skill.skillId}-bar`}
-                class="skillBar-container__progress col-12"
-              ></div>
-            </div>
-            <div className="skillBar-container__progressValue col-2">
-              {this.state.numberFlag &&
-                this.showNumber(skill.skillRating, 2500, 2000)}
-              {!this.state.numberFlag &&
-                this.showNumber(skill.skillRating, 0, 0)}
-            </div>
+          <div class="progressBar">
+            <div  id={skill.skillId} class="title">{skill.skillName}</div>
+            <div id={`${skill.skillId}-bar`} class="progress"></div>
+            <div className="progress_value">{skill.skillRating}</div>
           </div>
         ))}
+
+        {/* <div class="progressBar">
+          <div class="title cssColor">CSS3</div>
+          <div id="skill-css" class="progress css"></div>
+          <div class="progress_value">90%</div>
+        </div>
+        <div class="progressBar">
+          <div class="title jsColor">JavaScript</div>
+          <div id="skill-js" class="progress js"></div>
+          <div class="progress_value">70%</div>
+        </div>
+        <div class="progressBar">
+          <div class="title phpColor">React JS/ Redux</div>
+          <div id="skill-react" class="progress php"></div>
+          <div class="progress_value">80%</div>
+        </div>
+        <div class="progressBar">
+          <div class="title ajaxColor">Angular 5</div>
+          <div id="skill-angular" class="progress ajax"></div>
+          <div class="progress_value">60%</div>
+        </div>
+        <div class="progressBar">
+          <div class="title htmlColor">Node JS</div>
+          <div id="skill-html" class="progress html"></div>
+          <div class="progress_value">65%</div>
+        </div> */}
       </div>
     );
   }
 }
 
-export default SkillsBar;
+export default withStyles(sectionStyle)(SkillsBar);
