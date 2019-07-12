@@ -62,10 +62,9 @@ $sectionLineBreakColor: #d5d6d6;
   }
 
   // comment below lines for taking print out in PDF format to remove extra margins
-  // max-height: 1400px;
-  padding: 15px 30px;
-  border: 1px solid lightgray;
-  width: 990px;
+  // padding: 15px 30px;
+  // border: 1px solid lightgray;
+  // width: 990px;
   // Till here
 
   line-height: 18px;
@@ -110,7 +109,8 @@ $sectionLineBreakColor: #d5d6d6;
         }
         &__divisionsGlobal {
           display: inline-flex !important;
-          margin: 10px 0px;
+          margin: 5px 0px;
+          // margin: 10px 0px;
           ul {
             font-size: 14px;
             list-style: initial;
@@ -158,9 +158,17 @@ $sectionLineBreakColor: #d5d6d6;
             }
           }
         }
+        .education {
+          &__project {
+            &__jobTitle {
+              font-size: 15px !important;
+            }
+          }
+        }
         .hackathon {
           &__division {
-            margin: 10px 0px;
+            margin: 5px 0px;
+            // margin: 10px 0px;
           }
           &__project {
             margin-left: 20%;
