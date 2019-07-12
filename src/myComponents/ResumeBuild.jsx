@@ -58,7 +58,7 @@ class ResumeBuild extends React.Component {
                           {project.projectDescription}
                         </p>
                         <p className="experience__project__responsibilities">
-                          Responsibilities:
+                          Project Experience:
                         </p>
                         <ul className="experience__project__responsibilityList">
                           {project.projectResponsibilites.map(
