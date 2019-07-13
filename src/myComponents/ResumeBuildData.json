@@ -15,9 +15,9 @@
           "projectResponsibilites": [
             "Developed UI designs and wire frames into a functional web page with quality code.",
             "Built re-usable components and front-end libraries to eliminate code duplication.",
-            "Used Apollo GraphQL to fetch data from server to client.",
-            "Used Query Components with Apollo to handle API request in the application.",
-            "Have good understanding of SEO and it's best practices.",
+            "Used GraphQL to fetch data from server to client.",
+            "Used Query Wrapper (JS Library) to handle API request in the application.",
+            "Have basic understanding of SEO and it's best practices.",
             "Used Jest (Unit testing framework) with Enzyme (Testing Utility) to write Unit Tests for the components.",
             "Used Pupeteer (Node Library) to run automated UI testing.",
             "Used Sass with BEM naming for CSS styling."
@@ -57,20 +57,8 @@
       {
         "dateFrom": "08-2013",
         "dateTo": "07-2017",
-        "collegeName": "Bangalore Institute of Technology  |  75.42%",
+        "collegeName": "Bangalore Institute of Technology",
         "courseName": "Electronics & Communications Engineering, B.E"
-      },
-      {
-        "dateFrom": "08-2011",
-        "dateTo": "07-2013",
-        "collegeName": "Seshadripuram Composite PU College  |  90.5%",
-        "courseName": "PCME, P.U.C"
-      },
-      {
-        "dateFrom": "08-2011",
-        "dateTo": "07-2010",
-        "collegeName": "St.Joseph's Indian High School  |  92.96%",
-        "courseName": "S.S.L.C"
       }
     ],
     "hackathon": [
@@ -89,19 +77,18 @@
         "title": "JavaScript Proficiency Certification, Google Plural Sight."
       },
       {
-        "year": "06-2015",
-        "title": "Object Oriented Programming using C++, NIIT."
-
+        "year": "10-2017",
+        "title": "Front end Web Developer Nanodegree, Udacity. "
       },
       {
         "year": "06-2019",
-        "title": "MongoDB Basics, MongoDBUniversity Online."
+        "title": "MongoDB, MongoDBUniversity Online."
       }
     ],
     "personalInformation": [
       {
         "infoHeading": "Address",
-        "infoDescription": "#20/1, Srirampuram, 4th cross, Bangalore 560021"
+        "infoDescription": "Bangalore"
       },
       {
         "infoHeading": "Phone",
