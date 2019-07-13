@@ -1,37 +1,15 @@
 .skills-container {
-  // min-height: 900px;
-  // background-color: hsl(0, 0%, 95%);
+  min-height: 900px;
+  background-color: hsl(0, 0%, 95%);
   color: black;
-
-  background: radial-gradient(
-    ellipse at center,
-    #b0eaff 0%,
-    #c0efff 23%,
-    #81eeff 67%,
-    #dff7ff 100%
-  );
-
   .skills-diagram {
-    transition: width 2s !important;
-    width: 100%;
     margin-top: 20px;
     .circle-wrapper {
-      // transition: float 1s, transform 1s;
       position: relative;
       height: 400px;
       width: 400px;
       margin: 35px auto;
     }
-
-    .circle-wrapper--clicked {
-      animation-name: skillRotateAnimate !important;
-      animation-duration: 2s;
-    }
-    .circle-wrapper--unClicked {
-      animation-name: skillRotateAnimateBack;
-      animation-duration: 2s;
-    }
-
     .circle {
       position: absolute;
       padding: 0;
@@ -65,19 +43,8 @@
       position: absolute;
       z-index: 3;
       svg {
-        width: 3em;
-        height: 3em;
-      }
-      svg:hover {
-        transform: rotate(360deg);
-        transition: 1s transform;
-      }
-      svg:focus {
-        outline: -webkit-focus-ring-color auto 1px;
-      }
-      .icon-react {
-        width: 4em;
-        height: 4em;
+          width: 4em;
+          height: 4em;
       }
       a {
         display: flex;
@@ -90,9 +57,7 @@
         border-radius: 50%;
         background-color: white;
         padding: 1px;
-        box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-          0 8px 16px -8px rgba(0, 0, 0, 0.3),
-          0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+        box-shadow: 0 13px 27px -5px rgba(50,50,93,0.25), 0 8px 16px -8px rgba(0,0,0,0.3), 0 -6px 16px -6px rgba(0,0,0,0.025);
       }
       a.circle-1 {
         width: 4.5em;
@@ -100,11 +65,11 @@
       }
       a.circle-2 {
         width: 4.5em;
-        height: 4.5em;
+        height:  4.5em;
       }
       a.circle-3 {
-        width: 4.5em;
-        height: 4.5em;
+        width:  4.5em;
+        height:  4.5em;
       }
       a.circle-1:nth-of-type(1) {
         left: 154px;
@@ -162,82 +127,5 @@
         left: auto;
       }
     }
-  }
-  .skills-diagram-col-6 {
-    transition: width 2s !important;
-    width: 50% !important;
-  }
-  .skills-details-col-6 {
-    transition: all 2s !important;
-    width: 50% !important;
-    top: 700px !important;
-    right: 0px !important;
-    margin: 15px !important;
-    .skills-details__division {
-      display: inline !important;
-      padding-left: 20% !important;
-      opacity: 0 !important;
-      transition: opacity 0.5s, padding-left 5s !important;
-      
-    }
-    span {
-      transition: all 2s !important;
-      width: 50%;
-      background: none !important;
-    }
-    .skills-bar {
-      transition: all 5s !important;
-      opacity: 1;
-      display: inline !important;
-    }
-  }
-  .skills-bar-col-6 {
-    width: 70%;
-    margin-top: 105px;
-    left: 50% !important;
-    transition: all 0.2s  ease-in-out !important;
-    opacity: 1 !important;
-    > div {
-      transition: all 0.2s !important;
-    }
-  }
-  .skills-details {
-    width: 100%;
-    font-size: 16px;
-    &__division {
-      display: inline;
-      opacity: 1;
-      padding-left: 0;
-      transition: opacity 2s, padding-left 2s;
-    }
-  }
-  .skills-bar {
-    position: absolute;
-    width: 70%;
-    left: 100%;
-    background-color: red;
-    transition: all 2s ease-in-out !important;
-    opacity: 0;
-    > div {
-      position: absolute;
-      transition: all 5s !important;
-    }
-  }
-}
-
-@keyframes skillRotateAnimate {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(-360deg);
-  }
-}
-@keyframes skillRotateAnimateBack {
-  from {
-    transform: rotate(-360deg);
-  }
-  to {
-    transform: rotate(0deg);
   }
 }

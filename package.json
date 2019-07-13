@@ -22,8 +22,7 @@
     "react-scripts": "3.0.1",
     "react-scrollspy": "^3.4.0",
     "react-slick": "0.24.0",
-    "react-swipeable-views": "0.13.3",
-    "react-tooltip": "^3.10.0"
+    "react-swipeable-views": "0.13.3"
   },
   "devDependencies": {
     "@babel/cli": "7.4.4",

@@ -98,7 +98,7 @@
   }
 }
 .header-commonStyles {
-  transition: 1s all;
+  transition: 1s background-color;
   .headerLinks {
     a {
       transition: 0.5s background-color;
@@ -106,10 +106,7 @@
   }
 }
 .transparentHeader-style {
-  // transition: 1s all;
-  transition:  background-color 0.5s, padding 1s, box-shadow 1s, !important;
   background-color: transparent !important;
-  padding: 20px 30px !important;
   .headerLinks {
     a {
       color: white !important;
@@ -117,10 +114,8 @@
   }
 }
 .scrolledHeader-style {
-  transition:  background-color 0.5s, padding 1s, box-shadow 1s, !important;
   background-color: white !important;
-  box-shadow: 1px 1px 16px;
-  padding: 10px 30px !important;
+  border-bottom: 1px solid lightgrey;
   .headerLinks {
     a {
       color: black !important;
