@@ -1,7 +1,8 @@
-
 .skills-container {
-  padding: 30px 0px;
+  // min-height: 900px;
+  // background-color: hsl(0, 0%, 95%);
   color: black;
+
   background: radial-gradient(
     ellipse at center,
     #b0eaff 0%,
@@ -9,16 +10,13 @@
     #81eeff 67%,
     #dff7ff 100%
   );
-  min-height: 100%;
-  background-size: cover;
-  background-position: 50% 0;
-  
+
   .skills-diagram {
     transition: width 2s !important;
     width: 100%;
     margin-top: 20px;
     .circle-wrapper {
-      transition: float 1s, transform 1s;
+      // transition: float 1s, transform 1s;
       position: relative;
       height: 400px;
       width: 400px;
@@ -26,13 +24,12 @@
     }
 
     .circle-wrapper--clicked {
-      animation-name: animate_skillRotateCW !important;
-      animation-duration: 1.7s;
+      animation-name: skillRotateAnimate !important;
+      animation-duration: 2s;
     }
     .circle-wrapper--unClicked {
-      animation-name: animate_skillRotateACW;
-      animation-duration: 1.5s;
-      animation-timing-function: ease-in-out;
+      animation-name: skillRotateAnimateBack;
+      animation-duration: 2s;
     }
 
     .circle {
@@ -83,7 +80,6 @@
         height: 4em;
       }
       a {
-        cursor: pointer;
         display: flex;
         position: absolute;
         align-items: center;
@@ -197,9 +193,9 @@
   }
   .skills-bar-col-6 {
     width: 70%;
-    margin-top: 50px;
+    margin-top: 105px;
     left: 50% !important;
-    transition: all 2s ease-out !important;
+    transition: all 0.2s  ease-in-out !important;
     opacity: 1 !important;
     > div {
       transition: all 0.2s !important;
@@ -220,16 +216,16 @@
     width: 70%;
     left: 100%;
     background-color: red;
-    transition: all 2s ease-in;
+    transition: all 2s ease-in-out !important;
     opacity: 0;
     > div {
       position: absolute;
-      transition: all 5s;
+      transition: all 5s !important;
     }
   }
 }
 
-@keyframes animate_skillRotateCW {
+@keyframes skillRotateAnimate {
   from {
     transform: rotate(0deg);
   }
@@ -237,7 +233,7 @@
     transform: rotate(-360deg);
   }
 }
-@keyframes animate_skillRotateACW {
+@keyframes skillRotateAnimateBack {
   from {
     transform: rotate(-360deg);
   }

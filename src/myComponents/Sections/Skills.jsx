@@ -24,7 +24,6 @@ import { ReactComponent as IconCSS } from "assets/icons/IconCSS.svg";
 import { ReactComponent as IconMongoDB } from "assets/icons/IconMongoDB.svg";
 import { ReactComponent as IconGraphQL } from "assets/icons/IconGraphQL.svg";
 import ReactTooltip from "react-tooltip";
-import resumeImage from "assets/img/profile-bg.jpg";
 
 class Skills extends React.Component {
   constructor(props) {
@@ -60,15 +59,15 @@ class Skills extends React.Component {
     return (
       <div
         id="skills-section"
-        className={" "}
+        className={classes.section + " skills-container"}
       >
-        <div className="div-offset"/>
-        <div className="row skills-container">
+        <div className="row">
 
           <div className="col-12">
             <h2>Skills</h2>
           </div>
           <div className="skills-diagram" ref="skills-diagram-ref">
+            <button onClick={this.handleSkillDetails}>click</button>
 
             <div className="circle-wrapper" ref="circle-wrapper-ref">
               <div className="circle circle-1"></div>
@@ -76,53 +75,53 @@ class Skills extends React.Component {
               <div className="circle circle-3"></div>
               <div className="icons">
                 <span>
-                  <a onClick={this.handleSkillDetails} data-tip="HTML5" className="circle-1">
+                  <a href="" data-tip="HTML5" className="circle-1">
                     <IconHTML />
                   </a>
                   <ReactTooltip place="top" type="dark" effect="solid" />
 
-                  <a onClick={this.handleSkillDetails} data-tip="CSS3" className="circle-1">
+                  <a href="" data-tip="CSS3" className="circle-1">
                     <IconCSS />
                   </a>
                   <ReactTooltip place="top" type="dark" effect="solid" />
                 </span>
                 <span>
-                  <a onClick={this.handleSkillDetails} data-tip="MongoDB" className="circle-2">
+                  <a href="" data-tip="MongoDB" className="circle-2">
                     <IconMongoDB />
                   </a>
                   <ReactTooltip place="top" type="dark" effect="solid" />
 
-                  <a onClick={this.handleSkillDetails} data-tip="MySQL" className="circle-2">
+                  <a href="" data-tip="MySQL" className="circle-2">
                     <IconMySQL />
                   </a>
                   <ReactTooltip place="top" type="dark" effect="solid" />
 
-                  <a onClick={this.handleSkillDetails} data-tip="NodeJS" className="circle-2">
+                  <a href="" data-tip="NodeJS" className="circle-2">
                     <IconNodeJS />
                   </a>
                   <ReactTooltip place="top" type="dark" effect="solid" />
                 </span>
 
                 <span>
-                  <a onClick={this.handleSkillDetails} data-tip="Apollo GraphQL" className="circle-3">
+                  <a href="" data-tip="Apollo GraphQL" className="circle-3">
                     <IconGraphQL />
                   </a>
                   <ReactTooltip place="top" type="dark" effect="solid" />
 
-                  <a onClick={this.handleSkillDetails} data-tip="Photoshop" className="circle-3">
+                  <a href="" data-tip="Photoshop" className="circle-3">
                     <IconPhotoshop />
                   </a>
                   <ReactTooltip place="top" type="dark" effect="solid" />
 
-                  <a onClick={this.handleSkillDetails} data-tip="Bootstrap 4" className="circle-3">
+                  <a href="" data-tip="Bootstrap 4" className="circle-3">
                     <IconBoostrap />
                   </a>
                   <ReactTooltip place="top" type="dark" effect="solid" />
 
-                  <a onClick={this.handleSkillDetails} data-tip="ReactJS / Redux" className="circle-3">
+                  <a href="" data-tip="ReactJS / Redux" className="circle-3">
                     <IconReact className="icon-react" />
                   </a>
-                  <a onClick={this.handleSkillDetails} data-tip="Angular 5" className="circle-3">
+                  <a href="" data-tip="Angular 5" className="circle-3">
                     <IconAngular />
                   </a>
                   <ReactTooltip place="top" type="dark" effect="solid" />

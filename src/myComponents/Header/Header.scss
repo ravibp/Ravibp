@@ -47,7 +47,7 @@
       border-radius: 3px;
       a {
         padding: 15px;
-        font-size: 17px;
+        font-size: 20px;
       }
       a:hover {
         cursor: pointer;
@@ -63,7 +63,6 @@
         width: fit-content;
         transition: transform 1s;
         @extend %flip-styling;
-
       }
       li:hover {
         transform: rotate3d(2, 2, 0, 360deg);
@@ -72,9 +71,6 @@
     }
 
     &__rightLinks{
-      a {
-        font-size: 15px !important;
-      }
       a:hover {
         text-decoration: initial;
         color: inherit;
@@ -85,19 +81,19 @@
   }
  
   ul {
+    position: fixed;
     display: inline-flex;
-    margin: 0px !important;
   }
   .is-current {
     font-weight: bold;
-    background-color: #afd3ff40; // make consistent color as global variable
+    background-color: gray;
     transition: 0.5s background-color;
   }
 }
 .header-initialStyles {
   .headerLinks {
     a {
-      color: #ffffffb3 !important; // make consistent color as global variable
+      color: white !important;
     }
   }
 }
