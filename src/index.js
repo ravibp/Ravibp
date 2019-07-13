@@ -12,11 +12,11 @@ ReactDOM.render(
     <Switch>
       <Route
         exact path="/"
-        component={ResumeBuild}
+        component={LandingPage}
       />
       <Route
         path="/resume"
-        component={LandingPage}
+        component={ResumeBuild}
       />
     </Switch>
   </BrowserRouter>,
