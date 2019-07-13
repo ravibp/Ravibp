@@ -40,7 +40,7 @@ class LandingPage extends React.Component {
     ]
 
     return (
-      <div id="landingPage-section" className="landingPage-container">
+      <div className="landingPage-container">
         <Header
           color="transparent"
           routes={dashboardRoutes}
@@ -86,7 +86,6 @@ class LandingPage extends React.Component {
 
         <div className={classNames(classes.main, classes.mainRaised)}>
           <div className={classes.container}>
-            {/* <AboutMe id="aboutMe-section"/> */}
             <AboutMe />
             <Resume />
             <Projects />
