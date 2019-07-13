@@ -19,81 +19,73 @@ import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
 import Button from "components/CustomButtons/Button.jsx";
 
 import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
-import Scrollspy from "react-scrollspy";
 
-// let headerLinkBS = (
-//   <nav id="mainNavBar" class="navbar navbar-inverse navbar-fixed-top">
-//     <div class="container">
-//       <div class="navbar-header">
-//         <button
-//           type="button"
-//           class="navbar-toggle"
-//           data-toggle="collapse"
-//           data-target=".navbar-collapse"
-//         >
-//           <span class="icon-bar"></span>
-//           <span class="icon-bar"></span>
-//           <span class="icon-bar"></span>
-//         </button>
-//       </div>
-//       <div class="navbar-collapse collapse">
-//         <ul class="nav navbar-nav">
-//           <li class="active">
-//             <a href="#aboutMe-section">Desert</a>
-//           </li>
-//           <li>
-//             <a href="#divLighthouse">Lighthouse</a>
-//           </li>
-//           <li>
-//             <a href="#divTulips">Tulips</a>
-//           </li>
-//           <li class="dropdown">
-//             <a href="#" data-toggle="dropdown" class="dropdown-toggle">
-//               Animals <span class="caret"></span>
-//             </a>
-//             <ul class="dropdown-menu">
-//               <li>
-//                 <a href="#divJellyfish">Jellyfish</a>
-//               </li>
-//               <li>
-//                 <a href="#divPenguins">Penguins</a>
-//               </li>
-//             </ul>
-//           </li>
-//         </ul>
-//       </div>
-//     </div>
-//   </nav>
-// );
 function HeaderLinks({ ...props }) {
   const { classes } = props;
   return (
-    <div className="headerLinks">
-      <div className="row">
-        <div className="col-6 headerLinks__profile-name" >
-          <li>
-            <a href="#landingPage-section" >Ravi BP</a>
-          </li>
-        </div>
-        <div className="col-6 headerLinks__rightLinks">
-          <Scrollspy
-            items={["aboutMe-section", "skills-section", "projects-section"]}
-            currentClassName="is-current"
-            offset={ -70 }
-          >
-            <li>
-              <a href="#aboutMe-section">About</a>
-            </li>
-            <li>
-              <a href="#skills-section">Skills</a>
-            </li>
-            <li>
-              <a href="#projects-section">Projects</a>
-            </li>
-          </Scrollspy>
-        </div>
-      </div>
-    </div>
+    <List className={classes.list}>
+      <ListItem className={classes.listItem}>
+        {/* <CustomDropdown
+          noLiPadding
+          buttonText="Components"
+          buttonProps={{
+            className: classes.navLink,
+            color: "transparent"
+          }}
+          buttonIcon={Apps}
+          dropdownList={[
+            <Link to="/" className={classes.dropdownLink}>
+              All components
+            </Link>,
+            <a
+              href="https://creativetimofficial.github.io/material-kit-react/#/documentation?ref=mkr-navbar"
+              target="_blank"
+              className={classes.dropdownLink}
+            >
+              Documentation
+            </a>
+          ]}
+        /> */}
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="#aboutMe-section"
+          target="_self"
+          color="transparent"
+          className={classes.navLink}
+        >
+          About Me
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="#resume-section"
+          target="_self"
+          color="transparent"
+          className={classes.navLink}
+        >
+          Resume
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="#projects-section"
+          color="transparent"
+          className={classes.navLink}
+        >
+          Projects
+        </Button>
+      </ListItem>
+      <ListItem className={classes.listItem}>
+        <Button
+          href="#projects-section"
+          color="transparent"
+          className={classes.navLink}
+        >
+          Contact
+        </Button>
+      </ListItem>
+    </List>
   );
 }
 
