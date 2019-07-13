@@ -1,8 +1,7 @@
-.skills-container {
-  // min-height: 900px;
-  // background-color: hsl(0, 0%, 95%);
-  color: black;
 
+.skills-container {
+  padding: 30px 0px;
+  color: black;
   background: radial-gradient(
     ellipse at center,
     #b0eaff 0%,
@@ -10,13 +9,16 @@
     #81eeff 67%,
     #dff7ff 100%
   );
-
+  min-height: 100%;
+  background-size: cover;
+  background-position: 50% 0;
+  
   .skills-diagram {
     transition: width 2s !important;
     width: 100%;
     margin-top: 20px;
     .circle-wrapper {
-      // transition: float 1s, transform 1s;
+      transition: float 1s, transform 1s;
       position: relative;
       height: 400px;
       width: 400px;
@@ -24,12 +26,13 @@
     }
 
     .circle-wrapper--clicked {
-      animation-name: skillRotateAnimate !important;
-      animation-duration: 2s;
+      animation-name: animate_skillRotateCW !important;
+      animation-duration: 1.7s;
     }
     .circle-wrapper--unClicked {
-      animation-name: skillRotateAnimateBack;
-      animation-duration: 2s;
+      animation-name: animate_skillRotateACW;
+      animation-duration: 1.5s;
+      animation-timing-function: ease-in-out;
     }
 
     .circle {
@@ -80,6 +83,7 @@
         height: 4em;
       }
       a {
+        cursor: pointer;
         display: flex;
         position: absolute;
         align-items: center;
@@ -193,9 +197,9 @@
   }
   .skills-bar-col-6 {
     width: 70%;
-    margin-top: 105px;
+    margin-top: 50px;
     left: 50% !important;
-    transition: all 0.2s  ease-in-out !important;
+    transition: all 2s ease-out !important;
     opacity: 1 !important;
     > div {
       transition: all 0.2s !important;
@@ -216,16 +220,16 @@
     width: 70%;
     left: 100%;
     background-color: red;
-    transition: all 2s ease-in-out !important;
+    transition: all 2s ease-in;
     opacity: 0;
     > div {
       position: absolute;
-      transition: all 5s !important;
+      transition: all 5s;
     }
   }
 }
 
-@keyframes skillRotateAnimate {
+@keyframes animate_skillRotateCW {
   from {
     transform: rotate(0deg);
   }
@@ -233,7 +237,7 @@
     transform: rotate(-360deg);
   }
 }
-@keyframes skillRotateAnimateBack {
+@keyframes animate_skillRotateACW {
   from {
     transform: rotate(-360deg);
   }

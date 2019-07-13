@@ -1,9 +1,13 @@
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+// nodejs library to set properties for components
+import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-import parallaxStyle from "assets/jss/parallaxStyle.jsx";
+
+// core components
+import parallaxStyle from "assets/jss/material-kit-react/components/parallaxStyle.jsx";
 
 class Parallax extends React.Component {
   constructor(props) {
@@ -13,32 +17,16 @@ class Parallax extends React.Component {
       transform: "translate3d(0," + windowScrollTop + "px,0)"
     };
   }
-  showRenderedPage() {
-    const spinnerComponent = document.querySelector(".loader");
-    const appComponent = document.querySelector("#root");
-    appComponent.style.opacity = "1";
-    appComponent.style.transition = "opacity 1s";
-    spinnerComponent.style.opacity = "0";
-    spinnerComponent.style.transition = "opacity 1s";
-  };
   componentDidMount() {
     var windowScrollTop = window.pageYOffset / 3;
     this.setState({
       transform: "translate3d(0," + windowScrollTop + "px,0)"
     });
     window.addEventListener("scroll", this.resetTransform);
-
-    var videoElement = document.getElementById("landingPage-bgVideo");
-    videoElement.oncanplay = function() {
-      const parallax = new Parallax()
-      parallax.showRenderedPage();
-    };
   }
-
   componentWillUnmount() {
     window.removeEventListener("scroll", this.resetTransform);
   }
-
   resetTransform = () => {
     var windowScrollTop = window.pageYOffset / 3;
     this.setState({
@@ -61,29 +49,31 @@ class Parallax extends React.Component {
       [classes.small]: small,
       [className]: className !== undefined
     });
-    {
-      return (
-        <div
-          className={parallaxClasses + " custom"}
-          style={{
-            ...style,
-            ...this.state
-          }}
-        >
-          <video
-            className="video-effect"
-            autoPlay
-            muted
-            loop
-            id="landingPage-bgVideo"
-          >
-            <source src={backgroundVideo} type="video/mp4" />;
-          </video>
-          {children}
-        </div>
-      );
-    }
+    return (
+      <div
+        className={parallaxClasses}
+        style={{
+          ...style,
+          ...this.state
+        }}
+      >
+        <video className="video-effect" autoPlay muted loop id="myVideo">
+          <source src={backgroundVideo} type="video/mp4" />
+        </video>
+        {children}
+      </div>
+    );
   }
 }
+
+Parallax.propTypes = {
+  classes: PropTypes.object.isRequired,
+  className: PropTypes.string,
+  filter: PropTypes.bool,
+  children: PropTypes.node,
+  style: PropTypes.string,
+  image: PropTypes.string,
+  small: PropTypes.bool
+};
 
 export default withStyles(parallaxStyle)(Parallax);
