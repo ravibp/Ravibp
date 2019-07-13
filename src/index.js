@@ -1,24 +1,23 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import { HashRouter, Route, Switch, Link } from 'react-router-dom';
+import { createBrowserHistory } from "history";
+import { Router, Route, Switch } from "react-router-dom";
+
 import "assets/scss/material-kit-react.scss?v=1.7.0";
 
-// route pages
+// pages for this product
+import Components from "views/Components/Components.jsx";
 import LandingPage from "myComponents/LandingPage.jsx";
 import ResumeBuild from "myComponents/ResumeBuild.jsx";
 
+var hist = createBrowserHistory();
+
 ReactDOM.render(
-  <HashRouter basename='/'>
+  <Router history={hist}>
     <Switch>
-      <Route
-        exact path="/"
-        component={LandingPage}
-      />
-      <Route
-        path="/resume"
-        component={ResumeBuild}
-      />
+      <Route exact={true} path="/" component={LandingPage} />
+      <Route path="/resume" component={ResumeBuild} />
     </Switch>
-  </HashRouter>,
+  </Router>,
   document.getElementById("root")
 );

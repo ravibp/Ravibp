@@ -8,14 +8,7 @@ import sectionStyle from "assets/jss/material-kit-react/views/landingPageSection
 import "./ResumeBuild.scss";
 import * as ResumeData from "./ResumeBuildData.json";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ReactComponent as IconExperience } from "assets/img/resume/IconExperience.svg";
-import { ReactComponent as IconIdea } from "assets/img/resume/IconIdea.svg";
-import { ReactComponent as IconGraduation } from "assets/img/resume/IconGraduation.svg";
-import { ReactComponent as IconSkills } from "assets/img/resume/IconSkills.svg";
-import { ReactComponent as IconLanguage } from "assets/img/resume/IconLanguage.svg";
-import { ReactComponent as IconPersonalInfo } from "assets/img/resume/IconPersonalInfo.svg";
-import { ReactComponent as IconCertificate } from "assets/img/resume/IconCertificate.svg";
-
+import { ReactComponent as Logo } from "assets/img/resume/coding.svg";
 const resumeDataObj = ResumeData.default.data;
 class ResumeBuild extends React.Component {
   render() {
@@ -34,7 +27,7 @@ class ResumeBuild extends React.Component {
             <div className="left-sections">
               <div className="experience sectionsGlobal">
                 <div className="icon icon-experience">
-                  <IconExperience />
+                  <Logo />
                   <h3 className="sectionHeadingGlobal">Experience</h3>
                 </div>
                 {resumeDataObj.experience.projects.map(project => {
@@ -63,7 +56,7 @@ class ResumeBuild extends React.Component {
                         <ul className="experience__project__responsibilityList">
                           {project.projectResponsibilites.map(
                             responsibility => (
-                              <li className="descriptionGlobal">{responsibility}</li>
+                              <li>{responsibility}</li>
                             )
                           )}
                         </ul>
@@ -76,7 +69,7 @@ class ResumeBuild extends React.Component {
 
               <div className="education sectionsGlobal">
                 <div className="icon icon-experience">
-                  <IconGraduation />
+                  <Logo />
                   <h3 className="sectionHeadingGlobal">Education</h3>
                 </div>
                 {resumeDataObj.education.map(educationObj => {
@@ -102,17 +95,17 @@ class ResumeBuild extends React.Component {
 
               <div className="hackathon sectionsGlobal">
                 <div className="icon icon-experience">
-                  <IconIdea />
+                  <Logo />
                   <h3 className="sectionHeadingGlobal">Hackathon Experience</h3>
                 </div>
                 {resumeDataObj.hackathon.map(hakathonObj => {
                   let hackathonDivision = (
                     <div className="hackathon__division">
                       <div className="hackathon__project">
-                        <h5 className="hackathon__project__jobTitle mainHeadingGlobal">
+                        <h5 className="hackathon__project__jobTitle">
                           {hakathonObj.title}
                         </h5>
-                        <p className="hackathon__description descriptionGlobal">
+                        <p className="hackathon__description">
                           {hakathonObj.description}
                         </p>
                       </div>
@@ -124,7 +117,7 @@ class ResumeBuild extends React.Component {
 
               <div className="certificates sectionsGlobal">
                 <div className="icon icon-experience">
-                  <IconCertificate />
+                  <Logo />
                   <h3 className="sectionHeadingGlobal">Certificates</h3>
                 </div>
                 {resumeDataObj.certificates.map(cerfiticateObj => {
@@ -134,7 +127,7 @@ class ResumeBuild extends React.Component {
                         <p>{cerfiticateObj.year}</p>
                       </div>
                       <div className="certificates__project divisionDetailsGlobal">
-                        <p className="certificates__title descriptionGlobal">
+                        <p className="certificates__title divisionDetailsGlobal__descriptionGlobal">
                           {cerfiticateObj.title}
                         </p>
                       </div>
@@ -147,7 +140,7 @@ class ResumeBuild extends React.Component {
             <div className="right-sections">
               <div className="personalInfo sectionsGlobal">
                 <div className="icon icon-experience">
-                  <IconPersonalInfo />
+                  <Logo />
                   <h3 className="sectionHeadingGlobal">Personal Info</h3>
                 </div>
                 {resumeDataObj.personalInformation.map(personalInfo => {
@@ -167,7 +160,7 @@ class ResumeBuild extends React.Component {
 
               <div className="skills sectionsGlobal">
                 <div className="icon icon-experience">
-                  <IconSkills />
+                  <Logo />
                   <h3 className="sectionHeadingGlobal">Skills</h3>
                 </div>
                 {resumeDataObj.skills.map(skill => {
@@ -195,19 +188,17 @@ class ResumeBuild extends React.Component {
 
               <div className="languages sectionsGlobal">
                 <div className="icon icon-experience">
-                  <IconLanguage />
+                  <Logo />
                   <h3 className="sectionHeadingGlobal">Languages</h3>
                 </div>
-                <div className="languages__list">
                 {resumeDataObj.languages.map(language => {
                   var languagesDiv = (
                     <div>
-                      <p className="descriptionGlobal">{language}</p>
+                      <p className="languages descriptionGlobal">{language}</p>
                     </div>
                   );
                   return languagesDiv;
                 })}
-                </div>
               </div>
             </div>
           </div>
