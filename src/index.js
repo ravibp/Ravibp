@@ -8,7 +8,7 @@ import LandingPage from "myComponents/LandingPage.jsx";
 import ResumeBuild from "myComponents/ResumeBuild.jsx";
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter basename={process.env.PUBLIC_URL}>
     <Switch>
       <Route
         exact path="/"

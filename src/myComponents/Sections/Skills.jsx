@@ -25,16 +25,32 @@ import { ReactComponent as IconMongoDB } from "assets/icons/IconMongoDB.svg";
 import { ReactComponent as IconGraphQL } from "assets/icons/IconGraphQL.svg";
 import ReactTooltip from "react-tooltip";
 import resumeImage from "assets/img/profile-bg.jpg";
+import bk_1080_compressed from "assets/video/bk_1080_compressed.mp4";
+import bk_720_compressed from "assets/video/bk_720_compressed.mp4";
+import bk_480_compressed from "assets/video/bk_480_compressed.mp4";
+import {isMobile, isMobileOnly, isTablet} from 'react-device-detect';
 
 class Skills extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      globalFlag: false
+      globalFlag: false,
+      skillBGVideo: null
     }
     this.handleSkillDetails = this.handleSkillDetails.bind(this);
   }
-
+  componentWillMount() {
+    if(isMobile) {
+      this.setState({
+        skillBGVideo: bk_1080_compressed
+      })
+    }
+    else {
+      this.setState({
+        skillBGVideo: bk_1080_compressed
+      })
+    }
+  }
   handleSkillDetails() {
     this.setState({
       globalFlag : !this.state.globalFlag
@@ -62,11 +78,16 @@ class Skills extends React.Component {
         id="skills-section"
         className={" "}
       >
-        <div className="div-offset"/>
-        <div className="row skills-container">
+         <div className="skills-bgImg">
+            <video className="" autoPlay muted loop >
+              <source src={this.state.skillBGVideo} type="video/mp4" />
+            </video>
+         </div>
+         
+        <div className="row no-gutters skills-container">
 
           <div className="col-12">
-            <h2>Skills</h2>
+            <h1>Skills</h1>
           </div>
           <div className="skills-diagram" ref="skills-diagram-ref">
 

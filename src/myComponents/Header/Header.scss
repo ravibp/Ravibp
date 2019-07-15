@@ -35,7 +35,7 @@
 .header-container {
   position: fixed;
   z-index: 100;
-  padding: 15px 30px;
+  // padding: 15px 30px;
   li {list-style: none;}
   .headerLinks {
     ul {
@@ -90,7 +90,7 @@
   }
   .is-current {
     font-weight: bold;
-    background-color: #afd3ff40; // make consistent color as global variable
+    background-color: #ff5722;; // make consistent color as global variable
     transition: 0.5s background-color;
   }
 }
@@ -108,23 +108,43 @@
       transition: 0.5s background-color;
     }
   }
+  hr {
+    background-color: #0075ffc9;
+    height: 2px;
+    margin: 0px auto !important;
+    top: 11px;
+  }
 }
 .transparentHeader-style {
-  // transition: 1s all;
   transition:  background-color 0.5s, padding 1s, box-shadow 1s, !important;
   background-color: transparent !important;
-  padding: 20px 30px !important;
+  hr {
+    width: 0%;
+  }
+  .header-headerLinks {
+    transition: 0.3s all ease-in-out;
+    padding: 20px 30px !important;
+  }
   .headerLinks {
     a {
       color: white !important;
     }
   }
+
 }
 .scrolledHeader-style {
   transition:  background-color 0.5s, padding 1s, box-shadow 1s, !important;
-  background-color: white !important;
+  background-color: #ffffffeb !important;
   box-shadow: 1px 1px 16px;
-  padding: 10px 30px !important;
+  hr {
+    transition: 1s width ease-in-out;
+    width: 100% !important;
+
+  }
+  .header-headerLinks {
+    padding: 6px 30px !important;
+    transition: 0.5s all ease-in-out;
+  }
   .headerLinks {
     a {
       color: black !important;

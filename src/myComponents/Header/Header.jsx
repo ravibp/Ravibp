@@ -52,9 +52,10 @@ class Header extends React.Component {
         className="header-container row no-gutters w-100 header-commonStyles"
         ref="headerNavBar-ref"
       >
-        <div className="col-12">
+        <div className="col-12 header-headerLinks">
           <HeaderLinks />
         </div>
+        <hr className="c" />
       </div>
     );
   }

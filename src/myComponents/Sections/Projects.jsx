@@ -21,11 +21,11 @@ class Projects extends React.Component {
     const { classes } = this.props;
     return (
       <div id="projects-section">
-        <div className="div-offset"/>
         <div className="row projects-container">
+         
+          <h1 className="col-12">Projects</h1>
 
         </div>
-        <h1>Projects</h1>
       </div>
     );
   }
