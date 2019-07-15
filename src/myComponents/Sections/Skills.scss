@@ -1,18 +1,43 @@
 
+  .skills-bgImg {
+    position: absolute;
+    overflow: hidden;
+    height: 100vh;
+    max-height: 900px;
+    width: 100%;
+    margin-top: -1px;
+    video {
+      height: 127vh;
+      margin-top: -114px;
+    }
+  }
+  @media screen and (max-width:980px) {
+    .skills-bgImg {
+      video {
+      }
+    }
+  }
+  @media screen and (max-width:1024px) {
+    .skills-bgImg {
+      video {
+      margin-top: 0px !important;
+      height: 100vh !important;
+      }
+    }
+  }
+
 .skills-container {
-  padding: 30px 0px;
-  color: black;
-  background: radial-gradient(
-    ellipse at center,
-    #b0eaff 0%,
-    #c0efff 23%,
-    #81eeff 67%,
-    #dff7ff 100%
-  );
+  padding: 80px 0px 20px 0px;
+  background: red;
   min-height: 100%;
   background-size: cover;
   background-position: 50% 0;
-  
+
+    h1 {
+      font-size: 30px;
+      color: #ff5722!important;
+    }
+ 
   .skills-diagram {
     transition: width 2s !important;
     width: 100%;
@@ -38,7 +63,7 @@
     .circle {
       position: absolute;
       padding: 0;
-      background: transparent;
+      background: #cacaca0d;
       border: 1px solid rgba(100, 100, 100, 0.1);
       border-radius: 50%;
       z-index: 2;
@@ -92,7 +117,7 @@
         left: 50%;
         margin: -1.5em;
         border-radius: 50%;
-        background-color: white;
+        background-color: #ffffff2b;
         padding: 1px;
         box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
           0 8px 16px -8px rgba(0, 0, 0, 0.3),
@@ -189,23 +214,9 @@
       width: 50%;
       background: none !important;
     }
-    .skills-bar {
-      transition: all 5s !important;
-      opacity: 1;
-      display: inline !important;
-    }
-  }
-  .skills-bar-col-6 {
-    width: 70%;
-    margin-top: 50px;
-    left: 50% !important;
-    transition: all 2s ease-out !important;
-    opacity: 1 !important;
-    > div {
-      transition: all 0.2s !important;
-    }
   }
   .skills-details {
+    z-index: 100;
     width: 100%;
     font-size: 16px;
     &__division {
@@ -215,18 +226,33 @@
       transition: opacity 2s, padding-left 2s;
     }
   }
+  .skills-bar-col-6 {
+    transform: scale(1) !important;
+    width: 70%;
+    margin-top: 50px !important;
+    left: 50% !important;
+    transition: all 2s ease-in-out !important;
+    opacity: 1 !important;
+    > div {
+      transition: all 0.2s !important;
+    }
+  }
   .skills-bar {
+    margin-top: 250px;
+    transform: scale(0);
     position: absolute;
     width: 70%;
-    left: 100%;
+    // left: 100%;
+    left: 50%;
     background-color: red;
-    transition: all 2s ease-in;
+    transition: all 2s;
     opacity: 0;
     > div {
       position: absolute;
       transition: all 5s;
     }
   }
+
 }
 
 @keyframes animate_skillRotateCW {

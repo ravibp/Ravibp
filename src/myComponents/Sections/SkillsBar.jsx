@@ -32,70 +32,70 @@ const skillsJson = [
     skillRating: "90",
     skillId: "skill-html",
     skillTitleColor: "darkred",
-    skillBarColor: "#006d91",
+    skillBarColor: "#03A9F4",
   },
   {
     skillName: "CSS3",
     skillRating: "90",
     skillId: "skill-css",
     skillTitleColor: "darkblue",
-    skillBarColor: "#006d91"
+    skillBarColor: "#03A9F4"
   },
   {
     skillName: "JS",
     skillRating: "80",
     skillId: "skill-js",
     skillTitleColor: "darkgreen",
-    skillBarColor: "#006d91"
+    skillBarColor: "#03A9F4"
   },
   {
     skillName: "ReactJs/ Redux",
     skillRating: "80",
     skillId: "skill-react",
     skillTitleColor: "darkyellow",
-    skillBarColor: "#006d91"
+    skillBarColor: "#03A9F4"
   },
   {
     skillName: "Angular 4",
     skillRating: "60",
     skillId: "skill-angular",
     skillTitleColor: "blue",
-    skillBarColor: "#006d91"
+    skillBarColor: "#03A9F4"
   },
   {
     skillName: "Bootstrap 4",
     skillRating: "80",
     skillId: "skill-bootstrap",
     skillTitleColor: "darkred",
-    skillBarColor: "#006d91"
+    skillBarColor: "#03A9F4"
   },
   {
     skillName: "NodeJs",
     skillRating: "60",
     skillId: "skill-nodejs",
     skillTitleColor: "darkblue",
-    skillBarColor: "#006d91"
+    skillBarColor: "#03A9F4"
   },
   {
     skillName: "MySQL/ MongoDB",
     skillRating: "70",
     skillId: "skill-database",
     skillTitleColor: "darkyellow",
-    skillBarColor: "#006d91"
+    skillBarColor: "#03A9F4"
   },
   {
     skillName: "Apollo GraphQL",
     skillRating: "50",
     skillId: "skill-graphql",
     skillTitleColor: "darkgreen",
-    skillBarColor: "#006d91"
+    skillBarColor: "#03A9F4"
   },
   {
     skillName: "Photoshop CC",
     skillRating: "60",
     skillId: "skill-photoshop",
     skillTitleColor: "darkred",
-    skillBarColor: "#006d91"
+    skillBarColor: "#03A9F4"
   }
 ];
 class SkillsBar extends React.Component {
