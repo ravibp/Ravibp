@@ -35,15 +35,14 @@
 .header-container {
   position: fixed;
   z-index: 100;
-  // padding: 15px 30px;
   li {list-style: none;}
   .headerLinks {
     ul {
       width: 100%;
     }
     li {
+      width: 90px;
       padding: 10px 0px;
-      margin: 0px 15px;
       border-radius: 3px;
       a {
         padding: 15px;
@@ -94,18 +93,13 @@
     transition: 0.5s background-color;
   }
 }
-.header-initialStyles {
-  .headerLinks {
-    a {
-      color: #ffffffb3 !important; // make consistent color as global variable
-    }
-  }
-}
+
 .header-commonStyles {
   transition: 1s all;
   .headerLinks {
     a {
       transition: 0.5s background-color;
+      color: white !important;
     }
   }
   hr {
@@ -114,6 +108,10 @@
     margin: 0px auto !important;
     top: 11px;
   }
+  .header-headerLinks {
+    transition: 0.3s all ease-in-out;
+    padding: 20px 30px !important;
+  }
 }
 .transparentHeader-style {
   transition:  background-color 0.5s, padding 1s, box-shadow 1s, !important;
@@ -121,10 +119,7 @@
   hr {
     width: 0%;
   }
-  .header-headerLinks {
-    transition: 0.3s all ease-in-out;
-    padding: 20px 30px !important;
-  }
+
   .headerLinks {
     a {
       color: white !important;

@@ -27,22 +27,29 @@ import AboutMe from "myComponents/Sections/AboutMe.jsx";
 import Resume from "myComponents/Sections/Resume.jsx";
 import Projects from "myComponents/Sections/Projects.jsx";
 import Skills from "myComponents/Sections/Skills.jsx";
-import HeaderLinks, { navbarItems } from "myComponents/Header/HeaderLinks.jsx";
 import Footer from "myComponents/Footer/Footer.jsx";
 import "./LandingPage.scss";
-import { transition } from "assets/jss/material-kit-react";
 import backgroundVideo from "assets/video/backgroundVideo.mp4";
 import profilePic1 from "assets/img/profile-img-1.jpg";
-import profilePic2 from "assets/img/profile-img-2.jpg";
-// import profilePic3 from "assets/img/profile-img-3.jpg";
 import profilePic4 from "assets/img/profile-img-4.jpg";
-const dashboardRoutes = [];
+import {isMobile, isMobileOnly, isTablet} from 'react-device-detect';
 
 class LandingPage extends React.Component {
   componentDidMount() {
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 500);
+  }
+  handleDeviceDetect = () => {
+    let landingClassVariable = "landingPage-container"
+    if(isMobileOnly) {
+       landingClassVariable = "landingPage-container landingPage-container--mobile"
+
+    }
+    else {
+       landingClassVariable = "landingPage-container landingPage-container--desktop"
+    }
+    return landingClassVariable;
   }
   render() {
     const { classes, ...rest } = this.props;
@@ -51,20 +58,8 @@ class LandingPage extends React.Component {
       profilePic1
     ];
     return (
-      <div id="landingPage-section" className="landingPage-container">
-        <Header
-          color="transparent"
-          routes={dashboardRoutes}
-          profileName="Ravi BP"
-          rightLinks={<HeaderLinks />}
-          fixed
-          changeColorOnScroll={{
-            height: 400,
-            color: "blue",
-            transition: "1s backgroundColor"
-          }}
-          {...rest}
-        />
+      <div id="landingPage-section" className={this.handleDeviceDetect()}>
+        <Header />
         <div className="profile">
           <Parallax filter backgroundVideo={backgroundVideo}>
             <div className={classes.container}>
@@ -88,8 +83,11 @@ class LandingPage extends React.Component {
                 </div>
                 <div className="col-12 col-md-12">
                   <div className="profile__title">
-                    <h1 className={"col-12"}>FULL STACK</h1>
-                    <h1 className={"col-12"}>WEB DEVELOPER</h1>
+                    {isMobileOnly &&
+                      <h1 className={"col-12"}>Ravi BP</h1>
+                    }
+                    <h1 className={"col-12"}>MERN STACK</h1>
+                    <h1 className={"col-12"}>DEVELOPER</h1>
                   </div>
                   <p className="profile__description">
                     Creative web developer dedicated to building fast and

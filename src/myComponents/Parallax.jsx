@@ -57,7 +57,7 @@ class Parallax extends React.Component {
           ...this.state
         }}
       >
-        <video className="video-effect" autoPlay muted loop id="myVideo">
+        <video className="video-effect" autoPlay muted loop id="landingPage-bgVideo">
           <source src={backgroundVideo} type="video/mp4" />
         </video>
         {children}

@@ -198,12 +198,7 @@
   }
   .skills-details-col-6 {
     transition: all 2s !important;
-    width: 50% !important;
-    top: 700px !important;
-    right: 0px !important;
-    margin: 15px !important;
     .skills-details__division {
-      display: inline !important;
       padding-left: 20% !important;
       opacity: 0 !important;
       transition: opacity 0.5s, padding-left 5s !important;
@@ -216,6 +211,7 @@
     }
   }
   .skills-details {
+    margin: 15px !important;
     z-index: 100;
     width: 100%;
     font-size: 16px;

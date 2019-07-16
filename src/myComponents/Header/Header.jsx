@@ -15,7 +15,6 @@ import Drawer from "@material-ui/core/Drawer";
 // core components
 import headerStyle from "assets/jss/material-kit-react/components/headerStyle.jsx";
 import "./Header.scss";
-import { red } from "@material-ui/core/colors";
 import HeaderLinks from "./HeaderLinks.jsx";
 
 class Header extends React.Component {
@@ -39,7 +38,6 @@ class Header extends React.Component {
     }
   };
   componentDidMount() {
-    this.refs["headerNavBar-ref"].classList.add("header-initialStyles")
     window.addEventListener("scroll", this.headerColorChange);
   }
   componentWillUnmount() {
@@ -63,46 +61,6 @@ class Header extends React.Component {
 
 Header.defaultProp = {
   color: "white"
-};
-
-Header.propTypes = {
-  // classes: PropTypes.object.isRequired,
-  // color: PropTypes.oneOf([
-  //   "primary",
-  //   "info",
-  //   "success",
-  //   "warning",
-  //   "danger",
-  //   "transparent",
-  //   "white",
-  //   "rose",
-  //   "dark"
-  // ]),
-  // rightLinks: PropTypes.node,
-  // leftLinks: PropTypes.node,
-  // profileName: PropTypes.string,
-  // fixed: PropTypes.bool,
-  // absolute: PropTypes.bool
-  // // this will cause the sidebar to change the color from
-  // // this.props.color (see above) to changeColorOnScroll.color
-  // // when the window.pageYOffset is heigher or equal to
-  // // changeColorOnScroll.height and then when it is smaller than
-  // // changeColorOnScroll.height change it back to
-  // // this.props.color (see above)
-  // // changeColorOnScroll: PropTypes.shape({
-  // //   height: PropTypes.number.isRequired,
-  // //   color: PropTypes.oneOf([
-  // //     "primary",
-  // //     "info",
-  // //     "success",
-  // //     "warning",
-  // //     "danger",
-  // //     "transparent",
-  // //     "white",
-  // //     "rose",
-  // //     "dark"
-  // //   ]).isRequired
-  // // })
 };
 
 export default withStyles(headerStyle)(Header);

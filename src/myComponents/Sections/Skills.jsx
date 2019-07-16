@@ -27,7 +27,6 @@ import ReactTooltip from "react-tooltip";
 import resumeImage from "assets/img/profile-bg.jpg";
 import bk_1080_compressed from "assets/video/bk_1080_compressed.mp4";
 import bk_720_compressed from "assets/video/bk_720_compressed.mp4";
-import bk_480_compressed from "assets/video/bk_480_compressed.mp4";
 import {isMobile, isMobileOnly, isTablet} from 'react-device-detect';
 
 class Skills extends React.Component {
