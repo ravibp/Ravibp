@@ -42,38 +42,26 @@ class AboutMe extends React.Component {
              
             </div>
             <div className="col-9 col-lg-8 row no-gutters aboutMe__details">
-              <p className="col-12">Hi! I'm Ravi,<span> a web designer / developer (MEAN/ MERN Stack) </span> focused on crafting great web experiences. </p>
-              {/* <p className="col-12">
-                I like to think out of the box!
-              </p> */}
-              <p>
+              <p className="col-12">Hi! I'm Ravi,<span> a web designer / developer </span> focused on crafting great web experiences. </p>
+              <p className="col-12">
                  I've been in the field for 2+ years and I love what I do.
                  I take complex problems and turn them into simple and beautiful interface designs.
                  I strive to write efficient and elegant code, whether be it HTML, CSS or JavaScript. I want to make things that make a difference!
               </p>
-              <p>A picture is worth a thousand words...</p>
-              <p>
+              <p className="col-12">A picture is worth a thousand words...</p>
+              <p className="col-12">
                  As the picture says creating digital art is one of my favorite hobbies.
                  You can find more of my digital art in the hobbies section.
               </p>
-              <div className="col-12">
+              <div className="aboutMe__cv">
                 <a href="/resume" target="_blank">Get My CV</a>
               </div>
-              {/* <div className="col-12 row no-gutters aboutMe__education">
-                <div className="col-2"> <IconEducation /></div>
-                <div className="col-10">
-                  <h6>Bangalore Institute of Technology</h6> 
-                  <p>B.E | Electronics & Communications Engineering | 2013 - 2017</p>
-                </div>
+              <div className="col-12 aboutMe__socialMediaLinks">
+                <i class="fab fa-facebook"></i>
+                <i class="fab fa-twitter"></i>
+                <i class="fab fa-linkedin"></i>
+                <i class="fab fa-github"></i>
               </div>
-              <div className="col-12 row no-gutters aboutMe__work">
-                <div className="col-2"> <IconWork /></div>
-                <div className="col-10">
-                  <h6>Web Application Developer</h6> 
-                  <p>Infosys Ltd | Systems Engineer | 2017 - present</p>
-                  
-                </div>
-              </div> */}
             </div>
           </div>
 
