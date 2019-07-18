@@ -17,8 +17,9 @@ import sectionStyle from "assets/jss/material-kit-react/views/landingPageSection
 import "./AboutMe.scss"
 import profilePic3 from "assets/img/profile-img-3.png";
 import bgImg from "assets/img/bk-img-triangle.jpg";
+import bgImgMobile from "assets/img/bk-img-triangle-mobile.jpg";
 import aboutMe_image from "assets/img/aboutMe_image.jpg";
-
+import {isMobile, isMobileOnly, isTablet} from 'react-device-detect';
 // style={{backgroundImage:`url("${profilePic2}")`}}
 import { ReactComponent as IconEducation } from "assets/icons/IconEducation.svg";
 import { ReactComponent as IconWork } from "assets/icons/IconWork.svg";
@@ -28,20 +29,20 @@ class AboutMe extends React.Component {
     return (
       <div id="aboutMe-section">
         <div className="aboutMe-bgImg">
-
-            <img src={bgImg} alt=""/>
+            {!isMobileOnly && <img src={bgImg} alt=""/>}
+            {isMobileOnly && <img src={bgImgMobile} alt=""/>}
         </div>
         <div className="row no-gutters aboutMe-container" >
      
-          <div className="col-12 aboutMe__content">
+          <div className="col-12 row no-gutters aboutMe__content">
             <h1 className="col-12">About Me</h1>
-            <div className="col-3 col-lg-4 ">
+            <div className="col-12 col-md-3 col-lg-4 ">
               <div className="aboutMe__profImg">
                 <img src={aboutMe_image} alt=""/>
               </div>
              
             </div>
-            <div className="col-9 col-lg-8 row no-gutters aboutMe__details">
+            <div className="col-12 col-md-9 col-lg-8 row no-gutters aboutMe__details">
               <p className="col-12">Hi! I'm Ravi,<span> a web designer / developer </span> focused on crafting great web experiences. </p>
               <p className="col-12">
                  I've been in the field for 2+ years and I love what I do.
@@ -53,7 +54,7 @@ class AboutMe extends React.Component {
                  As the picture says creating digital art is one of my favorite hobbies.
                  You can find more of my digital art in the hobbies section.
               </p>
-              <div className="aboutMe__cv">
+              <div className="col-12 aboutMe__cv">
                 <a href="/resume" target="_blank">Get My CV</a>
               </div>
               <div className="col-12 aboutMe__socialMediaLinks">

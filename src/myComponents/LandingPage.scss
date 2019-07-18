@@ -92,7 +92,7 @@ html {
   .profile {
     &__title {
       h1 {
-        font-size: 53px;
+        font-size: 35px;
       }
     }
     &__description {
@@ -110,12 +110,12 @@ html {
     min-height: 685px;
   }
   #aboutMe-section {
-    height: 100vh;
+    height: 755px;
     max-height: 900px;
     overflow: hidden;
   }
   #skills-section {
-    height: 100vh;
+    height: 755px;
     max-height: 900px;
     overflow: hidden;
   }
@@ -137,7 +137,10 @@ html {
       }
     }
   }
-
+  #aboutMe-section {
+    height: fit-content;
+    overflow: hidden;
+  }
 }
 @keyframes animate-title {
   from {

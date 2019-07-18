@@ -25,6 +25,7 @@ import { ReactComponent as IconMongoDB } from "assets/icons/IconMongoDB.svg";
 import { ReactComponent as IconGraphQL } from "assets/icons/IconGraphQL.svg";
 import ReactTooltip from "react-tooltip";
 import { width } from "@material-ui/system";
+import {isMobile, isMobileOnly, isTablet} from 'react-device-detect';
 
 const skillsJson = [
   {
@@ -98,6 +99,12 @@ const skillsJson = [
     skillBarColor: "#03A9F4"
   }
 ];
+let yourArray = skillsJson;
+let halfWayThough = Math.floor(yourArray.length / 2)
+
+let skillsJson1 = yourArray.slice(0, halfWayThough);
+let skillsJson2 = yourArray.slice(halfWayThough, yourArray.length);
+
 class SkillsBar extends React.Component {
   constructor(props) {
     super(props);
@@ -112,6 +119,7 @@ class SkillsBar extends React.Component {
         document.getElementById(skill.skillId + "-bar").style.background = skill.skillBarColor;
         document.getElementById(skill.skillId + "-bar").style.transition = "width 2.5s";
     });
+
   }
   componentDidUpdate() {
     if (this.props.globalFlag) {
@@ -119,6 +127,7 @@ class SkillsBar extends React.Component {
         document.getElementById(skill.skillId + "-bar").style.transitionDelay = "2s";
         document.getElementById(skill.skillId + "-bar").style.width = `${skill.skillRating}%`;
       });
+
     } else {
       skillsJson.map(skill => {
         document.getElementById(skill.skillId + "-bar").style.width = "0";
@@ -157,11 +166,12 @@ class SkillsBar extends React.Component {
   }
   render() {
     const { classes } = this.props;
+    console.log("is mobile", isMobileOnly, isMobile, isTablet)
 
     return (
-      <div class="skillBar-container">
-        {skillsJson.map(skill => (
-          <div className="row no-gutters">
+      <div class="skillBar-container row">
+          {isMobile && skillsJson.map(skill => (
+          <div className="row col-12 no-gutters">
             <div class="skillBar-container__title col-3">{skill.skillName}</div>
             <div class="skillBar-container__progressBar col-7">
               <div id={`${skill.skillId}-bar`} class="skillBar-container__progress col-12"></div>
@@ -172,6 +182,42 @@ class SkillsBar extends React.Component {
             </div>
           </div>
         ))}
+            {!isMobile && skillsJson.map(skill => (
+          <div className="row col-4 no-gutters">
+            <div class="skillBar-container__title col-3">{skill.skillName}</div>
+            <div class="skillBar-container__progressBar col-7">
+              <div id={`${skill.skillId}-bar`} class="skillBar-container__progress col-12"></div>
+            </div>
+            <div className="skillBar-container__progressValue col-2">
+            {this.props.globalFlag && this.showNumber(skill.skillRating,2500 ,2000)}
+            {!this.props.globalFlag && this.showNumber(0, 0, 0)}
+            </div>
+          </div>
+        ))}
+        {/* {!isMobile && skillsJson1.map(skill => (
+          <div className="row col-6 no-gutters">
+            <div class="skillBar-container__title col-3">{skill.skillName}</div>
+            <div class="skillBar-container__progressBar col-7">
+              <div id={`${skill.skillId}-bar`} class="skillBar-container__progress col-12"></div>
+            </div>
+            <div className="skillBar-container__progressValue col-2">
+            {this.props.globalFlag && this.showNumber(skill.skillRating,2500 ,2000)}
+            {!this.props.globalFlag && this.showNumber(0, 0, 0)}
+            </div>
+          </div>
+        ))}
+         {!isMobile && skillsJson2.map(skill => (
+          <div className="row col-6 no-gutters">
+            <div class="skillBar-container__title col-3">{skill.skillName}</div>
+            <div class="skillBar-container__progressBar col-7">
+              <div id={`${skill.skillId}-bar`} class="skillBar-container__progress col-12"></div>
+            </div>
+            <div className="skillBar-container__progressValue col-2">
+            {this.props.globalFlag && this.showNumber(skill.skillRating,2500 ,2000)}
+            {!this.props.globalFlag && this.showNumber(0, 0, 0)}
+            </div>
+          </div>
+        ))} */}
       </div>
     );
   }
