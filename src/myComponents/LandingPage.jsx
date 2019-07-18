@@ -33,13 +33,16 @@ import backgroundVideo from "assets/video/backgroundVideo.mp4";
 import profilePic1 from "assets/img/profile-img-1.jpg";
 import profilePic4 from "assets/img/profile-img-4.jpg";
 import {isMobile, isMobileOnly, isTablet} from 'react-device-detect';
-
+window.onbeforeunload = function () {
+}
 class LandingPage extends React.Component {
   componentDidMount() {
-    setTimeout(() => {
-      window.scrollTo(0, 0);
-    }, 500);
+    window.scrollTo(0, 0);
+  // setTimeout(() => {
+    //   window.scrollTo(0, 0);
+    // }, 500);
   }
+
   handleDeviceDetect = () => {
     let landingClassVariable = "landingPage-container"
     if(isMobileOnly) {
@@ -106,7 +109,7 @@ class LandingPage extends React.Component {
             <Skills id="skills-div" />
             <Projects id="projects-div" />
             <TeamSection />
-            <WorkSection />
+            {/* <WorkSection /> */}
           </div>
         </div>
         <Footer />

@@ -68,7 +68,23 @@ class Skills extends React.Component {
         this.refs["skills-bar-ref"].classList.remove("skills-bar-col-6");
       }
     })
+  }
+  headerColorChange = () => {
+    const windowsScrollTop = window.pageYOffset;
+    console.log("windowsScrollTop", windowsScrollTop)
+    if (windowsScrollTop > 1200) {
+      setTimeout(() => {
+        this.handleSkillDetails()
+      }, 1000);
+      window.removeEventListener("scroll", this.headerColorChange);
+    } 
 
+  };
+  componentDidMount() {
+    window.addEventListener("scroll", this.headerColorChange);
+  }
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.headerColorChange);
   }
   render() {
     const { classes } = this.props;
@@ -83,7 +99,7 @@ class Skills extends React.Component {
             </video>
          </div>
          
-        <div className="row no-gutters skills-container">
+        <div className="skills-container">
 
           <div className="col-12">
             <h1>Skills</h1>

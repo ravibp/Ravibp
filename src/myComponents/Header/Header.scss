@@ -65,7 +65,7 @@
 
       }
       li:hover {
-        transform: rotate3d(2, 2, 0, 360deg);
+        transform: rotate3d(0, 2, 0, 360deg);
         transition: transform 1s !important;
       }
     }
@@ -77,6 +77,8 @@
       a:hover {
         text-decoration: initial;
         color: inherit;
+      }
+      li:hover {
         background: rgba(200, 200, 200, 0.2);
         transition: background-color 0.5s;
       }
@@ -89,7 +91,7 @@
   }
   .is-current {
     font-weight: bold;
-    background-color: #ff5722;; // make consistent color as global variable
+    background-color: #ff5722 !important; // make consistent color as global variable
     transition: 0.5s background-color;
   }
 }
@@ -103,7 +105,7 @@
     }
   }
   hr {
-    background-color: #0075ffc9;
+    background-color: red;
     height: 2px;
     margin: 0px auto !important;
     top: 11px;
@@ -134,7 +136,6 @@
   hr {
     transition: 1s width ease-in-out;
     width: 100% !important;
-
   }
   .header-headerLinks {
     padding: 6px 30px !important;
