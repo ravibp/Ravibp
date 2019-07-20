@@ -104,7 +104,7 @@ let halfWayThough = Math.floor(yourArray.length / 2)
 
 let skillsJson1 = yourArray.slice(0, halfWayThough);
 let skillsJson2 = yourArray.slice(halfWayThough, yourArray.length);
-
+let numberFlag = false;
 class SkillsBar extends React.Component {
   constructor(props) {
     super(props);
@@ -114,6 +114,7 @@ class SkillsBar extends React.Component {
   };
   formatValue = value => value.toFixed(0);
   componentDidMount() {
+    window.addEventListener("scroll", this.headerColorChange);
     skillsJson.map(skill => {
         document.getElementById(skill.skillId + "-bar").style.width = "0";
         document.getElementById(skill.skillId + "-bar").style.background = skill.skillBarColor;
@@ -121,18 +122,28 @@ class SkillsBar extends React.Component {
     });
 
   }
-  componentDidUpdate() {
-    if (this.props.globalFlag) {
-      skillsJson.map(skill => {
-        document.getElementById(skill.skillId + "-bar").style.transitionDelay = "2s";
-        document.getElementById(skill.skillId + "-bar").style.width = `${skill.skillRating}%`;
-      });
-
+  headerColorChange = () => {
+    const windowsScrollTop = window.pageYOffset;
+    console.log("windowsScrollTop", windowsScrollTop);
+    if (windowsScrollTop > 1200 && windowsScrollTop < 2000) {
+      setTimeout(() => {
+        numberFlag = true;
+        skillsJson.map(skill => {
+          document.getElementById(skill.skillId + "-bar").style.transitionDelay = "2s";
+          document.getElementById(skill.skillId + "-bar").style.width = `${skill.skillRating}%`;
+        });
+      }, 1000);
     } else {
-      skillsJson.map(skill => {
-        document.getElementById(skill.skillId + "-bar").style.width = "0";
-      });
+      setTimeout(() => {
+        numberFlag = false;
+        skillsJson.map(skill => {
+          document.getElementById(skill.skillId + "-bar").style.width = "0";
+        });
+      }, 1000);
     }
+  };
+  componentWillUnmount() {
+    window.removeEventListener("scroll", this.headerColorChange);
   }
   showNumber = (number,duration, delay) => {
     if(this.props.globalFlag) {
@@ -170,19 +181,19 @@ class SkillsBar extends React.Component {
 
     return (
       <div class="skillBar-container row">
-          {isMobile && skillsJson.map(skill => (
+          {skillsJson.map(skill => (
           <div className="row col-12 no-gutters">
             <div class="skillBar-container__title col-3">{skill.skillName}</div>
             <div class="skillBar-container__progressBar col-7">
               <div id={`${skill.skillId}-bar`} class="skillBar-container__progress col-12"></div>
             </div>
             <div className="skillBar-container__progressValue col-2">
-            {this.props.globalFlag && this.showNumber(skill.skillRating,2500 ,2000)}
-            {!this.props.globalFlag && this.showNumber(0, 0, 0)}
+            {this.showNumber(skill.skillRating,2500 ,2000)}
+            {!numberFlag && this.showNumber(0, 0, 0)}
             </div>
           </div>
         ))}
-            {!isMobile && skillsJson.map(skill => (
+            {/* {!isMobile && skillsJson.map(skill => (
           <div className="row col-4 no-gutters">
             <div class="skillBar-container__title col-3">{skill.skillName}</div>
             <div class="skillBar-container__progressBar col-7">
@@ -193,7 +204,7 @@ class SkillsBar extends React.Component {
             {!this.props.globalFlag && this.showNumber(0, 0, 0)}
             </div>
           </div>
-        ))}
+        ))} */}
         {/* {!isMobile && skillsJson1.map(skill => (
           <div className="row col-6 no-gutters">
             <div class="skillBar-container__title col-3">{skill.skillName}</div>

@@ -18,37 +18,50 @@
       min-height: 100%;
       background-size: cover;
       background-position: 50% 0;
-    
-        h1 {
-          font-size: 30px;
-          color: #ff5722!important;
+    .skills-heading {
+      margin-bottom: 10px;
+      h1 {
+        font-size: 30px;
+        color: #ff5722!important;
+      }
+    }
+
+     .skills-category {
+       color: #2196f3;
+       ul {
+        height: 100%;
+        list-style: none;
+        li {
+          background: #ffffff17;
+          margin: 12px 35px;
+          border-radius: 15px;
+          svg {
+            width: 75px;
+          }
         }
-     
+       }
+ 
+     }
       .skills-diagram {
         transition: all 2s !important;
-        // width: 100%;
-        left: 0;
-        right: 0;
-        position: absolute;
         transform: scale(1);
-        margin-top: 20px;
         .circle-wrapper {
           transition: float 1s, transform 1s;
           position: relative;
           height: 400px;
           width: 400px;
-          margin: 35px auto;
+          margin: 0px auto;
         }
     
         .circle-wrapper--clicked {
           animation-name: animate_skillRotateCW !important;
-          animation-duration: 1.7s;
-          animation-timing-function: ease-in-out; //
+          animation-duration: 3s;
+          // animation-timing-function: ease-in-out; 
         }
         .circle-wrapper--unClicked {
           animation-name: animate_skillRotateACW;
-          animation-duration: 1.5s;
-          animation-timing-function: ease-in-out;
+          animation-duration: 3s;
+          // animation-timing-function: ease-in-out;
         }
     
         .circle {
@@ -185,36 +198,31 @@
       }
       .skills-diagram-col-6 {
         transition: all 2s !important;
-        transform: scale(0.8);
-        margin-top: -18px;
-        left: 25px;
-        right: 100%;
-        // width: 50% !important;
       }
       .skills-details-col-6 {
-        transition: all 2s !important;
-        .skills-details__division {
-          padding-left: 20% !important;
-          opacity: 0 !important;
-          transition: opacity 0.5s, padding-left 5s !important;
+        // transition: all 2s !important;
+        // .skills-details__division {
+        //   padding-left: 20% !important;
+        //   opacity: 0 !important;
+        //   transition: opacity 0.5s, padding-left 5s !important;
           
-        }
-        span {
-          transition: all 2s !important;
-          width: 50%;
-          background: none !important;
-        }
+        // }
+        // span {
+        //   transition: all 2s !important;
+        //   width: 50%;
+        //   background: none !important;
+        // }
       }
       .skills-details {
-        margin: 15px !important;
-        z-index: 100;
-        width: 100%;
+        margin: 15px 0px !important;
+        // z-index: 100;
+        // width: 100%;
         font-size: 16px;
         &__division {
           display: inline;
           opacity: 1;
-          padding-left: 0;
-          transition: opacity 2s, padding-left 2s;
+        //   padding-left: 0;
+        //   transition: opacity 2s, padding-left 2s;
           span {
             color: black !important;
           }
@@ -222,8 +230,6 @@
       }
       .skills-bar-col-6 {
         transform: scale(1) !important;
-        margin-top: 50px !important;
-        left: 30% !important;
         transition: all 2s ease-in-out !important;
         opacity: 1 !important;
         > div {
@@ -231,12 +237,7 @@
         }
       }
       .skills-bar {
-        margin-top: 250px;
         transform: scale(0);
-        position: absolute;
-        width: 70%;
-        left: 50%;
-        background-color: red;
         transition: all 2s;
         opacity: 0;
         > div {
@@ -276,12 +277,12 @@
     transform: rotate(0deg);
   }
   to {
-    transform: rotate(-360deg);
+    transform: rotate(-720deg);
   }
 }
 @keyframes animate_skillRotateACW {
   from {
-    transform: rotate(-360deg);
+    transform: rotate(-720deg);
   }
   to {
     transform: rotate(0deg);
