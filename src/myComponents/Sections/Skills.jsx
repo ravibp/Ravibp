@@ -12,7 +12,7 @@ import Fingerprint from "@material-ui/icons/Fingerprint";
 import SkillsBar from "myComponents/Sections/SkillsBar.jsx";
 import sectionStyle from "assets/jss/material-kit-react/views/landingPageSections/sectionStyle.jsx";
 import "./Skills.scss";
-
+import "bootstrap/dist/css/bootstrap.min.css";
 import { ReactComponent as IconReact } from "assets/icons/IconReact.svg";
 import { ReactComponent as IconAngular } from "assets/icons/IconAngular.svg";
 import { ReactComponent as IconBoostrap } from "assets/icons/IconBootstrap.svg";
@@ -30,8 +30,10 @@ import ReactTooltip from "react-tooltip";
 import resumeImage from "assets/img/profile-bg.jpg";
 import bk_1080_compressed from "assets/video/bk_1080_compressed.mp4";
 import bk_720_compressed from "assets/video/bk_720_compressed.mp4";
+import skillsBgImg from "assets/img/skillsBgImg.jpg";
 import { isMobile, isMobileOnly, isTablet } from "react-device-detect";
 import ScrollAnimation from "react-animate-on-scroll";
+import { DeleteForever } from "@material-ui/icons";
 
 let globalFlag = false;
 class Skills extends React.Component {
@@ -57,32 +59,23 @@ class Skills extends React.Component {
     globalFlag = false;
     this.refs["circle-wrapper-ref"].classList.remove("circle-wrapper--clicked");
     this.refs["circle-wrapper-ref"].classList.add("circle-wrapper--unClicked");
-    // this.refs["skills-diagram-ref"].classList.remove(
-    //   "skills-diagram-col-6"
-    // );
-    // this.refs["skills-details-ref"].classList.remove(
-    //   "skills-details-col-6"
-    // );
-    this.refs["skills-bar-ref"].classList.remove("skills-bar-col-6");
+    this.refs["skills-details-ref"].classList.remove(
+      "skills-details--clicked"
+    );
+    this.refs["skills-bar-ref"].classList.remove("skills-bar--clicked");
   }
   handleSkillDetails() {
     globalFlag = true;
     this.refs["circle-wrapper-ref"].classList.add("circle-wrapper--clicked");
-    // this.refs["skills-diagram-ref"].classList.add("skills-diagram-col-6");
-    // this.refs["skills-details-ref"].classList.add("skills-details-col-6");
-    this.refs["skills-bar-ref"].classList.add("skills-bar-col-6");
+    this.refs["skills-details-ref"].classList.add("skills-details--clicked");
+    this.refs["skills-bar-ref"].classList.add("skills-bar--clicked");
   }
   headerColorChange = () => {
     const windowsScrollTop = window.pageYOffset;
-    console.log("windowsScrollTop", windowsScrollTop);
     if (windowsScrollTop > 1200 && windowsScrollTop < 2000) {
-      setTimeout(() => {
         this.handleSkillDetails();
-      }, 1000);
     } else {
-      setTimeout(() => {
         this.handleSkillDetails1();
-      }, 1000);
     }
   };
   componentDidMount() {
@@ -91,24 +84,10 @@ class Skills extends React.Component {
   componentWillUnmount() {
     window.removeEventListener("scroll", this.headerColorChange);
   }
-  render() {
-    const { classes } = this.props;
+  displaySkillsCategory = () => {
     return (
-      <div id="skills-section" className={" "}>
-        <div className="skills-bgImg">
-          {/* <video className="" autoPlay muted loop>
-            <source src={this.state.skillBGVideo} type="video/mp4" />
-          </video> */}
-        </div>
-
-        <div className="row no-gutters skills-container">
-          <div className="col-12 skills-heading">
-            <ScrollAnimation animateIn="fadeIn" animateOut="fadeOut">
-              <h1 onClick={this.handleSkillDetails}>Skills</h1>
-            </ScrollAnimation>
-          </div>
-          <div className="col-3 skills-category">
-            <ScrollAnimation
+      <div>
+        <ScrollAnimation
               animateIn="bounceInRight"
               animateOut="bounceOutLeft"
               delay="1"
@@ -117,9 +96,8 @@ class Skills extends React.Component {
             </ScrollAnimation>
             <ScrollAnimation
               animateIn="bounceInRight"
-              animateOut="bounceOutLeft"
               duration="3"
-              delay="2"
+              delay="1"
             >
               <ul>
                 <li>
@@ -136,19 +114,40 @@ class Skills extends React.Component {
                 </li>
               </ul>
             </ScrollAnimation>
+      </div>
+    )
+  }
+  render() {
+    {console.log("zzzzzzz")}
+    const { classes } = this.props;
+    return (
+      <div id="skills-section" className={" "}>
+        <div className="skills-bgImg">
+          {/* <video className="" autoPlay muted loop>
+            <source src={this.state.skillBGVideo} type="video/mp4" />
+          </video> */}
+          <img src={skillsBgImg} alt=""/>
+        </div>
+
+        <div className="row no-gutters skills-container">
+          <div className="col-12 skills-heading">
+            <ScrollAnimation offset="0" 
+            animateIn="tada"
+            initiallyVisible={true}>
+              <h1 onClick={this.handleSkillDetails}>Skills</h1>
+            </ScrollAnimation>
           </div>
-          <div className="col-4 skills-diagram" ref="skills-diagram-ref">
+          <div className="d-none d-lg-block col-lg-3 skills-category">
+            {this.displaySkillsCategory()}
+          </div>
+          <div className="col-12 col-md-6 col-lg-4 skills-diagram" ref="skills-diagram-ref">
             <ScrollAnimation
               animateIn="flipInY"
-              animateOut="flipOutY"
-              delay="1"
-              duration="3"
+              duration="5"
             >
               <ScrollAnimation
                 animateIn="bounceInRight"
-                animateOut="bounceOutLeft"
-                // delay=""
-                duration="5"
+                duration="3"
               >
                 <div className="circle-wrapper" ref="circle-wrapper-ref">
                   <div className="circle circle-1"></div>
@@ -253,11 +252,11 @@ class Skills extends React.Component {
             </ScrollAnimation>
           </div>
 
-          <div className="col-5 skills-bar" ref="skills-bar-ref">
+          <div className="col-12 col-md-6 col-lg-5 skills-bar" ref="skills-bar-ref">
             <ScrollAnimation
-              delay={4000}
-              animateIn="tada"
+              animateIn="flipInX"
               initiallyVisible={true}
+              duration="3"
             >
               <SkillsBar globalFlag={globalFlag} />
             </ScrollAnimation>
@@ -316,6 +315,11 @@ class Skills extends React.Component {
               <span class="label label-primary">Photoshop</span>
             </div>
           </div>
+
+          <div className="d-block d-lg-none col-12 skills-category">
+            {this.displaySkillsCategory()}
+          </div>
+
         </div>
       </div>
     );

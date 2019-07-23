@@ -47,7 +47,7 @@ html {
     position: fixed;
     right: 0;
     bottom: 0;
-    min-width: 100%; 
+    min-width: 100%;
     min-height: 100%;
   }
 
@@ -64,7 +64,7 @@ html {
         text-decoration: none;
         // name duration timing-function delay iteration-count direction fill-mode;
         animation: animate-title 1.5s ease-in-out 0s infinite alternate-reverse;
-        animation-play-state: round($number: 1)
+        animation-play-state: round($number: 1);
       }
       margin-bottom: 20px;
     }
@@ -72,8 +72,9 @@ html {
       color: #b5b5b5;
       font-weight: 100;
       // name duration timing-function delay iteration-count direction fill-mode;
-      animation: animate-description 1.5s ease-in-out 0s infinite alternate-reverse;
-      animation-play-state: round($number: 1)
+      animation: animate-description 1.5s ease-in-out 0s infinite
+        alternate-reverse;
+      animation-play-state: round($number: 1);
     }
     &__image {
       img {
@@ -118,6 +119,32 @@ html {
     height: 755px;
     max-height: 900px;
     overflow: hidden;
+    .skills-bgImg {
+      height: 755px;
+      max-height: 900px;
+      width: 100%;
+      margin-top: -1px;
+    }    
+  }
+
+  @media screen and (min-width: 1100px) and (max-width: 1200px) {
+    #skills-section {
+      zoom: 90%;
+    }
+  }
+  @media screen and (min-width: 992px) and (max-width: 1100px) {
+    #skills-section {
+      zoom: 80%;
+    }
+  }
+  @media screen and (max-width: 992px) {
+    #skills-section {
+      zoom: 80% !important;
+      height: 820px !important;
+      .skills-bgImg {
+        height: 820px !important;
+      }
+    }
   }
 }
 .landingPage-container--mobile {

@@ -1,12 +1,168 @@
 
   .landingPage-container {
     .skills-bgImg {
+      opacity: 0.4;
       position: absolute;
       overflow: hidden;
-      height: 755px;
-      max-height: 900px;
-      width: 100%;
-      margin-top: -1px;
+    }
+    .skills-container {
+      background: black;
+    }
+    .skills-heading {
+      height: fit-content;
+      h1 {
+        color: #ff5722!important;
+      }
+    }
+    .skills-category {
+      color: #2196f3;
+      ul {
+        list-style: none;
+        li {
+          background: #ffffff17;
+          border-radius: 15px;
+        }
+       }
+    }
+    .skills-diagram {
+      .circle {
+        position: absolute;
+        padding: 0;
+        background: #cacaca0d;
+        border: 1px solid rgba(100, 100, 100, 0.1);
+        border-radius: 50%;
+        z-index: 2;
+        left: 0;
+        right: 0;
+        margin-right: auto;
+        margin-left: auto;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+      }
+      .circle-1 {
+        width: 100px;
+        height: 100px;
+      }
+      .circle-2 {
+        width: 250px;
+        height: 250px;
+      }
+      .circle-3 {
+        width: 400px;
+        height: 400px;
+      }
+      .icons {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        z-index: 3;
+        svg {
+          width: 3em;
+          height: 3em;
+        }
+        svg:hover {
+          transform: rotate(360deg);
+          transition: 1s transform;
+        }
+        svg:focus {
+          outline: -webkit-focus-ring-color auto 1px;
+        }
+        .icon-react {
+          width: 4em;
+          height: 4em;
+        }
+        a {
+          cursor: pointer;
+          display: flex;
+          position: absolute;
+          align-items: center;
+          justify-content: center;
+          top: 50%;
+          left: 50%;
+          margin: -1.5em;
+          border-radius: 50%;
+          background-color: #ffffff2b;
+          padding: 1px;
+          box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
+            0 8px 16px -8px rgba(0, 0, 0, 0.3),
+            0 -6px 16px -6px rgba(0, 0, 0, 0.025);
+        }
+        a.circle-1 {
+          width: 4.5em;
+          height: 4.5em;
+        }
+        a.circle-2 {
+          width: 4.5em;
+          height: 4.5em;
+        }
+        a.circle-3 {
+          width: 4.5em;
+          height: 4.5em;
+        }
+        a.circle-1:nth-of-type(1) {
+          left: 154px;
+          right: auto;
+        }
+        a.circle-1:nth-of-type(2) {
+          right: 154px;
+          left: auto;
+        }
+        a.circle-2:nth-of-type(1) {
+          left: 124px;
+          right: auto;
+          top: auto;
+          bottom: 99px;
+        }
+        a.circle-2:nth-of-type(2) {
+          right: 124px;
+          left: auto;
+          top: auto;
+          bottom: 99px;
+        }
+        a.circle-2:nth-of-type(3) {
+          top: 74px;
+          left: 192px;
+          right: auto;
+        }
+        a.circle-3:nth-of-type(1) {
+          left: 197px;
+          right: auto;
+          top: auto;
+          bottom: 0px;
+        }
+        a.circle-3:nth-of-type(2) {
+          right: 5px;
+          left: auto;
+          top: auto;
+          bottom: 142px;
+        }
+        a.circle-3:nth-of-type(3) {
+          top: auto;
+          bottom: 142px;
+          left: 5px;
+          right: auto;
+        }
+        a.circle-3:nth-of-type(4) {
+          top: 65px;
+          bottom: auto;
+          left: 44px;
+          right: auto;
+        }
+        a.circle-3:nth-of-type(5) {
+          top: 65px;
+          bottom: auto;
+          right: 44px;
+          left: auto;
+        }
+      }
+    }
+  }
+  .landingPage-container--mobile {
+
+  }
+  .landingPage-container--desktop {
+    .skills-bgImg {
       video {
         height: 880px;
         margin-top: -114px;
@@ -14,7 +170,6 @@
     }
     .skills-container {
       padding: 80px 0px 20px 0px;
-      background: red;
       min-height: 100%;
       background-size: cover;
       background-position: 50% 0;
@@ -22,255 +177,93 @@
       margin-bottom: 10px;
       h1 {
         font-size: 30px;
-        color: #ff5722!important;
       }
     }
-
      .skills-category {
-       color: #2196f3;
        ul {
         height: 100%;
-        list-style: none;
         li {
-          background: #ffffff17;
           margin: 12px 35px;
-          border-radius: 15px;
           svg {
             width: 75px;
           }
         }
        }
- 
      }
       .skills-diagram {
-        transition: all 2s !important;
-        transform: scale(1);
         .circle-wrapper {
-          transition: float 1s, transform 1s;
+          // transition:  transform 1s;
           position: relative;
           height: 400px;
           width: 400px;
           margin: 0px auto;
         }
-    
         .circle-wrapper--clicked {
           animation-name: animate_skillRotateCW !important;
-          animation-duration: 3s;
-          // animation-timing-function: ease-in-out; 
+          animation-duration: 2s !important;
+          animation-timing-function: ease-in-out; 
         }
         .circle-wrapper--unClicked {
           animation-name: animate_skillRotateACW;
-          animation-duration: 3s;
-          // animation-timing-function: ease-in-out;
-        }
-    
-        .circle {
-          position: absolute;
-          padding: 0;
-          background: #cacaca0d;
-          border: 1px solid rgba(100, 100, 100, 0.1);
-          border-radius: 50%;
-          z-index: 2;
-          left: 0;
-          right: 0;
-          margin-right: auto;
-          margin-left: auto;
-          top: 0;
-          bottom: 0;
-          margin: auto;
-        }
-        .circle-1 {
-          width: 100px;
-          height: 100px;
-        }
-        .circle-2 {
-          width: 250px;
-          height: 250px;
-        }
-        .circle-3 {
-          width: 400px;
-          height: 400px;
-        }
-        .icons {
-          width: 100%;
-          height: 100%;
-          position: absolute;
-          z-index: 3;
-          svg {
-            width: 3em;
-            height: 3em;
-          }
-          svg:hover {
-            transform: rotate(360deg);
-            transition: 1s transform;
-          }
-          svg:focus {
-            outline: -webkit-focus-ring-color auto 1px;
-          }
-          .icon-react {
-            width: 4em;
-            height: 4em;
-          }
-          a {
-            cursor: pointer;
-            display: flex;
-            position: absolute;
-            align-items: center;
-            justify-content: center;
-            top: 50%;
-            left: 50%;
-            margin: -1.5em;
-            border-radius: 50%;
-            background-color: #ffffff2b;
-            padding: 1px;
-            box-shadow: 0 13px 27px -5px rgba(50, 50, 93, 0.25),
-              0 8px 16px -8px rgba(0, 0, 0, 0.3),
-              0 -6px 16px -6px rgba(0, 0, 0, 0.025);
-          }
-          a.circle-1 {
-            width: 4.5em;
-            height: 4.5em;
-          }
-          a.circle-2 {
-            width: 4.5em;
-            height: 4.5em;
-          }
-          a.circle-3 {
-            width: 4.5em;
-            height: 4.5em;
-          }
-          a.circle-1:nth-of-type(1) {
-            left: 154px;
-            right: auto;
-          }
-          a.circle-1:nth-of-type(2) {
-            right: 154px;
-            left: auto;
-          }
-          a.circle-2:nth-of-type(1) {
-            left: 124px;
-            right: auto;
-            top: auto;
-            bottom: 99px;
-          }
-          a.circle-2:nth-of-type(2) {
-            right: 124px;
-            left: auto;
-            top: auto;
-            bottom: 99px;
-          }
-          a.circle-2:nth-of-type(3) {
-            top: 74px;
-            left: 192px;
-            right: auto;
-          }
-          a.circle-3:nth-of-type(1) {
-            left: 197px;
-            right: auto;
-            top: auto;
-            bottom: 0px;
-          }
-          a.circle-3:nth-of-type(2) {
-            right: 5px;
-            left: auto;
-            top: auto;
-            bottom: 142px;
-          }
-          a.circle-3:nth-of-type(3) {
-            top: auto;
-            bottom: 142px;
-            left: 5px;
-            right: auto;
-          }
-          a.circle-3:nth-of-type(4) {
-            top: 65px;
-            bottom: auto;
-            left: 44px;
-            right: auto;
-          }
-          a.circle-3:nth-of-type(5) {
-            top: 65px;
-            bottom: auto;
-            right: 44px;
-            left: auto;
-          }
+          // animation-duration: ss;
+          animation-timing-function: ease-in-out;
         }
       }
-      .skills-diagram-col-6 {
-        transition: all 2s !important;
-      }
-      .skills-details-col-6 {
-        // transition: all 2s !important;
-        // .skills-details__division {
-        //   padding-left: 20% !important;
-        //   opacity: 0 !important;
-        //   transition: opacity 0.5s, padding-left 5s !important;
-          
-        // }
-        // span {
-        //   transition: all 2s !important;
-        //   width: 50%;
-        //   background: none !important;
-        // }
+      .skills-details--clicked {
+        .skills-details__division {
+          padding-left: 0% !important;
+          opacity: 1 !important;
+          transition: opacity 1s, padding-left 2s !important;
+        }
       }
       .skills-details {
-        margin: 15px 0px !important;
-        // z-index: 100;
-        // width: 100%;
+        margin: 15px 0px;
         font-size: 16px;
         &__division {
           display: inline;
-          opacity: 1;
-        //   padding-left: 0;
-        //   transition: opacity 2s, padding-left 2s;
+          padding-left: 20%;
+          opacity: 0;
+          transition: opacity 1s, padding-left 1s;
           span {
             color: black !important;
           }
         }
       }
-      .skills-bar-col-6 {
+      .skills-bar--clicked {
         transform: scale(1) !important;
-        transition: all 2s ease-in-out !important;
+        transition: all 1s ease-in-out !important;
         opacity: 1 !important;
-        > div {
-          transition: all 0.2s !important;
-        }
       }
       .skills-bar {
         transform: scale(0);
-        transition: all 2s;
+        transition: all 0.5s;
         opacity: 0;
-        > div {
-          position: absolute;
-          transition: all 5s;
+      }
+    }
+    @media screen and (min-width: 992px) and (max-width: 1100px) {
+
+    }
+    @media screen and (max-width: 992px) {
+      .skills-container {
+        padding-top: 100px !important;
+        .skills-heading {
+          margin-bottom: 30px !important;
+        }
+        .skills-details {
+          margin: 30px 0px 15px 0px !important;
+        }
+        .skills-category {
+          ul {
+            display: -webkit-inline-box !important;
+            li {
+              margin: 10px 15px!important;
+              width: 240px !important;
+            }
+          }
         }
       }
-    
     }
   }
-  .landingPage-container--mobile {
-
-  }
-  .landingPage-container--desktop {
-
-  }
-
-  @media screen and (max-width:980px) {
-    .skills-bgImg {
-      video {
-      }
-    }
-  }
-  @media screen and (max-width:1024px) {
-    .skills-bgImg {
-      video {
-      margin-top: 0px !important;
-      height: 755px !important;
-      }
-    }
-  }
-
-
 
 @keyframes animate_skillRotateCW {
   from {
