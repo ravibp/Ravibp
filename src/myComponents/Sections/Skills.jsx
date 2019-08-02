@@ -35,7 +35,6 @@ import skillsBgImg90 from "assets/img/skillsBgImg90.jpg";
 import { isMobile, isMobileOnly, isTablet } from "react-device-detect";
 import ScrollAnimation from "react-animate-on-scroll";
 import { DeleteForever } from "@material-ui/icons";
-
 let globalFlag = false;
 class Skills extends React.Component {
   constructor(props) {
@@ -86,7 +85,6 @@ class Skills extends React.Component {
       <div>
         <ScrollAnimation
               animateIn="bounceInRight"
-              animateOut="bounceOutLeft"
               delay="1"
             >
               <h3>What I can do</h3>
