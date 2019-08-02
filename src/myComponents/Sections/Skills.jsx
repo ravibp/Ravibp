@@ -31,6 +31,7 @@ import resumeImage from "assets/img/profile-bg.jpg";
 import bk_1080_compressed from "assets/video/bk_1080_compressed.mp4";
 import bk_720_compressed from "assets/video/bk_720_compressed.mp4";
 import skillsBgImg from "assets/img/skillsBgImg.jpg";
+import skillsBgImg90 from "assets/img/skillsBgImg90.jpg";
 import { isMobile, isMobileOnly, isTablet } from "react-device-detect";
 import ScrollAnimation from "react-animate-on-scroll";
 import { DeleteForever } from "@material-ui/icons";
@@ -42,7 +43,7 @@ class Skills extends React.Component {
     this.state = {
       skillBGVideo: null
     };
-    this.handleSkillDetails = this.handleSkillDetails.bind(this);
+    this.animationBackward = this.animationBackward.bind(this);
   }
   componentWillMount() {
     if (isMobile) {
@@ -55,34 +56,30 @@ class Skills extends React.Component {
       });
     }
   }
-  handleSkillDetails1() {
+  animationBackward() {
     globalFlag = false;
     this.refs["circle-wrapper-ref"].classList.remove("circle-wrapper--clicked");
     this.refs["circle-wrapper-ref"].classList.add("circle-wrapper--unClicked");
-    this.refs["skills-details-ref"].classList.remove(
-      "skills-details--clicked"
-    );
     this.refs["skills-bar-ref"].classList.remove("skills-bar--clicked");
   }
-  handleSkillDetails() {
+  animationForward() {
     globalFlag = true;
     this.refs["circle-wrapper-ref"].classList.add("circle-wrapper--clicked");
-    this.refs["skills-details-ref"].classList.add("skills-details--clicked");
     this.refs["skills-bar-ref"].classList.add("skills-bar--clicked");
   }
-  headerColorChange = () => {
+  animateSkills = () => {
     const windowsScrollTop = window.pageYOffset;
     if (windowsScrollTop > 1200 && windowsScrollTop < 2000) {
-        this.handleSkillDetails();
-    } else {
-        this.handleSkillDetails1();
+        this.animationForward();
+  } else {
+        this.animationBackward();
     }
   };
   componentDidMount() {
-    window.addEventListener("scroll", this.headerColorChange);
+    window.addEventListener("scroll", this.animateSkills);
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.headerColorChange);
+    window.removeEventListener("scroll", this.animateSkills);
   }
   displaySkillsCategory = () => {
     return (
@@ -101,7 +98,7 @@ class Skills extends React.Component {
             >
               <ul>
                 <li>
-                  <Icon1 />
+                  <div><Icon1 /></div>
                   <p>UI/ UX Design</p>
                 </li>
                 <li>
@@ -122,25 +119,24 @@ class Skills extends React.Component {
     const { classes } = this.props;
     return (
       <div id="skills-section" className={" "}>
-        <div className="skills-bgImg">
+        {/* <div className="skills-bgImg"> */}
           {/* <video className="" autoPlay muted loop>
             <source src={this.state.skillBGVideo} type="video/mp4" />
           </video> */}
-          <img src={skillsBgImg} alt=""/>
-        </div>
-
+        {/* </div> */}
         <div className="row no-gutters skills-container">
           <div className="col-12 skills-heading">
-            <ScrollAnimation offset="0" 
+            <ScrollAnimation 
+            offset="0" 
             animateIn="tada"
             initiallyVisible={true}>
-              <h1 onClick={this.handleSkillDetails}>Skills</h1>
+              <h1 onClick={this.animationBackward}>Skills</h1>
             </ScrollAnimation>
           </div>
           <div className="d-none d-lg-block col-lg-3 skills-category">
             {this.displaySkillsCategory()}
           </div>
-          <div className="col-12 col-md-6 col-lg-4 skills-diagram" ref="skills-diagram-ref">
+          <div className="col-12 col-sm-6 col-md-6 col-lg-4 skills-diagram" ref="skills-diagram-ref">
             <ScrollAnimation
               animateIn="flipInY"
               duration="5"
@@ -156,7 +152,7 @@ class Skills extends React.Component {
                   <div className="icons">
                     <span>
                       <a
-                        onClick={this.handleSkillDetails}
+                        onClick={this.animationBackward}
                         data-tip="HTML5"
                         className="circle-1"
                       >
@@ -165,7 +161,7 @@ class Skills extends React.Component {
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
                       <a
-                        onClick={this.handleSkillDetails}
+                        onClick={this.animationBackward}
                         data-tip="CSS3"
                         className="circle-1"
                       >
@@ -175,7 +171,7 @@ class Skills extends React.Component {
                     </span>
                     <span>
                       <a
-                        onClick={this.handleSkillDetails}
+                        onClick={this.animationBackward}
                         data-tip="MongoDB"
                         className="circle-2"
                       >
@@ -184,7 +180,7 @@ class Skills extends React.Component {
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
                       <a
-                        onClick={this.handleSkillDetails}
+                        onClick={this.animationBackward}
                         data-tip="MySQL"
                         className="circle-2"
                       >
@@ -193,7 +189,7 @@ class Skills extends React.Component {
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
                       <a
-                        onClick={this.handleSkillDetails}
+                        onClick={this.animationBackward}
                         data-tip="NodeJS"
                         className="circle-2"
                       >
@@ -204,7 +200,7 @@ class Skills extends React.Component {
 
                     <span>
                       <a
-                        onClick={this.handleSkillDetails}
+                        onClick={this.animationBackward}
                         data-tip="Apollo GraphQL"
                         className="circle-3"
                       >
@@ -213,7 +209,7 @@ class Skills extends React.Component {
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
                       <a
-                        onClick={this.handleSkillDetails}
+                        onClick={this.animationBackward}
                         data-tip="Photoshop"
                         className="circle-3"
                       >
@@ -222,7 +218,7 @@ class Skills extends React.Component {
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
                       <a
-                        onClick={this.handleSkillDetails}
+                        onClick={this.animationBackward}
                         data-tip="Bootstrap 4"
                         className="circle-3"
                       >
@@ -231,14 +227,14 @@ class Skills extends React.Component {
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
                       <a
-                        onClick={this.handleSkillDetails}
+                        onClick={this.animationBackward}
                         data-tip="ReactJS / Redux"
                         className="circle-3"
                       >
                         <IconReact className="icon-react" />
                       </a>
                       <a
-                        onClick={this.handleSkillDetails}
+                        onClick={this.animationBackward}
                         data-tip="Angular 5"
                         className="circle-3"
                       >
@@ -252,7 +248,7 @@ class Skills extends React.Component {
             </ScrollAnimation>
           </div>
 
-          <div className="col-12 col-md-6 col-lg-5 skills-bar" ref="skills-bar-ref">
+          <div className="col-12 col-sm-6 col-md-6 col-lg-5 skills-bar" ref="skills-bar-ref">
             <ScrollAnimation
               animateIn="flipInX"
               initiallyVisible={true}
