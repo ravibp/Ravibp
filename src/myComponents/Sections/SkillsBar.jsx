@@ -189,7 +189,7 @@ class SkillsBar extends React.Component {
     const { classes } = this.props;
     // {console.log("skill bar render")}
     return (
-      <div class="skillBar-container row">
+      <div class="skillBar-container row no-gutters">
           {skillsJson.map(skill => (
           <div className="row col-12 no-gutters">
             <div class="skillBar-container__title col-3">{skill.skillName}</div>

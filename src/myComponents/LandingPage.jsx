@@ -33,26 +33,10 @@ import backgroundVideo from "assets/video/backgroundVideo.mp4";
 import profilePic1 from "assets/img/profile-img-1.jpg";
 import profilePic4 from "assets/img/profile-img-4.jpg";
 import {isMobile, isMobileOnly, isTablet} from 'react-device-detect';
-window.onbeforeunload = function () {
-}
+
 class LandingPage extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
-  // setTimeout(() => {
-    //   window.scrollTo(0, 0);
-    // }, 500);
-  }
-
-  handleDeviceDetect = () => {
-    let landingClassVariable = "landingPage-container"
-    if(isMobileOnly) {
-       landingClassVariable = "landingPage-container landingPage-container--mobile"
-
-    }
-    else {
-       landingClassVariable = "landingPage-container landingPage-container--desktop"
-    }
-    return landingClassVariable;
   }
   render() {
     const { classes, ...rest } = this.props;
@@ -61,7 +45,7 @@ class LandingPage extends React.Component {
       profilePic1
     ];
     return (
-      <div id="landingPage-section" className={this.handleDeviceDetect()}>
+      <div id="landingPage-section" className="landingPage-container">
         <Header />
         <div className="profile">
           <Parallax filter backgroundVideo={backgroundVideo}>
