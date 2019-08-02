@@ -1,63 +1,57 @@
 .landingPage-container {
-  .aboutMe-bgImg {
-    overflow: hidden;
-  }
-  .aboutMe {
-    &__content {
-      h1 {
-        color: papayawhip;
-      }
-    }
-    &__details {
-      color: #d9e8ff;
-      p {
-        span {
-          color: #5b86ff !important;
+  #aboutMe-section {
+    // .aboutMe-bgImg {
+    //   overflow: hidden;
+    // }
+    .aboutMe-container {
+      .aboutMe {
+        &__content {
+          h1 {
+            color: papayawhip;
+          }
         }
-      }
-    }
-    &__cv {
-      margin-top: 10px;
-      a {
-        transition: background-color 0.5s;
-        font-weight: bold;
-        border: 1px solid #ff5722b8;
-        background-color: transparent;
-        height: 45px;
-        padding: 10px;
-        border-radius: 10px;
+        &__details {
+          color: #d9e8ff;
+          p {
+            span {
+              color: #5b86ff !important;
+            }
+          }
+        }
+        &__cv {
+          margin-top: 10px;
+          a {
+            transition: background-color 0.5s;
+            font-weight: bold;
+            border: 1px solid #ff5722b8;
+            background-color: transparent;
+            height: 45px;
+            padding: 10px;
+            border-radius: 10px;
 
-        transition: color 0.5s;
-        color: #ff5722b8 !important;
-        text-decoration: none;
-      }
-      a:hover {
-        transition: background-color 0.5s;
-        background-color: #ff5722b8;
-        transition: color 0.5s, font-weight 0.5s;
-        color: black !important;
+            transition: color 0.5s;
+            color: #ff5722b8 !important;
+            text-decoration: none;
+          }
+          a:hover {
+            transition: background-color 0.5s;
+            background-color: #ff5722b8;
+            transition: color 0.5s, font-weight 0.5s;
+            color: black !important;
+          }
+        }
       }
     }
   }
 }
 
+// mobile styles
 @media screen and (max-width: 767px) {
   #aboutMe-section {
     height: 780px;
     max-height: 900px;
     overflow: hidden;
-    .aboutMe-bgImg {
-      height: 780px;
-      width: 100%;
-      position: absolute;
-      overflow: hidden;
-      img {
-        transform: rotate(90deg);
-        margin-left: -56em;
-        margin-top: 56em;
-        overflow: hidden;
-      }
-    }
+    background-image: url("../../assets/img/bk-img-triangle-mobile.jpg");
     .aboutMe-container {
       padding: 0px 15px 30px 15px;
       text-align: center;
@@ -99,50 +93,46 @@
   }
 }
 
+// desktop styles
 @media screen and (min-width: 768px) {
-  .aboutMe-bgImg {
-    width: 100%;
-    position: absolute;
-    height: 755px;
-    max-height: 900px;
-    overflow: hidden;
-    img {
-      height: 100%; // this is important for responsive alignment, dont make width 100% for img.
-    }
-  }
-  .aboutMe-container {
-    padding: 0px 0px 0px 0px;
-    .aboutMe {
-      &__content {
-        padding-top: 80px;
-        h1 {
-          font-size: 30px;
-          margin-bottom: 40px;
+  #aboutMe-section {
+    background-image: url("../../assets/img/bk-img-triangle.jpg");
+    .aboutMe-container {
+      padding: 0px 0px 0px 0px;
+      .aboutMe {
+        &__content {
+          padding-top: 80px;
+          h1 {
+            font-size: 30px;
+            margin-bottom: 40px;
+          }
         }
-      }
-      &__profImg {
-        padding: 15px 15px !important;
-        img {
-          max-width: 330px;
-          width: 100%;
-          image-orientation: from-image !important;
+        &__profImg {
+          padding: 15px 15px !important;
+          img {
+            margin: -1px 5px;
+            max-width: 330px;
+            width: 100%;
+            image-orientation: from-image !important;
+          }
         }
-      }
-      &__details {
-        text-align: left;
-        padding: 15px 150px 15px 15px !important;
-        font-size: 17px !important;
-        p {
+        &__details {
+          text-align: left;
+          padding: 15px 150px 15px 15px !important;
           font-size: 17px !important;
+          p {
+            font-size: 17px !important;
+          }
         }
-      }
-      &__socialMediaLinks {
-        margin-top: 25px;
-        > i {
-          margin-right: 30px;
-          font-size: 30px;
+        &__socialMediaLinks {
+          margin-top: 25px;
+          > i {
+            margin-right: 30px;
+            font-size: 30px;
+          }
         }
       }
     }
   }
+
 }

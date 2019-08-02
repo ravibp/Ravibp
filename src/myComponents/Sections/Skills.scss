@@ -174,7 +174,8 @@
 // mobile styles
 @media screen and (max-width: 767px) {
   #skills-section {
-    background-image: url("../../assets/img/skillsBgImg90.jpg"), linear-gradient(#000000, #000000);;
+    background-image: url("../../assets/img/skillsBgImg90.jpg"),
+      linear-gradient(#000000, #000000);
     background-size: cover;
     .skills-bgImg > img {
       transform: rotate(90deg);
@@ -235,55 +236,55 @@
       }
     }
   }
-}
-@media screen and (min-width: 421px) and (max-width: 576px) {
-  #skills-section {
-    .skills-container {
-      padding: 60px 15px 20px 15px !important;
-      > div {
-        margin: 20px 0px;
-      }
-      .skills-diagram {
-        .circle-wrapper {
-          zoom: 100% !important;
+  @media screen and (min-width: 421px) and (max-width: 576px) {
+    #skills-section {
+      .skills-container {
+        padding: 60px 15px 20px 15px !important;
+        > div {
+          margin: 20px 0px;
         }
-      }
-      .skills-category {
-        margin: 10px 0px;
-        ul {
-          height: 100%;
-          li {
-            margin: 12px 5px !important;
-            svg {
-              width: 75px;
+        .skills-diagram {
+          .circle-wrapper {
+            zoom: 100% !important;
+          }
+        }
+        .skills-category {
+          margin: 10px 0px;
+          ul {
+            height: 100%;
+            li {
+              margin: 12px 5px !important;
+              svg {
+                width: 75px;
+              }
             }
           }
         }
       }
     }
   }
-}
-@media screen and (max-width: 420px) {
-  #skills-section {
-    .skills-container {
-      padding: 60px 15px 20px 15px !important;
-      > div {
-        margin: 20px 0px;
-      }
-      .skills-diagram {
-        .circle-wrapper {
-          zoom: 70% !important;
+  @media screen and (max-width: 420px) {
+    #skills-section {
+      .skills-container {
+        padding: 60px 15px 20px 15px !important;
+        > div {
+          margin: 20px 0px;
         }
-      }
-      .skills-category {
-        margin: 10px 0px;
-        ul {
-          height: 100%;
-          li {
-            margin: 7px 0px !important;
-            width: 100% !important; 
-            svg {
-              width: 75px;
+        .skills-diagram {
+          .circle-wrapper {
+            zoom: 70% !important;
+          }
+        }
+        .skills-category {
+          margin: 10px 0px;
+          ul {
+            height: 100%;
+            li {
+              margin: 7px 0px !important;
+              width: 100% !important;
+              svg {
+                width: 75px;
+              }
             }
           }
         }
@@ -299,7 +300,7 @@
     height: 755px;
     max-height: 900px;
     overflow: hidden;
-  
+
     .skills-container {
       padding: 80px 15px 20px 15px;
       min-height: 100%;
