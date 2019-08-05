@@ -135,14 +135,15 @@ class SkillsBar extends React.Component {
           document.getElementById(skill.skillId + "-bar").style.transitionDelay = "2s";
           document.getElementById(skill.skillId + "-bar").style.width = `${skill.skillRating}%`;
         });
-    } else {
-      this.setState({
-        numberFlag: false
-      })
-        skillsJson.map(skill => {
-          document.getElementById(skill.skillId + "-bar").style.transitionDelay = "0s";
-          document.getElementById(skill.skillId + "-bar").style.width = "0%";
-        });
+    window.removeEventListener("scroll", this.animateSkills);
+  } else {
+      // this.setState({
+      //   numberFlag: false
+      // })
+      //   skillsJson.map(skill => {
+      //     document.getElementById(skill.skillId + "-bar").style.transitionDelay = "0s";
+      //     document.getElementById(skill.skillId + "-bar").style.width = "0%";
+      //   });
     }
   };
   componentWillUnmount() {
@@ -180,14 +181,12 @@ class SkillsBar extends React.Component {
   }
   shouldComponentUpdate(nextProps, nextState) {
     if(this.state.numberFlag !== nextState.numberFlag) {
-      console.log("aaaa", this.state.numberFlag, nextState.numberFlag)
       return true
     }
     return false
   }
   render() {
     const { classes } = this.props;
-    // {console.log("skill bar render")}
     return (
       <div class="skillBar-container row no-gutters">
           {skillsJson.map(skill => (

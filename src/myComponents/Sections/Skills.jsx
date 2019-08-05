@@ -69,9 +69,10 @@ class Skills extends React.Component {
   animateSkills = () => {
     const windowsScrollTop = window.pageYOffset;
     if (windowsScrollTop > 1200 && windowsScrollTop < 2000) {
-        this.animationForward();
-  } else {
-        this.animationBackward();
+      this.animationForward();
+      window.removeEventListener("scroll", this.animateSkills);
+    } else {
+      // this.animationBackward();
     }
   };
   componentDidMount() {
@@ -83,63 +84,75 @@ class Skills extends React.Component {
   displaySkillsCategory = () => {
     return (
       <div>
+        <ScrollAnimation animateOnce="true" animateIn="bounceInRight" delay="1">
+          <h3>What I can do</h3>
+        </ScrollAnimation>
         <ScrollAnimation
-              animateIn="bounceInRight"
-              delay="1"
-            >
-              <h3>What I can do</h3>
-            </ScrollAnimation>
-            <ScrollAnimation
-              animateIn="bounceInRight"
-              duration="3"
-              delay="1"
-            >
-              <ul>
-                <li>
-                  <div><Icon1 /></div>
-                  <p>UI/ UX Design</p>
-                </li>
-                <li>
-                  <Icon2 />
-                  <p>MEAN/ MERN Stack Development</p>
-                </li>
-                <li>
-                  <Icon3 />
-                  <p>Photo/ Video Editing</p>
-                </li>
-              </ul>
-            </ScrollAnimation>
+          animateOnce="true"
+          animateIn="bounceInRight"
+          duration="3"
+          delay="1"
+        >
+          <ul>
+            <li>
+              <div>
+                <Icon1 />
+              </div>
+              <p>UI/ UX Design</p>
+            </li>
+            <li>
+              <Icon2 />
+              <p>MEAN/ MERN Stack Development</p>
+            </li>
+            <li>
+              <Icon3 />
+              <p>Photo/ Video Editing</p>
+            </li>
+          </ul>
+        </ScrollAnimation>
       </div>
-    )
-  }
+    );
+  };
   render() {
-    {console.log("zzzzzzz")}
+    {
+      console.log("zzzzzzz");
+    }
     const { classes } = this.props;
     return (
       <div id="skills-section" className={" "}>
         {/* <div className="skills-bgImg"> */}
-          {/* <video className="" autoPlay muted loop>
+        {/* <video className="" autoPlay muted loop>
             <source src={this.state.skillBGVideo} type="video/mp4" />
           </video> */}
         {/* </div> */}
         <div className="row no-gutters skills-container">
           <div className="col-12 skills-heading">
-            <ScrollAnimation 
-            offset="0" 
-            animateIn="tada"
-            initiallyVisible={true}>
-              <h1 onClick={this.animationBackward}>Skills</h1>
+            <ScrollAnimation
+              animateOnce="true"
+              offset="0"
+              delay="1"
+              animateIn="tada"
+              initiallyVisible={true}
+            >
+              <h1>
+                <div>SKILLS</div>
+              </h1>
             </ScrollAnimation>
           </div>
           <div className="d-none d-lg-block col-lg-3 skills-category">
             {this.displaySkillsCategory()}
           </div>
-          <div className="col-12 col-sm-6 col-md-6 col-lg-4 skills-diagram" ref="skills-diagram-ref">
+          <div
+            className="col-12 col-sm-6 col-md-6 col-lg-4 skills-diagram"
+            ref="skills-diagram-ref"
+          >
             <ScrollAnimation
+              animateOnce="true"
               animateIn="flipInY"
               duration="5"
             >
               <ScrollAnimation
+                animateOnce="true"
                 animateIn="bounceInRight"
                 duration="3"
               >
@@ -149,93 +162,53 @@ class Skills extends React.Component {
                   <div className="circle circle-3"></div>
                   <div className="icons">
                     <span>
-                      <a
-                        onClick={this.animationBackward}
-                        data-tip="HTML5"
-                        className="circle-1"
-                      >
+                      <a data-tip="HTML5" className="circle-1">
                         <IconHTML />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a
-                        onClick={this.animationBackward}
-                        data-tip="CSS3"
-                        className="circle-1"
-                      >
+                      <a data-tip="CSS3" className="circle-1">
                         <IconCSS />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
                     </span>
                     <span>
-                      <a
-                        onClick={this.animationBackward}
-                        data-tip="MongoDB"
-                        className="circle-2"
-                      >
+                      <a data-tip="MongoDB" className="circle-2">
                         <IconMongoDB />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a
-                        onClick={this.animationBackward}
-                        data-tip="MySQL"
-                        className="circle-2"
-                      >
+                      <a data-tip="MySQL" className="circle-2">
                         <IconMySQL />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a
-                        onClick={this.animationBackward}
-                        data-tip="NodeJS"
-                        className="circle-2"
-                      >
+                      <a data-tip="NodeJS" className="circle-2">
                         <IconNodeJS />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
                     </span>
 
                     <span>
-                      <a
-                        onClick={this.animationBackward}
-                        data-tip="Apollo GraphQL"
-                        className="circle-3"
-                      >
+                      <a data-tip="Apollo GraphQL" className="circle-3">
                         <IconGraphQL />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a
-                        onClick={this.animationBackward}
-                        data-tip="Photoshop"
-                        className="circle-3"
-                      >
+                      <a data-tip="Photoshop" className="circle-3">
                         <IconPhotoshop />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a
-                        onClick={this.animationBackward}
-                        data-tip="Bootstrap 4"
-                        className="circle-3"
-                      >
+                      <a data-tip="Bootstrap 4" className="circle-3">
                         <IconBoostrap />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a
-                        onClick={this.animationBackward}
-                        data-tip="ReactJS / Redux"
-                        className="circle-3"
-                      >
+                      <a data-tip="ReactJS / Redux" className="circle-3">
                         <IconReact className="icon-react" />
                       </a>
-                      <a
-                        onClick={this.animationBackward}
-                        data-tip="Angular 5"
-                        className="circle-3"
-                      >
+                      <a data-tip="Angular 5" className="circle-3">
                         <IconAngular />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
@@ -246,8 +219,12 @@ class Skills extends React.Component {
             </ScrollAnimation>
           </div>
 
-          <div className="col-12 col-sm-6 col-md-6 col-lg-5 skills-bar" ref="skills-bar-ref">
+          <div
+            className="col-12 col-sm-6 col-md-6 col-lg-5 skills-bar"
+            ref="skills-bar-ref"
+          >
             <ScrollAnimation
+              animateOnce="true"
               animateIn="flipInX"
               initiallyVisible={true}
               duration="3"
@@ -313,7 +290,6 @@ class Skills extends React.Component {
           <div className="d-block d-lg-none col-12 skills-category">
             {this.displaySkillsCategory()}
           </div>
-
         </div>
       </div>
     );

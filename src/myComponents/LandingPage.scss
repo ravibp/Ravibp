@@ -129,15 +129,6 @@ html {
       @extend %flip-styling;
     }
   }
-  #projects-section {
-    min-height: 685px;
-  }
-  #aboutMe-section {
-    height: 755px;
-    max-height: 900px;
-    overflow: hidden;
-  }
-
 }
 
 @keyframes animate-title {
