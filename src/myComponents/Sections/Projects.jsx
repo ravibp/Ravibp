@@ -22,8 +22,7 @@ class Projects extends React.Component {
     return (
       <div id="projects-section">
         <div className="row projects-container">
-         
-          <h1 className="col-12">Projects</h1>
+          <h1 className="col-12">PORTFOLIO</h1>
 
         </div>
       </div>

@@ -1,8 +1,13 @@
 // common styles
 #skills-section {
+  .skills-container {
+    background: #00000063;
+  }
   .skills-heading {
     height: fit-content;
     h1 {
+      font-weight: 1000;
+      font-size: 30px;
       color: #ff5722;
     }
   }
@@ -174,8 +179,9 @@
 // mobile styles
 @media screen and (max-width: 767px) {
   #skills-section {
-    background-image: url("../../assets/img/skillsBgImg90.jpg"),
+    background: url("../../assets/img/skillsBgImg90.jpg"),
       linear-gradient(#000000, #000000);
+    
     background-size: cover;
     .skills-bgImg > img {
       transform: rotate(90deg);

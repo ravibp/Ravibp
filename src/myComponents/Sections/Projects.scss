@@ -1,4 +1,17 @@
-.projects-container {
+#projects-section {
+  .projects-container {
     padding: 70+10px 0px 30px 0px;
+  }
+}
 
+// mobile styles
+@media screen and (max-width: 767px) {
+  #projects-section {
+  }
+}
+
+// desktop styles
+@media screen and (min-width: 768px) {
+  #projects-section {
+  }
 }

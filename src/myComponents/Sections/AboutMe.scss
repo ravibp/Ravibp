@@ -1,13 +1,13 @@
-.landingPage-container {
   #aboutMe-section {
     // .aboutMe-bgImg {
     //   overflow: hidden;
     // }
     .aboutMe-container {
       .aboutMe {
-        &__content {
+        &__heading {
           h1 {
-            color: papayawhip;
+            font-weight: 1000;
+            color: #5b86ffdb;
           }
         }
         &__details {
@@ -19,16 +19,16 @@
           }
         }
         &__cv {
-          margin-top: 10px;
+          padding: 15px 15px;
+          margin-bottom: 15px;
           a {
             transition: background-color 0.5s;
-            font-weight: bold;
+            font-weight: 1000;
+            font-size: 15px;
             border: 1px solid #ff5722b8;
             background-color: transparent;
-            height: 45px;
-            padding: 10px;
+            padding: 15px;
             border-radius: 10px;
-
             transition: color 0.5s;
             color: #ff5722b8 !important;
             text-decoration: none;
@@ -43,20 +43,19 @@
       }
     }
   }
-}
 
 // mobile styles
 @media screen and (max-width: 767px) {
   #aboutMe-section {
-    height: 780px;
-    max-height: 900px;
-    overflow: hidden;
+    // height: 780px;
+    // max-height: 900px;
+    // overflow: hidden;
     background-image: url("../../assets/img/bk-img-triangle-mobile.jpg");
     .aboutMe-container {
-      padding: 0px 15px 30px 15px;
+      padding: 60px 15px 25px 15px;
       text-align: center;
       .aboutMe {
-        &__content {
+        &__heading {
           padding-top: 20px;
           h1 {
             font-size: 30px;
@@ -78,7 +77,6 @@
           }
         }
         &__socialMediaLinks {
-          margin-top: 25px;
           > i {
             margin: 0px 15px;
             font-size: 30px;
@@ -97,11 +95,14 @@
 @media screen and (min-width: 768px) {
   #aboutMe-section {
     background-image: url("../../assets/img/bk-img-triangle.jpg");
+    // height: 755px;
+    // max-height: 900px;
+    // overflow: hidden;
+    padding-bottom: 25px;
     .aboutMe-container {
-      padding: 0px 0px 0px 0px;
+      padding: 80px 0px 25px 0px;
       .aboutMe {
-        &__content {
-          padding-top: 80px;
+        &__heading {
           h1 {
             font-size: 30px;
             margin-bottom: 40px;
@@ -111,21 +112,26 @@
           padding: 15px 15px !important;
           img {
             margin: -1px 5px;
-            max-width: 330px;
+            max-width: 260px;
             width: 100%;
             image-orientation: from-image !important;
           }
         }
         &__details {
-          text-align: left;
-          padding: 15px 150px 15px 15px !important;
-          font-size: 17px !important;
+          text-align: justify !important;
+          padding: 15px 60px 15px 15px !important;
+          h4 {
+            font-size: 23px !important;
+            margin: 0px;
+            padding-bottom: 15px;
+          }
           p {
+            margin: 0px;
+            padding-bottom: 15px;
             font-size: 17px !important;
           }
         }
         &__socialMediaLinks {
-          margin-top: 25px;
           > i {
             margin-right: 30px;
             font-size: 30px;
@@ -134,5 +140,4 @@
       }
     }
   }
-
 }
