@@ -1,28 +1,7 @@
-/*eslint-disable*/
 import React from "react";
-import DeleteIcon from "@material-ui/icons/Delete";
-import IconButton from "@material-ui/core/IconButton";
-// react components for routing our app without refresh
-import { Link } from "react-router-dom";
-
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
-import Tooltip from "@material-ui/core/Tooltip";
-
-// @material-ui/icons
-import { Apps, CloudDownload } from "@material-ui/icons";
-
-// core components
-import CustomDropdown from "components/CustomDropdown/CustomDropdown.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-
-import headerLinksStyle from "assets/jss/material-kit-react/components/headerLinksStyle.jsx";
 import Scrollspy from "react-scrollspy";
 
 function HeaderLinks({ ...props }) {
-  const { classes } = props;
   return (
     <div className="headerLinks">
       <div className="row">
@@ -43,7 +22,8 @@ function HeaderLinks({ ...props }) {
             items={[
               "aboutMe-section",
               "skills-section",
-              "projects-section"
+              "projects-section",
+              "hobbies-section"
             ]}
             currentClassName="is-current"
             offset={-10}
@@ -57,6 +37,9 @@ function HeaderLinks({ ...props }) {
             <li>
               <a href="#projects-section">Projects</a>
             </li>
+            <li>
+              <a href="#hobbies-section">Gallery</a>
+            </li>
           </Scrollspy>
         </div>
       </div>
@@ -64,4 +47,4 @@ function HeaderLinks({ ...props }) {
   );
 }
 
-export default withStyles(headerLinksStyle)(HeaderLinks);
+export default HeaderLinks;

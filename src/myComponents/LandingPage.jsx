@@ -1,45 +1,32 @@
 import React from "react";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-
-// @material-ui/icons
-
-// core components
-import GridContainer from "components/Grid/GridContainer.jsx";
-import GridItem from "components/Grid/GridItem.jsx";
-import Button from "components/CustomButtons/Button.jsx";
-import landingPageStyle from "assets/jss/material-kit-react/views/landingPage.jsx";
+import landingPageStyle from "assets/jss/landingPage.jsx";
 import "bootstrap/dist/css/bootstrap.min.css";
-
-// Sections for this page
-// import ProductSection from "views/LandingPage/Sections/ProductSection.jsx";
-import TeamSection from "views/LandingPage/Sections/TeamSection.jsx";
-import WorkSection from "views/LandingPage/Sections/WorkSection.jsx";
 
 // my components
 import Parallax from "myComponents/Parallax.jsx";
 import Header from "myComponents/Header/Header.jsx";
 import AboutMe from "myComponents/Sections/AboutMe.jsx";
-import Resume from "myComponents/Sections/Resume.jsx";
+// import Resume from "myComponents/Sections/Resume.jsx";
 import Projects from "myComponents/Sections/Projects.jsx";
 import Skills from "myComponents/Sections/Skills.jsx";
+import Hobbies from "myComponents/Sections/Hobbies.jsx";
 import Footer from "myComponents/Footer/Footer.jsx";
 import "./LandingPage.scss";
 import backgroundVideo from "assets/video/backgroundVideo.mp4";
 import profilePic1 from "assets/img/profile-img-1.jpg";
 import profilePic4 from "assets/img/profile-img-4.jpg";
-import {isMobile, isMobileOnly, isTablet} from 'react-device-detect';
+import {isMobileOnly} from 'react-device-detect';
 
 class LandingPage extends React.Component {
   componentDidMount() {
     window.scrollTo(0, 0);
   }
   render() {
-    const { classes, ...rest } = this.props;
+    const { classes } = this.props;
     const profileImg = [
       profilePic4,
       profilePic1
@@ -49,7 +36,9 @@ class LandingPage extends React.Component {
         <Header />
         <div className="profile">
           <Parallax filter backgroundVideo={backgroundVideo}>
-            <div className={classes.container}>
+            <div className={
+              classes.container
+              }>
               <div className="row">
 
                <div className="col-12 col-md-12">
@@ -58,10 +47,10 @@ class LandingPage extends React.Component {
                     <div id="f1_container">
                       <div id="f1_card" class="shadow">
                         <div class="front face">
-                          <img src={profileImg[0]} alt="ravi bp's photo" />
+                          <img src={profileImg[0]} alt="ravi bp" />
                         </div>
                         <div class="back face center">
-                          <img src={profileImg[1]} alt="ravi bp's photo 2" />
+                          <img src={profileImg[1]} alt="ravi bp 2" />
                         </div>
                       </div>
                     </div>
@@ -87,13 +76,14 @@ class LandingPage extends React.Component {
           </Parallax>
         </div>
 
-        <div className={classNames(classes.main, classes.mainRaised + "  ml-0 mr-0 pl-0 pr-0")}>
+        <div className={
+          classNames(classes.main, classes.mainRaised + "  ml-0 mr-0 pl-0 pr-0")
+          }>
           <div className="landingPage-container__sections-container">
             <AboutMe id="aboutMe-div" />
             <Skills id="skills-div" />
             <Projects id="projects-div" />
-            <TeamSection />
-            {/* <WorkSection /> */}
+            <Hobbies id="hobbies-div" />
           </div>
         </div>
         <Footer />
@@ -102,8 +92,6 @@ class LandingPage extends React.Component {
   }
 }
 
-LandingPage.propTypes = {
-  classes: PropTypes.object
-};
 
+// export default LandingPage;
 export default withStyles(landingPageStyle)(LandingPage);
