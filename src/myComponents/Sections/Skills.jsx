@@ -1,16 +1,5 @@
 import React from "react";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-
-// @material-ui/icons
-import Chat from "@material-ui/icons/Chat";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import Fingerprint from "@material-ui/icons/Fingerprint";
-
 import SkillsBar from "myComponents/Sections/SkillsBar.jsx";
-import sectionStyle from "assets/jss/material-kit-react/views/landingPageSections/sectionStyle.jsx";
 import "./Skills.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { ReactComponent as IconReact } from "assets/icons/IconReact.svg";
@@ -26,15 +15,10 @@ import { ReactComponent as IconGraphQL } from "assets/icons/IconGraphQL.svg";
 import { ReactComponent as Icon1 } from "assets/icons/Icon1.svg";
 import { ReactComponent as Icon2 } from "assets/icons/Icon2.svg";
 import { ReactComponent as Icon3 } from "assets/icons/Icon3.svg";
+
 import ReactTooltip from "react-tooltip";
-import resumeImage from "assets/img/profile-bg.jpg";
-import bk_1080_compressed from "assets/video/bk_1080_compressed.mp4";
-import bk_720_compressed from "assets/video/bk_720_compressed.mp4";
-import skillsBgImg from "assets/img/skillsBgImg.jpg";
-import skillsBgImg90 from "assets/img/skillsBgImg90.jpg";
-import { isMobile, isMobileOnly, isTablet } from "react-device-detect";
 import ScrollAnimation from "react-animate-on-scroll";
-import { DeleteForever } from "@material-ui/icons";
+
 let globalFlag = false;
 class Skills extends React.Component {
   constructor(props) {
@@ -43,17 +27,6 @@ class Skills extends React.Component {
       skillBGVideo: null
     };
     this.animationBackward = this.animationBackward.bind(this);
-  }
-  componentWillMount() {
-    if (isMobile) {
-      this.setState({
-        skillBGVideo: bk_1080_compressed
-      });
-    } else {
-      this.setState({
-        skillBGVideo: bk_1080_compressed
-      });
-    }
   }
   animationBackward() {
     globalFlag = false;
@@ -114,10 +87,7 @@ class Skills extends React.Component {
     );
   };
   render() {
-    {
-      console.log("zzzzzzz");
-    }
-    const { classes } = this.props;
+ 
     return (
       <div id="skills-section" className={" "}>
         {/* <div className="skills-bgImg"> */}
@@ -161,54 +131,55 @@ class Skills extends React.Component {
                   <div className="circle circle-2"></div>
                   <div className="circle circle-3"></div>
                   <div className="icons">
+                    {/* eslint-disable */}  
                     <span>
-                      <a data-tip="HTML5" className="circle-1">
+                      <a href="" data-tip="HTML5" className="circle-1">
                         <IconHTML />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a data-tip="CSS3" className="circle-1">
+                      <a href="" data-tip="CSS3" className="circle-1">
                         <IconCSS />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
                     </span>
                     <span>
-                      <a data-tip="MongoDB" className="circle-2">
+                      <a href="" data-tip="MongoDB" className="circle-2">
                         <IconMongoDB />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a data-tip="MySQL" className="circle-2">
+                      <a href="" data-tip="MySQL" className="circle-2">
                         <IconMySQL />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a data-tip="NodeJS" className="circle-2">
+                      <a href="" data-tip="NodeJS" className="circle-2">
                         <IconNodeJS />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
                     </span>
 
                     <span>
-                      <a data-tip="Apollo GraphQL" className="circle-3">
+                      <a href="" data-tip="Apollo GraphQL" className="circle-3">
                         <IconGraphQL />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a data-tip="Photoshop" className="circle-3">
+                      <a href="" data-tip="Photoshop" className="circle-3">
                         <IconPhotoshop />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a data-tip="Bootstrap 4" className="circle-3">
+                      <a href="" data-tip="Bootstrap 4" className="circle-3">
                         <IconBoostrap />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a data-tip="ReactJS / Redux" className="circle-3">
+                      <a href="" data-tip="ReactJS / Redux" className="circle-3">
                         <IconReact className="icon-react" />
                       </a>
-                      <a data-tip="Angular 5" className="circle-3">
+                      <a href="" data-tip="Angular 5" className="circle-3">
                         <IconAngular />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
@@ -296,8 +267,4 @@ class Skills extends React.Component {
   }
 }
 
-Skills.propTypes = {
-  classes: PropTypes.object
-};
-
-export default withStyles(sectionStyle)(Skills);
+export default Skills;

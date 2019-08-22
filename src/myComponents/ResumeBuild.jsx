@@ -1,10 +1,5 @@
 import React from "react";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
 
-import sectionStyle from "assets/jss/material-kit-react/views/landingPageSections/sectionStyle.jsx";
 import "./ResumeBuild.scss";
 import * as ResumeData from "./ResumeBuildData.json";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -19,7 +14,6 @@ import { ReactComponent as IconCertificate } from "assets/img/resume/IconCertifi
 const resumeDataObj = ResumeData.default.data;
 class ResumeBuild extends React.Component {
   render() {
-    const { classes } = this.props;
     return (
       <div className="row resumeBuild-container">
         <div className="resumeBuild">
@@ -217,8 +211,4 @@ class ResumeBuild extends React.Component {
   }
 }
 
-ResumeBuild.propTypes = {
-  classes: PropTypes.object
-};
-
-export default withStyles(sectionStyle)(ResumeBuild);
+export default ResumeBuild;

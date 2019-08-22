@@ -1,17 +1,33 @@
 #projects-section {
   .projects-container {
     padding: 70+10px 0px 30px 0px;
+    height: 400px;
+    .projects-heading {
+      h1 {
+        font-weight: 1000;
+      }
+    }
   }
 }
 
 // mobile styles
 @media screen and (max-width: 767px) {
   #projects-section {
+    .projects-heading {
+      h1 {
+        font-size: 30px;
+      }
+    }
   }
 }
 
 // desktop styles
 @media screen and (min-width: 768px) {
   #projects-section {
+    .projects-heading {
+      h1 {
+        font-size: 30px;
+      }
+    }
   }
 }

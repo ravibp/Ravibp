@@ -1,13 +1,9 @@
 import React from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
 // @material-ui/core components
 import withStyles from "@material-ui/core/styles/withStyles";
-
-// core components
-import parallaxStyle from "assets/jss/material-kit-react/components/parallaxStyle.jsx";
+import parallaxStyle from "assets/jss/parallaxStyle.jsx";
 
 class Parallax extends React.Component {
   constructor(props) {
@@ -65,15 +61,5 @@ class Parallax extends React.Component {
     );
   }
 }
-
-Parallax.propTypes = {
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-  filter: PropTypes.bool,
-  children: PropTypes.node,
-  style: PropTypes.string,
-  image: PropTypes.string,
-  small: PropTypes.bool
-};
 
 export default withStyles(parallaxStyle)(Parallax);

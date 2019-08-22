@@ -1,31 +1,6 @@
 import React from "react";
-// nodejs library to set properties for components
-import PropTypes from "prop-types";
-// @material-ui/core components
-import withStyles from "@material-ui/core/styles/withStyles";
-
-// @material-ui/icons
-import Chat from "@material-ui/icons/Chat";
-import VerifiedUser from "@material-ui/icons/VerifiedUser";
-import Fingerprint from "@material-ui/icons/Fingerprint";
-
-import sectionStyle from "assets/jss/material-kit-react/views/landingPageSections/sectionStyle.jsx";
 import AnimatedNumber from "animated-number-react";
 import "./SkillsBar.scss";
-
-import { ReactComponent as IconReact } from "assets/icons/IconReact.svg";
-import { ReactComponent as IconAngular } from "assets/icons/IconAngular.svg";
-import { ReactComponent as IconBoostrap } from "assets/icons/IconBootstrap.svg";
-import { ReactComponent as IconPhotoshop } from "assets/icons/IconPhotoshop.svg";
-import { ReactComponent as IconMySQL } from "assets/icons/IconMySQL.svg";
-import { ReactComponent as IconNodeJS } from "assets/icons/IconNodeJS.svg";
-import { ReactComponent as IconHTML } from "assets/icons/IconHTML.svg";
-import { ReactComponent as IconCSS } from "assets/icons/IconCSS.svg";
-import { ReactComponent as IconMongoDB } from "assets/icons/IconMongoDB.svg";
-import { ReactComponent as IconGraphQL } from "assets/icons/IconGraphQL.svg";
-import ReactTooltip from "react-tooltip";
-import { width } from "@material-ui/system";
-import {isMobile, isMobileOnly, isTablet} from 'react-device-detect';
 
 const skillsJson = [
   {
@@ -99,12 +74,11 @@ const skillsJson = [
     skillBarColor: "#03A9F4"
   }
 ];
-let yourArray = skillsJson;
-let halfWayThough = Math.floor(yourArray.length / 2)
+// let yourArray = skillsJson;
+// let halfWayThough = Math.floor(yourArray.length / 2)
 
-let skillsJson1 = yourArray.slice(0, halfWayThough);
-let skillsJson2 = yourArray.slice(halfWayThough, yourArray.length);
-// let numberFlag = false;
+// let skillsJson1 = yourArray.slice(0, halfWayThough);
+// let skillsJson2 = yourArray.slice(halfWayThough, yourArray.length);
 class SkillsBar extends React.Component {
   constructor(props) {
     super(props);
@@ -118,7 +92,7 @@ class SkillsBar extends React.Component {
   formatValue = value => value.toFixed(0);
   componentDidMount() {
     window.addEventListener("scroll", this.headerColorChange);
-    skillsJson.map(skill => {
+    skillsJson.forEach(skill => {
         document.getElementById(skill.skillId + "-bar").style.width = "0";
         document.getElementById(skill.skillId + "-bar").style.background = skill.skillBarColor;
         document.getElementById(skill.skillId + "-bar").style.transition = "width 2.5s";
@@ -131,20 +105,12 @@ class SkillsBar extends React.Component {
       this.setState({
         numberFlag: true
       })
-        skillsJson.map(skill => {
+        skillsJson.forEach(skill => {
           document.getElementById(skill.skillId + "-bar").style.transitionDelay = "2s";
           document.getElementById(skill.skillId + "-bar").style.width = `${skill.skillRating}%`;
         });
     window.removeEventListener("scroll", this.animateSkills);
-  } else {
-      // this.setState({
-      //   numberFlag: false
-      // })
-      //   skillsJson.map(skill => {
-      //     document.getElementById(skill.skillId + "-bar").style.transitionDelay = "0s";
-      //     document.getElementById(skill.skillId + "-bar").style.width = "0%";
-      //   });
-    }
+  }
   };
   componentWillUnmount() {
     window.removeEventListener("scroll", this.headerColorChange);
@@ -186,7 +152,6 @@ class SkillsBar extends React.Component {
     return false
   }
   render() {
-    const { classes } = this.props;
     return (
       <div class="skillBar-container row no-gutters">
           {skillsJson.map(skill => (
@@ -206,4 +171,4 @@ class SkillsBar extends React.Component {
   }
 }
 
-export default withStyles(sectionStyle)(SkillsBar);
+export default SkillsBar;
