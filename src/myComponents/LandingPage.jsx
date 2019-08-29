@@ -16,69 +16,100 @@ import Skills from "myComponents/Sections/Skills.jsx";
 import Hobbies from "myComponents/Sections/Hobbies.jsx";
 import Footer from "myComponents/Footer/Footer.jsx";
 import "./LandingPage.scss";
-import backgroundVideo from "assets/video/backgroundVideo.mp4";
+import landingBgVideo from "assets/video/landingBgVideo.mp4";
+import landingBgVideoMobile from "assets/video/landingBgVideoMobile.mp4";
 import profilePic1 from "assets/img/profile-img-1.jpg";
 import profilePic4 from "assets/img/profile-img-4.jpg";
-import {isMobileOnly} from 'react-device-detect';
+import { isMobileOnly } from "react-device-detect";
+import spinner from "assets/img/spinner.gif";
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 class LandingPage extends React.Component {
-  componentDidMount() {
-    window.scrollTo(0, 0);
+  constructor(props) {
+    super(props);
+    this.handleLandingVideo = this.handleLandingVideo.bind(this);
+    document.getElementById("root").style.opacity = "0";
   }
+  componentDidMount() {
+    const spinnerComponent = document.querySelector(".loader");
+    const appComponent = document.querySelector("#root");
+    setTimeout(() => {
+      window.scrollTo(0, 0);
+    }, 100);
+    setTimeout(() => {
+      appComponent.style.opacity = "1";
+      appComponent.style.transition = "opacity 1s";
+      spinnerComponent.style.opacity = "0";
+      spinnerComponent.style.transition = "opacity 1s";
+    }, 3000);
+  }
+  handleLandingVideo() {
+    let renderedVideo = null;
+    if (isMobileOnly) {
+      renderedVideo = landingBgVideoMobile;
+    } else {
+      renderedVideo = landingBgVideo;
+    }
+    console.log("renderedVideo", renderedVideo);
+    return renderedVideo;
+  }
+
   render() {
     const { classes } = this.props;
-    const profileImg = [
-      profilePic4,
-      profilePic1
-    ];
+    const profileImg = [profilePic4, profilePic1];
     return (
       <div id="landingPage-section" className="landingPage-container">
         <Header />
         <div className="profile">
-          <Parallax filter backgroundVideo={backgroundVideo}>
-            <div className={
-              classes.container
-              }>
+          <Parallax filter backgroundVideo={this.handleLandingVideo()}>
+            <div className={classes.container}>
               <div className="row">
-
-               <div className="col-12 col-md-12">
+                <div className="col-12 col-md-12">
                   <a href="#aboutMe-section">
-                  <div className="profile__image">
-                    <div id="f1_container">
-                      <div id="f1_card" class="shadow">
-                        <div class="front face">
-                          <img src={profileImg[0]} alt="ravi bp" />
-                        </div>
-                        <div class="back face center">
-                          <img src={profileImg[1]} alt="ravi bp 2" />
+                    <div className="profile__image">
+                      <div id="f1_container">
+                        <div id="f1_card" class="shadow">
+                          <div class="front face">
+                            <img
+                              src={profileImg[0]}
+                              alt="ravi bp"
+                              onLoad={() => {
+                                console.log("loaded img");
+                              }}
+                            />
+                          </div>
+                          <div class="back face center">
+                            <img src={profileImg[1]} alt="ravi bp 2" />
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
                   </a>
                 </div>
+
                 <div className="col-12 col-md-12">
                   <div className="profile__title">
-                    {isMobileOnly &&
-                      <h1 className={"col-12"}>Ravi BP</h1>
-                    }
+                    {isMobileOnly && <h1 className={"col-12"}>Ravi BP</h1>}
                     <h1 className={"col-12"}>MERN STACK</h1>
                     <h1 className={"col-12"}>DEVELOPER</h1>
                   </div>
+
                   <p className="profile__description">
                     Creative web developer dedicated to building fast and
                     responsive websites with quality code.
                   </p>
                 </div>
-              
               </div>
             </div>
           </Parallax>
         </div>
 
-        <div className={
-          classNames(classes.main, classes.mainRaised + "  ml-0 mr-0 pl-0 pr-0")
-          }>
+        <div
+          className={classNames(
+            classes.main,
+            classes.mainRaised + "  ml-0 mr-0 pl-0 pr-0"
+          )}
+        >
           <div className="landingPage-container__sections-container">
             <AboutMe id="aboutMe-div" />
             <Skills id="skills-div" />
@@ -91,7 +122,6 @@ class LandingPage extends React.Component {
     );
   }
 }
-
 
 // export default LandingPage;
 export default withStyles(landingPageStyle)(LandingPage);

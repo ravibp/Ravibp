@@ -20,14 +20,14 @@ import ScrollAnimation from "react-animate-on-scroll";
 //     src: imagesArray1[i],
 //     thumbnail: imagesArray2[i],
 //     thumbnailWidth: 200,
-    // thumbnailHeight: 200,
-    // tags: [
-    //         { value: "Ocean", title: "Ocean" },
-    //         { value: "People", title: "People" }
-    //       ],
-    // caption: "Boats (Jeshu John - designerspics.com)"
-  // };
-  // IMAGES.push(imgObject);
+// thumbnailHeight: 200,
+// tags: [
+//         { value: "Ocean", title: "Ocean" },
+//         { value: "People", title: "People" }
+//       ],
+// caption: "Boats (Jeshu John - designerspics.com)"
+// };
+// IMAGES.push(imgObject);
 // }
 
 class Hobbies extends React.Component {
@@ -43,9 +43,7 @@ class Hobbies extends React.Component {
               animateIn="tada"
               initiallyVisible={true}
             >
-              <h1>
-                <div>GALLERY</div>
-              </h1>
+              <h1>GALLERY</h1>
             </ScrollAnimation>
           </div>
           <div className="col-12 hobbies-gallery">

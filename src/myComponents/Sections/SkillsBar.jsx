@@ -1,6 +1,7 @@
 import React from "react";
 import AnimatedNumber from "animated-number-react";
 import "./SkillsBar.scss";
+import { isMobileOnly } from "react-device-detect";
 
 const skillsJson = [
   {
@@ -8,7 +9,7 @@ const skillsJson = [
     skillRating: "90",
     skillId: "skill-html",
     skillTitleColor: "darkred",
-    skillBarColor: "#03A9F4",
+    skillBarColor: "#03A9F4"
   },
   {
     skillName: "CSS3",
@@ -84,85 +85,102 @@ class SkillsBar extends React.Component {
     super(props);
     this.state = {
       numberFlag: false
-    }
+    };
   }
   handleChange = ({ target: { value } }) => {
     this.setState({ value });
   };
   formatValue = value => value.toFixed(0);
   componentDidMount() {
-    window.addEventListener("scroll", this.headerColorChange);
-    skillsJson.forEach(skill => {
+    if (!isMobileOnly) {
+      window.addEventListener("scroll", this.headerColorChange);
+      skillsJson.forEach(skill => {
         document.getElementById(skill.skillId + "-bar").style.width = "0";
-        document.getElementById(skill.skillId + "-bar").style.background = skill.skillBarColor;
-        document.getElementById(skill.skillId + "-bar").style.transition = "width 2.5s";
-    });
-
+        document.getElementById(skill.skillId + "-bar").style.background =
+          skill.skillBarColor;
+        document.getElementById(skill.skillId + "-bar").style.transition =
+          "width 2.5s";
+      });
+    } else {
+      skillsJson.forEach(skill => {
+        document.getElementById(
+          skill.skillId + "-bar"
+        ).style.width = `${skill.skillRating}%`;
+        document.getElementById(skill.skillId + "-bar").style.background =
+        skill.skillBarColor;
+      });
+    }
   }
   headerColorChange = () => {
     const windowsScrollTop = window.pageYOffset;
     if (windowsScrollTop > 1200 && windowsScrollTop < 2000) {
       this.setState({
         numberFlag: true
-      })
-        skillsJson.forEach(skill => {
-          document.getElementById(skill.skillId + "-bar").style.transitionDelay = "2s";
-          document.getElementById(skill.skillId + "-bar").style.width = `${skill.skillRating}%`;
-        });
-    window.removeEventListener("scroll", this.animateSkills);
-  }
+      });
+      skillsJson.forEach(skill => {
+        document.getElementById(skill.skillId + "-bar").style.transitionDelay =
+          "2s";
+        document.getElementById(
+          skill.skillId + "-bar"
+        ).style.width = `${skill.skillRating}%`;
+      });
+      window.removeEventListener("scroll", this.animateSkills);
+    }
   };
   componentWillUnmount() {
     window.removeEventListener("scroll", this.headerColorChange);
   }
-  showNumber = (number,duration, delay) => {
-    if(this.state.numberFlag) {
+  showNumber = (number, duration, delay) => {
+    if (this.state.numberFlag) {
       return (
         <div>
-            <AnimatedNumber
-              value={number}
-              formatValue={this.formatValue}
-              duration ={duration}
-              delay={delay}
-            />
-            <span> %</span>
-          </div>
-     
-      )
-    }
-    else {
+          <AnimatedNumber
+            value={number}
+            formatValue={this.formatValue}
+            delay={isMobileOnly ? "0" : delay}
+            duration={isMobileOnly ? "0" : duration}
+          />
+          <span> %</span>
+        </div>
+      );
+    } else {
       return (
         <div className="">
-            <AnimatedNumber
-              value={number}
-              formatValue={this.formatValue}
-              duration ={duration}
-              delay={delay}
-            />
-            <span> %</span>
-          </div>
-      )
+          <AnimatedNumber
+            value={number}
+            formatValue={this.formatValue}
+            delay={isMobileOnly ? "0" : delay}
+            duration={isMobileOnly ? "0" : duration}
+          />
+          <span> %</span>
+        </div>
+      );
     }
-
-  }
+  };
   shouldComponentUpdate(nextProps, nextState) {
-    if(this.state.numberFlag !== nextState.numberFlag) {
-      return true
+    if (this.state.numberFlag !== nextState.numberFlag) {
+      return true;
     }
-    return false
+    return false;
   }
   render() {
     return (
       <div class="skillBar-container row no-gutters">
-          {skillsJson.map(skill => (
+        {skillsJson.map(skill => (
           <div className="row col-12 no-gutters">
             <div class="skillBar-container__title col-3">{skill.skillName}</div>
             <div class="skillBar-container__progressBar col-7">
-              <div id={`${skill.skillId}-bar`} class="skillBar-container__progress col-12"></div>
+              <div
+                id={`${skill.skillId}-bar`}
+                class="skillBar-container__progress col-12"
+              ></div>
             </div>
             <div className="skillBar-container__progressValue col-2">
-            {this.state.numberFlag && this.showNumber(skill.skillRating,2500 ,2000)}
-            {!this.state.numberFlag && this.showNumber(0, 0, 0)}
+              {this.state.numberFlag && !isMobileOnly &&
+                this.showNumber(skill.skillRating, 2500, 2000)}
+              {!this.state.numberFlag && !isMobileOnly && this.showNumber(skill.skillRating, 0, 0)}
+              {isMobileOnly && this.showNumber(skill.skillRating, 0, 0)}
+
             </div>
           </div>
         ))}
