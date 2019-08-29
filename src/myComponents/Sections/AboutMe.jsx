@@ -4,13 +4,14 @@ import React from "react";
 import "./AboutMe.scss";
 import aboutMe_image from "assets/img/aboutMe_image.jpg";
 import ScrollAnimation from "react-animate-on-scroll";
+import { isMobileOnly } from "react-device-detect";
 
 class AboutMe extends React.Component {
   render() {
     return (
       <div id="aboutMe-section">
         <div className="row no-gutters aboutMe-container">
-        <div className="col-12 aboutMe__heading">
+          <div className="col-12 aboutMe__heading">
             <ScrollAnimation
               animateOnce="true"
               offset="0"
@@ -18,9 +19,8 @@ class AboutMe extends React.Component {
               animateIn="tada"
               initiallyVisible={true}
             >
-              <h1>
-                <div>ABOUT ME</div>
-              </h1>
+              <h1>ABOUT ME</h1>
+              {window.innerWidth}
             </ScrollAnimation>
           </div>
 
@@ -30,7 +30,7 @@ class AboutMe extends React.Component {
                 animateOnce="true"
                 animateIn="bounceInRight"
                 delay="1"
-                duration="2"
+                duration={isMobileOnly ? "1" : "2"}
               >
                 <img
                   src={aboutMe_image}
@@ -46,7 +46,7 @@ class AboutMe extends React.Component {
               animateOnce="true"
               animateIn="bounceInRight"
               delay="1"
-              duration="3"
+              duration={isMobileOnly ? "1" : "3"}
             >
               <h4 className="col-12">Hi! I'm Ravi,</h4>
               <p className="col-12">
@@ -71,7 +71,7 @@ class AboutMe extends React.Component {
               animateOnce="true"
               animateIn="bounceInRight"
               delay="1"
-              duration="3"
+              duration={isMobileOnly ? "1" : "3"}
             >
               <div className="col-12 aboutMe__cv">
                 <a href="/resume" target="_blank">

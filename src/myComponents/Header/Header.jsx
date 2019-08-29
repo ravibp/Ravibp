@@ -13,6 +13,7 @@ class Header extends React.Component {
     this.setState({ mobileOpen: !this.state.mobileOpen });
   };
   headerColorChange = () => {
+    console.log("event listener")
     const windowsScrollTop = window.pageYOffset;
     if (windowsScrollTop > 600) {
       this.refs["headerNavBar-ref"].classList.add("scrolledHeader-style");

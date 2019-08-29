@@ -18,24 +18,14 @@ import { ReactComponent as Icon3 } from "assets/icons/Icon3.svg";
 
 import ReactTooltip from "react-tooltip";
 import ScrollAnimation from "react-animate-on-scroll";
+import { isMobileOnly } from "react-device-detect";
+import EventListener, {withOptions} from 'react-event-listener';
 
-let globalFlag = false;
 class Skills extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      skillBGVideo: null
-    };
-    this.animationBackward = this.animationBackward.bind(this);
-  }
-  animationBackward() {
-    globalFlag = false;
-    this.refs["circle-wrapper-ref"].classList.remove("circle-wrapper--clicked");
-    this.refs["circle-wrapper-ref"].classList.add("circle-wrapper--unClicked");
-    this.refs["skills-bar-ref"].classList.remove("skills-bar--clicked");
   }
   animationForward() {
-    globalFlag = true;
     this.refs["circle-wrapper-ref"].classList.add("circle-wrapper--clicked");
     this.refs["skills-bar-ref"].classList.add("skills-bar--clicked");
   }
@@ -43,16 +33,17 @@ class Skills extends React.Component {
     const windowsScrollTop = window.pageYOffset;
     if (windowsScrollTop > 1200 && windowsScrollTop < 2000) {
       this.animationForward();
-      window.removeEventListener("scroll", this.animateSkills);
-    } else {
-      // this.animationBackward();
     }
   };
   componentDidMount() {
-    window.addEventListener("scroll", this.animateSkills);
+    if(!isMobileOnly) {
+      window.addEventListener("scroll", this.animateSkills);
+    }
   }
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.animateSkills);
+    if(!isMobileOnly) {
+      window.removeEventListener("scroll", this.animateSkills);
+    }
   }
   displaySkillsCategory = () => {
     return (
@@ -63,7 +54,7 @@ class Skills extends React.Component {
         <ScrollAnimation
           animateOnce="true"
           animateIn="bounceInRight"
-          duration="3"
+          duration={isMobileOnly ? "1" : "3"}
           delay="1"
         >
           <ul>
@@ -87,14 +78,13 @@ class Skills extends React.Component {
     );
   };
   render() {
- 
     return (
       <div id="skills-section" className={" "}>
-        {/* <div className="skills-bgImg"> */}
-        {/* <video className="" autoPlay muted loop>
-            <source src={this.state.skillBGVideo} type="video/mp4" />
-          </video> */}
-        {/* </div> */}
+         <EventListener
+          target="window"
+          onResize={this.handleResize}
+          onScroll={withOptions(this.handleScroll, {passive: true, capture: false})}
+        />
         <div className="row no-gutters skills-container">
           <div className="col-12 skills-heading">
             <ScrollAnimation
@@ -104,9 +94,7 @@ class Skills extends React.Component {
               animateIn="tada"
               initiallyVisible={true}
             >
-              <h1>
-                <div>SKILLS</div>
-              </h1>
+              <h1>SKILLS</h1>
             </ScrollAnimation>
           </div>
           <div className="d-none d-lg-block col-lg-3 skills-category">
@@ -119,19 +107,19 @@ class Skills extends React.Component {
             <ScrollAnimation
               animateOnce="true"
               animateIn="flipInY"
-              duration="5"
+              duration={isMobileOnly ? "1" : "5"}
             >
               <ScrollAnimation
                 animateOnce="true"
                 animateIn="bounceInRight"
-                duration="3"
+                duration={isMobileOnly ? "1" : "3"}
               >
                 <div className="circle-wrapper" ref="circle-wrapper-ref">
                   <div className="circle circle-1"></div>
                   <div className="circle circle-2"></div>
                   <div className="circle circle-3"></div>
                   <div className="icons">
-                    {/* eslint-disable */}  
+                    {/* eslint-disable */}
                     <span>
                       <a href="" data-tip="HTML5" className="circle-1">
                         <IconHTML />
@@ -176,7 +164,11 @@ class Skills extends React.Component {
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a href="" data-tip="ReactJS / Redux" className="circle-3">
+                      <a
+                        href=""
+                        data-tip="ReactJS / Redux"
+                        className="circle-3"
+                      >
                         <IconReact className="icon-react" />
                       </a>
                       <a href="" data-tip="Angular 5" className="circle-3">
@@ -198,9 +190,9 @@ class Skills extends React.Component {
               animateOnce="true"
               animateIn="flipInX"
               initiallyVisible={true}
-              duration="3"
+              duration={isMobileOnly ? "1" : "3"}
             >
-              <SkillsBar globalFlag={globalFlag} />
+              <SkillsBar />
             </ScrollAnimation>
           </div>
 

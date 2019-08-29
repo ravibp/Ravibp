@@ -1,5 +1,7 @@
+@import "skillsCircleSmall";
 // common styles
 #skills-section {
+  overflow-x: hidden;
   .skills-container {
     background: #00000063;
   }
@@ -27,22 +29,22 @@
   }
 
   .skills-diagram {
-    .circle-wrapper {
+    div.circle-wrapper {
       position: relative;
       height: 400px;
       width: 400px;
       margin: 0px auto;
     }
-    .circle-wrapper--clicked {
+    div.circle-wrapper--clicked {
       animation-name: animate_skillRotateCW !important;
       animation-duration: 2s !important;
       animation-timing-function: ease-in-out;
     }
-    .circle-wrapper--unClicked {
+    div.circle-wrapper--unClicked {
       animation-name: animate_skillRotateACW;
       animation-timing-function: ease-in-out;
     }
-    .circle {
+    div.circle {
       position: absolute;
       padding: 0;
       background: #cacaca0d;
@@ -57,15 +59,15 @@
       bottom: 0;
       margin: auto;
     }
-    .circle-1 {
+    div.circle-1 {
       width: 100px;
       height: 100px;
     }
-    .circle-2 {
+    div.circle-2 {
       width: 250px;
       height: 250px;
     }
-    .circle-3 {
+    div.circle-3 {
       width: 400px;
       height: 400px;
     }
@@ -181,7 +183,7 @@
   #skills-section {
     background: url("../../assets/img/skillsBgImg90.jpg"),
       linear-gradient(#000000, #000000);
-    
+
     background-size: cover;
     .skills-bgImg > img {
       transform: rotate(90deg);
@@ -224,7 +226,8 @@
       }
       .skills-diagram {
         .circle-wrapper {
-          zoom: 70%;
+          // zoom: 70%;
+          
         }
       }
       .skillBar-container {
@@ -251,7 +254,7 @@
         }
         .skills-diagram {
           .circle-wrapper {
-            zoom: 100% !important;
+            // zoom: 100% !important;
           }
         }
         .skills-category {
@@ -276,11 +279,8 @@
         > div {
           margin: 20px 0px;
         }
-        .skills-diagram {
-          .circle-wrapper {
-            zoom: 70% !important;
-          }
-        }
+     
+
         .skills-category {
           margin: 10px 0px;
           ul {

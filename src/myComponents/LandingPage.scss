@@ -3,7 +3,13 @@ html {
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
-
+.ravi {
+  height: 100vh;
+  width: 100vw;
+  background: #000000e3;
+  position: fixed;;
+  z-index: 100;
+}
 .landingPage-container {
   text-align: center;
   cursor: default;

@@ -10,7 +10,8 @@ class Parallax extends React.Component {
     super(props);
     var windowScrollTop = window.pageYOffset / 3;
     this.state = {
-      transform: "translate3d(0," + windowScrollTop + "px,0)"
+      transform: "translate3d(0," + windowScrollTop + "px,0)",
+
     };
   }
   componentDidMount() {
@@ -53,8 +54,9 @@ class Parallax extends React.Component {
           ...this.state
         }}
       >
-        <video className="video-effect" autoPlay muted loop id="landingPage-bgVideo">
-          <source src={backgroundVideo} type="video/mp4" />
+        <video className="video-effect" autoPlay muted loop id="landingPage-bgVideo" >
+          <source src={backgroundVideo} type="video/mp4" 
+          />
         </video>
         {children}
       </div>
