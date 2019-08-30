@@ -90,10 +90,9 @@ class SkillsBar extends React.Component {
   handleChange = ({ target: { value } }) => {
     this.setState({ value });
   };
-  formatValue = value => value.toFixed(0);
   componentDidMount() {
     if (!isMobileOnly) {
-      window.addEventListener("scroll", this.headerColorChange);
+      window.addEventListener("scroll", this.populateSkillBar);
       skillsJson.forEach(skill => {
         document.getElementById(skill.skillId + "-bar").style.width = "0";
         document.getElementById(skill.skillId + "-bar").style.background =
@@ -107,11 +106,11 @@ class SkillsBar extends React.Component {
           skill.skillId + "-bar"
         ).style.width = `${skill.skillRating}%`;
         document.getElementById(skill.skillId + "-bar").style.background =
-        skill.skillBarColor;
+          skill.skillBarColor;
       });
     }
   }
-  headerColorChange = () => {
+  populateSkillBar = () => {
     const windowsScrollTop = window.pageYOffset;
     if (windowsScrollTop > 1200 && windowsScrollTop < 2000) {
       this.setState({
@@ -128,8 +127,10 @@ class SkillsBar extends React.Component {
     }
   };
   componentWillUnmount() {
-    window.removeEventListener("scroll", this.headerColorChange);
+    window.removeEventListener("scroll", this.populateSkillBar);
   }
+  formatValue = value => value.toFixed(0);
+
   showNumber = (number, duration, delay) => {
     if (this.state.numberFlag) {
       return (
@@ -147,7 +148,7 @@ class SkillsBar extends React.Component {
       return (
         <div className="">
           <AnimatedNumber
-            value={number}
+            value={isMobileOnly ? number : 0}
             formatValue={this.formatValue}
             delay={isMobileOnly ? "0" : delay}
             duration={isMobileOnly ? "0" : duration}
@@ -176,11 +177,10 @@ class SkillsBar extends React.Component {
               ></div>
             </div>
             <div className="skillBar-container__progressValue col-2">
-              {this.state.numberFlag && !isMobileOnly &&
+              {this.state.numberFlag &&
                 this.showNumber(skill.skillRating, 2500, 2000)}
-              {!this.state.numberFlag && !isMobileOnly && this.showNumber(skill.skillRating, 0, 0)}
-              {isMobileOnly && this.showNumber(skill.skillRating, 0, 0)}
-
+              {!this.state.numberFlag &&
+                this.showNumber(skill.skillRating, 0, 0)}
             </div>
           </div>
         ))}

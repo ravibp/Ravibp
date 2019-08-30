@@ -21,8 +21,6 @@ import landingBgVideoMobile from "assets/video/landingBgVideoMobile.mp4";
 import profilePic1 from "assets/img/profile-img-1.jpg";
 import profilePic4 from "assets/img/profile-img-4.jpg";
 import { isMobileOnly } from "react-device-detect";
-import spinner from "assets/img/spinner.gif";
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 
 class LandingPage extends React.Component {
   constructor(props) {
@@ -31,17 +29,17 @@ class LandingPage extends React.Component {
     document.getElementById("root").style.opacity = "0";
   }
   componentDidMount() {
-    const spinnerComponent = document.querySelector(".loader");
-    const appComponent = document.querySelector("#root");
+    // const spinnerComponent = document.querySelector(".loader");
+    // const appComponent = document.querySelector("#root");
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 100);
-    setTimeout(() => {
-      appComponent.style.opacity = "1";
-      appComponent.style.transition = "opacity 1s";
-      spinnerComponent.style.opacity = "0";
-      spinnerComponent.style.transition = "opacity 1s";
-    }, 3000);
+    // setTimeout(() => {
+    //   appComponent.style.opacity = "1";
+    //   appComponent.style.transition = "opacity 1s";
+    //   spinnerComponent.style.opacity = "0";
+    //   spinnerComponent.style.transition = "opacity 1s";
+    // }, 3000);
   }
   handleLandingVideo() {
     let renderedVideo = null;
@@ -68,7 +66,7 @@ class LandingPage extends React.Component {
                   <a href="#aboutMe-section">
                     <div className="profile__image">
                       <div id="f1_container">
-                        <div id="f1_card" class="shadow">
+                        <div id="f1_card" class="">
                           <div class="front face">
                             <img
                               src={profileImg[0]}
