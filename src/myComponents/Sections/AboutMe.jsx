@@ -79,10 +79,10 @@ class AboutMe extends React.Component {
                 </a>
               </div>
               <div className="col-12 aboutMe__socialMediaLinks">
-                <i class="fab fa-facebook"></i>
-                <i class="fab fa-twitter"></i>
-                <i class="fab fa-linkedin"></i>
-                <i class="fab fa-github"></i>
+                <a target="_blank" href="https://www.facebook.com/Maverick.M4"><i class="fab fa-facebook"></i></a>
+                <a target="_blank" href="https://www.facebook.com/Maverick.M4"><i class="fab fa-twitter"></i></a>
+                <a target="_blank" href="https://github.com/ravibp"><i class="fab fa-linkedin"></i></a>
+                <a target="_blank" href="https://github.com/ravibp"><i class="fab fa-github"></i></a>
               </div>
             </ScrollAnimation>
           </div>

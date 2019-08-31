@@ -1,46 +1,48 @@
-  #aboutMe-section {
-    overflow-x: hidden;
-    .aboutMe-container {
-      .aboutMe {
-        &__heading {
-          h1 {
-            font-weight: 1000;
-            color: #5b86ffdb;
+#aboutMe-section {
+  overflow-x: hidden;
+  .aboutMe-container {
+    max-width: 1300px;
+    margin: auto;
+    .aboutMe {
+      &__heading {
+        h1 {
+          font-weight: 1000;
+          color: #5b86ffdb;
+        }
+      }
+      &__details {
+        color: #d9e8ff;
+        p {
+          span {
+            color: #5b86ff !important;
           }
         }
-        &__details {
-          color: #d9e8ff;
-          p {
-            span {
-              color: #5b86ff !important;
-            }
-          }
+      }
+      &__cv {
+        padding: 15px 15px;
+        margin-bottom: 15px;
+        a {
+          transition: background-color 0.5s;
+          font-weight: 1000;
+          font-size: 15px;
+          border: 1px solid #ff5722e6;
+          background-color: transparent;
+          padding: 15px;
+          border-radius: 10px;
+          transition: color 0.5s;
+          color: #ff5722e6 !important;
+          text-decoration: none;
         }
-        &__cv {
-          padding: 15px 15px;
-          margin-bottom: 15px;
-          a {
-            transition: background-color 0.5s;
-            font-weight: 1000;
-            font-size: 15px;
-            border: 1px solid #ff5722b8;
-            background-color: transparent;
-            padding: 15px;
-            border-radius: 10px;
-            transition: color 0.5s;
-            color: #ff5722b8 !important;
-            text-decoration: none;
-          }
-          a:hover {
-            transition: background-color 0.5s;
-            background-color: #ff5722b8;
-            transition: color 0.5s, font-weight 0.5s;
-            color: black !important;
-          }
+        a:hover {
+          transition: background-color 0.5s;
+          background-color: #ff5722b8;
+          transition: color 0.5s, font-weight 0.5s;
+          color: black !important;
         }
       }
     }
   }
+}
 
 // mobile styles
 @media screen and (max-width: 767px) {
@@ -74,8 +76,10 @@
           }
         }
         &__socialMediaLinks {
-          > i {
-            margin: 0px 15px;
+          > a {
+            color: #ffffff;
+            font-size: 30px;
+            margin: 0px 12px;
             font-size: 30px;
           }
         }
@@ -100,7 +104,6 @@
           h1 {
             font-size: 30px;
             margin-bottom: 40px;
-         
           }
         }
         &__profImg {
@@ -127,8 +130,10 @@
           }
         }
         &__socialMediaLinks {
-          > i {
-            margin-right: 30px;
+          > a {
+            color: #ffffff;
+            font-size: 30px;
+            margin: 0px 12px;
             font-size: 30px;
           }
         }
