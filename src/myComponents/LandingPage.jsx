@@ -29,17 +29,9 @@ class LandingPage extends React.Component {
     document.getElementById("root").style.opacity = "0";
   }
   componentDidMount() {
-    // const spinnerComponent = document.querySelector(".loader");
-    // const appComponent = document.querySelector("#root");
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 100);
-    // setTimeout(() => {
-    //   appComponent.style.opacity = "1";
-    //   appComponent.style.transition = "opacity 1s";
-    //   spinnerComponent.style.opacity = "0";
-    //   spinnerComponent.style.transition = "opacity 1s";
-    // }, 3000);
   }
   handleLandingVideo() {
     let renderedVideo = null;

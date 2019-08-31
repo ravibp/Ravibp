@@ -121,57 +121,57 @@ class Skills extends React.Component {
                   <div className="icons">
                     {/* eslint-disable */}
                     <span>
-                      <a href="" data-tip="HTML5" className="circle-1">
+                      <a  data-tip="HTML5" className="circle-1">
                         <IconHTML />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a href="" data-tip="CSS3" className="circle-1">
+                      <a  data-tip="CSS3" className="circle-1">
                         <IconCSS />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
                     </span>
                     <span>
-                      <a href="" data-tip="MongoDB" className="circle-2">
+                      <a  data-tip="MongoDB" className="circle-2">
                         <IconMongoDB />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a href="" data-tip="MySQL" className="circle-2">
+                      <a  data-tip="MySQL" className="circle-2">
                         <IconMySQL />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a href="" data-tip="NodeJS" className="circle-2">
+                      <a  data-tip="NodeJS" className="circle-2">
                         <IconNodeJS />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
                     </span>
 
                     <span>
-                      <a href="" data-tip="Apollo GraphQL" className="circle-3">
+                      <a  data-tip="Apollo GraphQL" className="circle-3">
                         <IconGraphQL />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a href="" data-tip="Photoshop" className="circle-3">
+                      <a  data-tip="Photoshop" className="circle-3">
                         <IconPhotoshop />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a href="" data-tip="Bootstrap 4" className="circle-3">
+                      <a  data-tip="Bootstrap 4" className="circle-3">
                         <IconBoostrap />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
                       <a
-                        href=""
+                        
                         data-tip="ReactJS / Redux"
                         className="circle-3"
                       >
                         <IconReact className="icon-react" />
                       </a>
-                      <a href="" data-tip="Angular 5" className="circle-3">
+                      <a  data-tip="Angular 5" className="circle-3">
                         <IconAngular />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
@@ -227,10 +227,6 @@ class Skills extends React.Component {
 
             <div className="skills-details__division">
               <span class="label label-success">CSS3/ SASS</span>
-            </div>
-
-            <div className="skills-details__division">
-              <span class="label label-info">MySQL</span>
             </div>
 
             <div className="skills-details__division">
