@@ -3,7 +3,6 @@ import "./Header.scss";
 import HeaderLinks from "./HeaderLinks.jsx";
 import HamburgerMenu from "react-hamburger-menu";
 import { isMobileOnly } from "react-device-detect";
-import { thisExpression } from "@babel/types";
 
 class Header extends React.Component {
   constructor(props) {

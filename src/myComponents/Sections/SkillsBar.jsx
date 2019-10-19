@@ -75,11 +75,6 @@ const skillsJson = [
     skillBarColor: "#03A9F4"
   }
 ];
-// let yourArray = skillsJson;
-// let halfWayThough = Math.floor(yourArray.length / 2)
-
-// let skillsJson1 = yourArray.slice(0, halfWayThough);
-// let skillsJson2 = yourArray.slice(halfWayThough, yourArray.length);
 class SkillsBar extends React.Component {
   constructor(props) {
     super(props);
@@ -94,7 +89,7 @@ class SkillsBar extends React.Component {
     if (!isMobileOnly) {
       window.addEventListener("scroll", this.populateSkillBar);
       skillsJson.forEach(skill => {
-        document.getElementById(skill.skillId + "-bar").style.width = "0";
+        document.getElementById(skill.skillId + "-bar").style.width = 0;
         document.getElementById(skill.skillId + "-bar").style.background =
           skill.skillBarColor;
         document.getElementById(skill.skillId + "-bar").style.transition =
@@ -138,8 +133,8 @@ class SkillsBar extends React.Component {
           <AnimatedNumber
             value={number}
             formatValue={this.formatValue}
-            delay={isMobileOnly ? "0" : delay}
-            duration={isMobileOnly ? "0" : duration}
+            delay={isMobileOnly ? 0 : delay}
+            duration={isMobileOnly ? 0 : duration}
           />
           <span> %</span>
         </div>
@@ -150,8 +145,8 @@ class SkillsBar extends React.Component {
           <AnimatedNumber
             value={isMobileOnly ? number : 0}
             formatValue={this.formatValue}
-            delay={isMobileOnly ? "0" : delay}
-            duration={isMobileOnly ? "0" : duration}
+            delay={isMobileOnly ? 0 : delay}
+            duration={isMobileOnly ? 0 : duration}
           />
           <span> %</span>
         </div>
@@ -166,14 +161,14 @@ class SkillsBar extends React.Component {
   }
   render() {
     return (
-      <div class="skillBar-container row no-gutters">
-        {skillsJson.map(skill => (
-          <div className="row col-12 no-gutters">
-            <div class="skillBar-container__title col-3">{skill.skillName}</div>
-            <div class="skillBar-container__progressBar col-7">
+      <div className="skillBar-container row no-gutters">
+        {skillsJson.map((skill, index) => (
+          <div key={index} className="row col-12 no-gutters">
+            <div className="skillBar-container__title col-3">{skill.skillName}</div>
+            <div className="skillBar-container__progressBar col-7">
               <div
                 id={`${skill.skillId}-bar`}
-                class="skillBar-container__progress col-12"
+                className="skillBar-container__progress col-12"
               ></div>
             </div>
             <div className="skillBar-container__progressValue col-2">

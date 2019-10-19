@@ -2,38 +2,48 @@ import React from "react";
 // @material-ui/core components
 
 import "./AboutMe.scss";
-import aboutMe_image from "assets/img/aboutMe_image.jpg";
 import ScrollAnimation from "react-animate-on-scroll";
 import { isMobileOnly } from "react-device-detect";
+import * as ImagesJSON from 'assets/img/Images.json';
+const Images = ImagesJSON.default;
 
 class AboutMe extends React.Component {
+  componentDidMount() {
+    if (!isMobileOnly) {
+      document.getElementById('aboutMe-section').style.backgroundImage = `url(${Images.sections.aboutMe.bgImg})`;
+      document.getElementById('skills-section').style.backgroundImage = `url(${Images.sections.skills.bgImg})`;
+    }
+    else {
+      document.getElementById('aboutMe-section').style.backgroundImage = `url(${Images.sections.aboutMe.bgImgMobile})`;
+      document.getElementById('skills-section').style.backgroundImage = `url(${Images.sections.skills.bgImgMobile})`;
+    }
+  }
   render() {
     return (
       <div id="aboutMe-section">
         <div className="row no-gutters aboutMe-container">
           <div className="col-12 aboutMe__heading">
             <ScrollAnimation
-              animateOnce="true"
-              offset="0"
-              delay="1"
+              animateOnce={true}
+              offset={0}
+              delay={1}
               animateIn="tada"
               initiallyVisible={true}
             >
               <h1>ABOUT ME</h1>
-              {window.innerWidth}
             </ScrollAnimation>
           </div>
 
           <div className="col-12 col-md-3 col-lg-4 ">
             <div className="aboutMe__profImg">
               <ScrollAnimation
-                animateOnce="true"
+                animateOnce={true}
                 animateIn="bounceInRight"
-                delay="1"
-                duration={isMobileOnly ? "1" : "2"}
+                delay={1}
+                duration={isMobileOnly ? 1 : 2}
               >
                 <img
-                  src={aboutMe_image}
+                  src={Images.sections.aboutMe.aboutMeImg}
                   alt=""
                   ref="profImg-ref"
                   className="profImg"
@@ -43,10 +53,10 @@ class AboutMe extends React.Component {
           </div>
           <div className="col-12 col-md-9 col-lg-8 aboutMe__details">
             <ScrollAnimation
-              animateOnce="true"
+              animateOnce={true}
               animateIn="bounceInRight"
-              delay="1"
-              duration={isMobileOnly ? "1" : "3"}
+              delay={1}
+              duration={isMobileOnly ? 1 : 3}
             >
               <h4 className="col-12">Hi! I'm Ravi,</h4>
               <p className="col-12">
@@ -68,10 +78,10 @@ class AboutMe extends React.Component {
               </p>
             </ScrollAnimation>
             <ScrollAnimation
-              animateOnce="true"
+              animateOnce={true}
               animateIn="bounceInRight"
-              delay="1"
-              duration={isMobileOnly ? "1" : "3"}
+              delay={1}
+              duration={isMobileOnly ? 1 : 3}
             >
               <div className="col-12 aboutMe__cv">
                 <a href="/resume" target="_blank">
@@ -79,10 +89,10 @@ class AboutMe extends React.Component {
                 </a>
               </div>
               <div className="col-12 aboutMe__socialMediaLinks">
-                <a target="_blank" href="https://www.facebook.com/Maverick.M4"><i class="fab fa-facebook"></i></a>
-                <a target="_blank" href="https://www.facebook.com/Maverick.M4"><i class="fab fa-twitter"></i></a>
-                <a target="_blank" href="https://github.com/ravibp"><i class="fab fa-linkedin"></i></a>
-                <a target="_blank" href="https://github.com/ravibp"><i class="fab fa-github"></i></a>
+                <a target="_blank" rel='noopener noreferrer' href="https://www.facebook.com/Maverick.M4"><i className="fab fa-facebook"></i></a>
+                <a target="_blank" rel='noopener noreferrer' href="https://www.facebook.com/Maverick.M4"><i className="fab fa-twitter"></i></a>
+                <a target="_blank" rel='noopener noreferrer' href="https://github.com/ravibp"><i className="fab fa-linkedin"></i></a>
+                <a target="_blank" rel='noopener noreferrer' href="https://github.com/ravibp"><i className="fab fa-github"></i></a>
               </div>
             </ScrollAnimation>
           </div>

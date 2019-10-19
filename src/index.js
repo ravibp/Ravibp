@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import "assets/scss/material-kit-react.scss?v=1.7.0";
+import 'mdbreact/dist/css/mdb.css'
 
 // route pages
 import LandingPage from "myComponents/LandingPage.jsx";

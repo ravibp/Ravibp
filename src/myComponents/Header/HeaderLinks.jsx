@@ -1,12 +1,9 @@
 import Scrollspy from "react-scrollspy";
 import { isMobileOnly } from "react-device-detect";
-import React, { Component } from "react";
+import React from "react";
 
 class HeaderLinks extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
+  
   render() {
     return (
       <div className="headerLinks">
@@ -33,7 +30,7 @@ class HeaderLinks extends React.Component {
                 "aboutMe-section",
                 "skills-section",
                 "projects-section",
-                "hobbies-section"
+                // "hobbies-section"
               ]}
               currentClassName="is-current"
               offset={!isMobileOnly? -10: -200}
@@ -47,9 +44,9 @@ class HeaderLinks extends React.Component {
               <li onClick={this.props.handleDrawerToggle}>
                 <a href="#projects-section">Projects</a>
               </li>
-              <li onClick={this.props.handleDrawerToggle}>
+              {/* <li onClick={this.props.handleDrawerToggle}>
                 <a href="#hobbies-section">Gallery</a>
-              </li>
+              </li> */}
             </Scrollspy>
           </div>
         </div>

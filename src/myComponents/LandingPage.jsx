@@ -13,22 +13,29 @@ import AboutMe from "myComponents/Sections/AboutMe.jsx";
 // import Resume from "myComponents/Sections/Resume.jsx";
 import Projects from "myComponents/Sections/Projects.jsx";
 import Skills from "myComponents/Sections/Skills.jsx";
-import Hobbies from "myComponents/Sections/Hobbies.jsx";
+// import Hobbies from "myComponents/Sections/Hobbies.jsx";
 import Footer from "myComponents/Footer/Footer.jsx";
 import "./LandingPage.scss";
-import landingBgVideo from "assets/video/landingBgVideo.mp4";
-import landingBgVideoMobile from "assets/video/landingBgVideoMobile.mp4";
-import profilePic1 from "assets/img/profile-img-1.jpg";
-import profilePic4 from "assets/img/profile-img-4.jpg";
 import { isMobileOnly } from "react-device-detect";
+import * as ImagesJSON from 'assets/img/Images.json';
+
+const Images = ImagesJSON.default;
 
 class LandingPage extends React.Component {
   constructor(props) {
     super(props);
     this.handleLandingVideo = this.handleLandingVideo.bind(this);
-    document.getElementById("root").style.opacity = "0";
+    // document.getElementById("root").style.opacity = "0";
   }
   componentDidMount() {
+    if (!isMobileOnly) {
+      // document.getElementById('aboutMe-section').style.backgroundImage = Images.sections.aboutMe.bgImg;
+      // document.getElementById('skills-section').style.backgroundImage = Images.sections.skills.bgImg;
+    }
+    else {
+      // document.getElementById('aboutMe-section').style.backgroundImage = Images.sections.aboutMe.bgImgMobile;
+      // document.getElementById('skills-section').style.backgroundImage = Images.sections.skills.bgImgMobile;
+    }
     setTimeout(() => {
       window.scrollTo(0, 0);
     }, 100);
@@ -36,17 +43,15 @@ class LandingPage extends React.Component {
   handleLandingVideo() {
     let renderedVideo = null;
     if (isMobileOnly) {
-      renderedVideo = landingBgVideoMobile;
+      renderedVideo = Images.landingPage.bgVideo;
     } else {
-      renderedVideo = landingBgVideo;
+      renderedVideo = Images.landingPage.bgVideoMobile;
     }
-    console.log("renderedVideo", renderedVideo);
     return renderedVideo;
   }
 
   render() {
     const { classes } = this.props;
-    const profileImg = [profilePic4, profilePic1];
     return (
       <div id="landingPage-section" className="landingPage-container">
         <Header />
@@ -58,18 +63,18 @@ class LandingPage extends React.Component {
                   <a href="#aboutMe-section">
                     <div className="profile__image">
                       <div id="f1_container">
-                        <div id="f1_card" class="">
-                          <div class="front face">
+                        <div id="f1_card" className="">
+                          <div className="front face">
                             <img
-                              src={profileImg[0]}
+                              src={Images.profileImg[0]}
                               alt="ravi bp"
                               onLoad={() => {
-                                console.log("loaded img");
+                                // console.log("loaded img");
                               }}
                             />
                           </div>
-                          <div class="back face center">
-                            <img src={profileImg[1]} alt="ravi bp 2" />
+                          <div className="back face center">
+                            <img src={Images.profileImg[1]} alt="ravi bp 2" />
                           </div>
                         </div>
                       </div>
@@ -101,10 +106,10 @@ class LandingPage extends React.Component {
           )}
         >
           <div className="landingPage-container__sections-container">
-            <AboutMe id="aboutMe-div" />
-            <Skills id="skills-div" />
+            {/* <AboutMe id="aboutMe-div" /> */}
+            {/* <Skills id="skills-div" /> */}
             <Projects id="projects-div" />
-            <Hobbies id="hobbies-div" />
+            {/* <Hobbies id="hobbies-div" /> */}
           </div>
         </div>
         <Footer />

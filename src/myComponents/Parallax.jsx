@@ -14,12 +14,12 @@ class Parallax extends React.Component {
     };
   }
   showRenderedPage() {
-    const spinnerComponent = document.querySelector(".loader");
-    const appComponent = document.querySelector("#root");
-    appComponent.style.opacity = "1";
-    appComponent.style.transition = "opacity 1s";
-    spinnerComponent.style.opacity = "0";
-    spinnerComponent.style.transition = "opacity 1s";
+    // const spinnerComponent = document.querySelector(".loader");
+    // const appComponent = document.querySelector("#root");
+    // appComponent.style.opacity = "1";
+    // appComponent.style.transition = "opacity 1s";
+    // spinnerComponent.style.opacity = "0";
+    // spinnerComponent.style.transition = "opacity 1s";
   };
   componentDidMount() {
     var windowScrollTop = window.pageYOffset / 3;
@@ -29,7 +29,7 @@ class Parallax extends React.Component {
     window.addEventListener("scroll", this.resetTransform);
 
     var videoElement = document.getElementById("landingPage-bgVideo");
-    videoElement.oncanplay = function() {
+    videoElement.oncanplay = function () {
       const parallax = new Parallax()
       parallax.showRenderedPage();
     };
@@ -61,28 +61,26 @@ class Parallax extends React.Component {
       [classes.small]: small,
       [className]: className !== undefined
     });
-    {
-      return (
-        <div
-          className={parallaxClasses + " custom"}
-          style={{
-            ...style,
-            ...this.state
-          }}
+    return (
+      <div
+        className={parallaxClasses + " custom"}
+        style={{
+          ...style,
+          ...this.state
+        }}
+      >
+        <video
+          className="video-effect"
+          autoPlay
+          muted
+          loop
+          id="landingPage-bgVideo"
         >
-          <video
-            className="video-effect"
-            autoPlay
-            muted
-            loop
-            id="landingPage-bgVideo"
-          >
-            <source src={backgroundVideo} type="video/mp4" />;
+          <source src={backgroundVideo} type="video/mp4" />;
           </video>
-          {children}
-        </div>
-      );
-    }
+        {children}
+      </div>
+    );
   }
 }
 

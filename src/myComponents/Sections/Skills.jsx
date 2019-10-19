@@ -19,12 +19,8 @@ import { ReactComponent as Icon3 } from "assets/icons/Icon3.svg";
 import ReactTooltip from "react-tooltip";
 import ScrollAnimation from "react-animate-on-scroll";
 import { isMobileOnly } from "react-device-detect";
-import EventListener, {withOptions} from 'react-event-listener';
 
 class Skills extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   animationForward() {
     this.refs["circle-wrapper-ref"].classList.add("circle-wrapper--clicked");
     this.refs["skills-bar-ref"].classList.add("skills-bar--clicked");
@@ -36,26 +32,26 @@ class Skills extends React.Component {
     }
   };
   componentDidMount() {
-    if(!isMobileOnly) {
+    if (!isMobileOnly) {
       window.addEventListener("scroll", this.animateSkills);
     }
   }
   componentWillUnmount() {
-    if(!isMobileOnly) {
+    if (!isMobileOnly) {
       window.removeEventListener("scroll", this.animateSkills);
     }
   }
   displaySkillsCategory = () => {
     return (
       <div>
-        <ScrollAnimation animateOnce="true" animateIn="bounceInRight" delay="1">
+        <ScrollAnimation animateOnce={true} animateIn="bounceInRight" delay={1}>
           <h3>What I can do</h3>
         </ScrollAnimation>
         <ScrollAnimation
-          animateOnce="true"
+          animateOnce={true}
           animateIn="bounceInRight"
-          duration={isMobileOnly ? "1" : "3"}
-          delay="1"
+          duration={isMobileOnly ? 1 : 3}
+          delay={1}
         >
           <ul>
             <li>
@@ -80,17 +76,12 @@ class Skills extends React.Component {
   render() {
     return (
       <div id="skills-section" className={" "}>
-         <EventListener
-          target="window"
-          onResize={this.handleResize}
-          onScroll={withOptions(this.handleScroll, {passive: true, capture: false})}
-        />
         <div className="row no-gutters skills-container">
           <div className="col-12 skills-heading">
             <ScrollAnimation
-              animateOnce="true"
-              offset="0"
-              delay="1"
+              animateOnce={true}
+              offset={0}
+              delay={1}
               animateIn="tada"
               initiallyVisible={true}
             >
@@ -105,14 +96,14 @@ class Skills extends React.Component {
             ref="skills-diagram-ref"
           >
             <ScrollAnimation
-              animateOnce="true"
+              animateOnce={true}
               animateIn="flipInY"
-              duration={isMobileOnly ? "1" : "5"}
+              duration={isMobileOnly ? 1 : 5}
             >
               <ScrollAnimation
-                animateOnce="true"
+                animateOnce={true}
                 animateIn="bounceInRight"
-                duration={isMobileOnly ? "1" : "3"}
+                duration={isMobileOnly ? 1 : 3}
               >
                 <div className="circle-wrapper" ref="circle-wrapper-ref">
                   <div className="circle circle-1"></div>
@@ -121,57 +112,57 @@ class Skills extends React.Component {
                   <div className="icons">
                     {/* eslint-disable */}
                     <span>
-                      <a  data-tip="HTML5" className="circle-1">
+                      <a data-tip="HTML5" className="circle-1">
                         <IconHTML />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a  data-tip="CSS3" className="circle-1">
+                      <a data-tip="CSS3" className="circle-1">
                         <IconCSS />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
                     </span>
                     <span>
-                      <a  data-tip="MongoDB" className="circle-2">
+                      <a data-tip="MongoDB" className="circle-2">
                         <IconMongoDB />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a  data-tip="MySQL" className="circle-2">
+                      <a data-tip="MySQL" className="circle-2">
                         <IconMySQL />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a  data-tip="NodeJS" className="circle-2">
+                      <a data-tip="NodeJS" className="circle-2">
                         <IconNodeJS />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
                     </span>
 
                     <span>
-                      <a  data-tip="Apollo GraphQL" className="circle-3">
+                      <a data-tip="Apollo GraphQL" className="circle-3">
                         <IconGraphQL />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a  data-tip="Photoshop" className="circle-3">
+                      <a data-tip="Photoshop" className="circle-3">
                         <IconPhotoshop />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
-                      <a  data-tip="Bootstrap 4" className="circle-3">
+                      <a data-tip="Bootstrap 4" className="circle-3">
                         <IconBoostrap />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
 
                       <a
-                        
+
                         data-tip="ReactJS / Redux"
                         className="circle-3"
                       >
                         <IconReact className="icon-react" />
                       </a>
-                      <a  data-tip="Angular 5" className="circle-3">
+                      <a data-tip="Angular 5" className="circle-3">
                         <IconAngular />
                       </a>
                       <ReactTooltip place="top" type="dark" effect="solid" />
@@ -187,10 +178,10 @@ class Skills extends React.Component {
             ref="skills-bar-ref"
           >
             <ScrollAnimation
-              animateOnce="true"
+              animateOnce={true}
               animateIn="flipInX"
               initiallyVisible={true}
-              duration={isMobileOnly ? "1" : "3"}
+              duration={isMobileOnly ? 1 : 3}
             >
               <SkillsBar />
             </ScrollAnimation>
@@ -201,48 +192,48 @@ class Skills extends React.Component {
             ref="skills-details-ref"
           >
             <div className="skills-details__division">
-              <span class="label label-default">JavaScript</span>
+              <span className="label label-default">JavaScript</span>
             </div>
             <div className="skills-details__division">
-              <span class="label label-primary">ReactJs/ Redux</span>
+              <span className="label label-primary">ReactJs/ Redux</span>
             </div>
 
             <div className="skills-details__division">
-              <span class="label label-info" background-color="yellow">
+              <span className="label label-info" background-color="yellow">
                 Angular 5
               </span>
             </div>
 
             <div className="skills-details__division">
-              <span class="label label-warning">Bootstrap</span>
+              <span className="label label-warning">Bootstrap</span>
             </div>
 
             <div className="skills-details__division">
-              <span class="label label-primary">Node JS</span>
+              <span className="label label-primary">Node JS</span>
             </div>
 
             <div className="skills-details__division">
-              <span class="label label-default">HTML5</span>
+              <span className="label label-default">HTML5</span>
             </div>
 
             <div className="skills-details__division">
-              <span class="label label-success">CSS3/ SASS</span>
+              <span className="label label-success">CSS3/ SASS</span>
             </div>
 
             <div className="skills-details__division">
-              <span class="label label-info">MySQL</span>
+              <span className="label label-info">MySQL</span>
             </div>
 
             <div className="skills-details__division">
-              <span class="label label-warning">MongoDB</span>
+              <span className="label label-warning">MongoDB</span>
             </div>
 
             <div className="skills-details__division">
-              <span class="label label-default">GraphQL</span>
+              <span className="label label-default">GraphQL</span>
             </div>
 
             <div className="skills-details__division">
-              <span class="label label-primary">Photoshop</span>
+              <span className="label label-primary">Photoshop</span>
             </div>
           </div>
 

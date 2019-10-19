@@ -47,7 +47,6 @@
 // mobile styles
 @media screen and (max-width: 767px) {
   #aboutMe-section {
-    background-image: url("../../assets/img/bk-img-triangle-mobile.jpg");
     .aboutMe-container {
       padding: 60px 15px 25px 15px;
       text-align: center;
@@ -95,7 +94,6 @@
 // desktop styles
 @media screen and (min-width: 768px) {
   #aboutMe-section {
-    background-image: url("../../assets/img/bk-img-triangle.jpg");
     padding-bottom: 25px;
     .aboutMe-container {
       padding: 80px 0px 25px 0px;

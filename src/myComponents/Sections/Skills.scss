@@ -183,9 +183,6 @@
 // mobile styles
 @media screen and (max-width: 767px) {
   #skills-section {
-    background: url("../../assets/img/skillsBgImg90.jpg"),
-      linear-gradient(#000000, #000000);
-
     background-size: cover;
     .skills-bgImg > img {
       transform: rotate(90deg);
@@ -304,7 +301,6 @@
 // desktop styles
 @media screen and (min-width: 768px) {
   #skills-section {
-    background-image: url("../../assets/img/skillsBgImg.jpg");
     height: 755px;
     max-height: 900px;
     overflow: hidden;
